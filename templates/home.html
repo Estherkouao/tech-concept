@@ -1,0 +1,2026 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TECH CONCEPT SARL - Solutions électroniques globales : énergie solaire, électricité générale, réseaux informatiques, sécurité incendie et bien plus.">
+    <meta name="theme-color" content="#DC143C">
+    <title>TECH CONCEPT SARL - Solutions Électroniques Globales</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           TECH CONCEPT SARL - Styles CSS
+           Modern Industrial Elegance Design
+           ============================================ */
+
+        /* Root Variables */
+        :root {
+            --primary: #DC143C;
+            --primary-foreground: #F8F8F8;
+            --foreground: #1A1A1A;
+            --background: #F8F8F8;
+            --card: #FFFFFF;
+            --secondary: #E8F0F8;
+            --muted: #E0E0E0;
+            --muted-foreground: #666666;
+            --border: #E0E0E0;
+            --accent: #DC143C;
+            --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+            --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--foreground);
+            background-color: var(--background);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s var(--ease-out);
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        /* Utilities */
+        .accent-line {
+            height: 4px;
+            width: 48px;
+            background-color: var(--primary);
+            border-radius: 9999px;
+            margin-bottom: 1.5rem;
+        }
+
+        .text-primary {
+            color: var(--primary);
+        }
+
+        /* ============================================
+           HEADER & NAVIGATION
+           ============================================ */
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background-color: transparent;
+            transition: all 0.3s var(--ease-out);
+        }
+
+        .header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: fadeIn 0.6s var(--ease-out);
+        }
+
+        .logo-img {
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: none;
+        }
+
+        @media (min-width: 640px) {
+            .logo-text {
+                display: block;
+            }
+
+            .logo-title {
+                font-size: 1.125rem;
+                font-weight: 700;
+                color: var(--primary);
+            }
+
+            .logo-subtitle {
+                font-size: 0.75rem;
+                color: var(--muted-foreground);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-img {
+                height: 70px;
+            }
+        }
+
+        /* Desktop Navigation */
+        .nav-desktop {
+            display: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .nav-desktop {
+                display: flex;
+            }
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--foreground);
+            transition: color 0.3s var(--ease-out);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link.cta-link {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s var(--ease-out);
+        }
+
+        .nav-link.cta-link:hover {
+            transform: scale(1.05);
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s var(--ease-out);
+        }
+
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        .menu-toggle:hover {
+            background-color: var(--secondary);
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--foreground);
+            transition: all 0.3s var(--ease-out);
+            border-radius: 1px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* Mobile Navigation */
+        .nav-mobile {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            background-color: white;
+            border-top: 1px solid var(--border);
+            padding: 1rem 0;
+            animation: slideInUp 0.3s var(--ease-out);
+        }
+
+        .nav-mobile.active {
+            display: flex;
+        }
+
+        @media (min-width: 768px) {
+            .nav-mobile {
+                display: none !important;
+            }
+        }
+
+        .nav-link-mobile {
+            padding: 0.75rem 1rem;
+            color: var(--foreground);
+            font-weight: 500;
+            transition: color 0.3s var(--ease-out);
+        }
+
+        @media (min-width: 768px) {
+            .nav-mobile {
+                display: none !important;
+            }
+        }
+
+        .nav-link-mobile {
+            padding: 0.75rem 1rem;
+            color: var(--foreground);
+            font-weight: 500;
+            transition: color 0.3s var(--ease-out);
+        }
+
+        .nav-link-mobile:hover {
+            color: var(--primary);
+        }
+
+        .nav-link-mobile.cta-link {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+            border-radius: 0.5rem;
+            margin: 0 1rem;
+            text-align: center;
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+
+        .hero {
+            padding-top: 8rem;
+            padding-bottom: 5rem;
+            background: linear-gradient(to bottom, rgba(232, 240, 248, 0.3), transparent);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .hero-text {
+            animation: slideInLeft 0.6s var(--ease-out);
+        }
+
+        .hero-title {
+            font-size: 2rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--muted-foreground);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+
+        .hero-image {
+            animation: slideInRight 0.6s var(--ease-out);
+            height: 100%;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+            background: linear-gradient(135deg, #DC143C 0%, #E74C3C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            position: relative;
+            min-height: 350px;
+        }
+
+        @media (min-width: 1024px) {
+            .image-placeholder {
+                height: 100%;
+                min-height: 550px;
+            }
+        }
+
+        /* Slideshow fade animation */
+        .hero-slideshow-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-slideshow-img.active {
+            opacity: 1;
+        }
+
+        /* ============================================
+           BUTTONS
+           ============================================ */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s var(--ease-out);
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+
+        .btn-secondary {
+            border-color: var(--primary);
+            color: var(--primary);
+            background-color: transparent;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(220, 20, 60, 0.05);
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-outline {
+            border-color: white;
+            color: white;
+            background-color: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ============================================
+           SECTION HEADERS
+           ============================================ */
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.6s var(--ease-out);
+        }
+
+        .section-header .accent-line {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-header h2 {
+                font-size: 2.25rem;
+            }
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--muted-foreground);
+            max-width: 32rem;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           SERVICES SECTION
+           ============================================ */
+
+        .services {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            padding: 2rem;
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            transition: all 0.3s var(--ease-out);
+            animation: fadeInUp 0.6s var(--ease-out);
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0s; }
+        .service-card:nth-child(2) { animation-delay: 0.1s; }
+        .service-card:nth-child(3) { animation-delay: 0.2s; }
+        .service-card:nth-child(4) { animation-delay: 0.3s; }
+        .service-card:nth-child(5) { animation-delay: 0.4s; }
+        .service-card:nth-child(6) { animation-delay: 0.5s; }
+
+        .service-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--muted-foreground);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+           EXPERTISE SECTION
+           ============================================ */
+
+        .expertise {
+            padding: 5rem 0;
+            background-color: rgba(232, 240, 248, 0.1);
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 56rem;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .expertise-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .expertise-card {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background-color: white;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            transition: all 0.3s var(--ease-out);
+            animation: fadeInUp 0.6s var(--ease-out);
+        }
+
+        .expertise-card:nth-child(1) { animation-delay: 0s; }
+        .expertise-card:nth-child(2) { animation-delay: 0.1s; }
+        .expertise-card:nth-child(3) { animation-delay: 0.2s; }
+        .expertise-card:nth-child(4) { animation-delay: 0.3s; }
+        .expertise-card:nth-child(5) { animation-delay: 0.4s; }
+
+        .expertise-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .expertise-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .expertise-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .expertise-card p {
+            color: var(--muted-foreground);
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           GALLERY SECTION
+           ============================================ */
+
+        .gallery {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .gallery-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 1rem 0;
+            scroll-snap-type: x mandatory;
+        }
+
+        .gallery-track::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .gallery-track::-webkit-scrollbar-track {
+            background: var(--border);
+            border-radius: 10px;
+        }
+
+        .gallery-track::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .gallery-track::-webkit-scrollbar-thumb:hover {
+            background: rgba(220, 20, 60, 0.8);
+        }
+
+        .gallery-item {
+            flex: 0 0 calc(50% - 0.75rem);
+            min-width: 280px;
+            height: 280px;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            background: linear-gradient(135deg, #E8F0F8 0%, #F0F8FF 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted-foreground);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s var(--ease-out);
+            scroll-snap-align: start;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (min-width: 768px) {
+            .gallery-item {
+                flex: 0 0 calc(33.333% - 1rem);
+                min-width: 300px;
+                height: 300px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-item {
+                flex: 0 0 calc(25% - 1.125rem);
+                min-width: 280px;
+                height: 280px;
+            }
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s var(--ease-out);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-overlay-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s var(--ease-out);
+        }
+
+        .gallery-item:hover .gallery-overlay-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .gallery-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .gallery-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            background-color: transparent;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s var(--ease-out);
+            font-size: 20px;
+        }
+
+        .gallery-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .gallery-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* ============================================
+           VALUES SECTION
+           ============================================ */
+
+        .values {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .values-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .value-card {
+            text-align: center;
+            animation: fadeInUp 0.6s var(--ease-out);
+        }
+
+        .value-card:nth-child(1) { animation-delay: 0s; }
+        .value-card:nth-child(2) { animation-delay: 0.1s; }
+        .value-card:nth-child(3) { animation-delay: 0.2s; }
+        .value-card:nth-child(4) { animation-delay: 0.3s; }
+
+        .value-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .value-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
+
+        .about {
+            padding: 5rem 0;
+            background-color: rgba(232, 240, 248, 0.1);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-text h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--muted-foreground);
+            line-height: 1.8;
+        }
+
+        .about-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .about-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--muted-foreground);
+        }
+
+        .about-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .about-image {
+            height: 400px;
+            border-radius: 0.5rem;
+            background: linear-gradient(135deg, #E8F0F8 0%, #F0F8FF 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted-foreground);
+            font-size: 16px;
+        }
+
+        /* ============================================
+           STATS SECTION
+           ============================================ */
+
+        .stats {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(220, 20, 60, 0.9) 100%);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-card {
+            text-align: center;
+            animation: fadeInUp 0.6s var(--ease-out);
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0s; }
+        .stat-card:nth-child(2) { animation-delay: 0.1s; }
+        .stat-card:nth-child(3) { animation-delay: 0.2s; }
+        .stat-card:nth-child(4) { animation-delay: 0.3s; }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* ============================================
+           TESTIMONIALS SECTION
+           ============================================ */
+
+        .testimonials {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .testimonial-card {
+            padding: 2rem;
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            transition: all 0.3s var(--ease-out);
+            animation: fadeInUp 0.6s var(--ease-out);
+        }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.1s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.2s; }
+
+        .testimonial-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .stars {
+            color: #FFC107;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .testimonial-text {
+            color: var(--muted-foreground);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #DC143C 0%, #E74C3C 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--muted-foreground);
+        }
+
+        /* ============================================
+           PROCESS SECTION
+           ============================================ */
+
+        .process {
+            padding: 5rem 0;
+            background-color: rgba(232, 240, 248, 0.1);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .process-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .process-step {
+            text-align: center;
+            animation: fadeInUp 0.6s var(--ease-out);
+            position: relative;
+        }
+
+        .process-step:nth-child(1) { animation-delay: 0s; }
+        .process-step:nth-child(2) { animation-delay: 0.1s; }
+        .process-step:nth-child(3) { animation-delay: 0.2s; }
+        .process-step:nth-child(4) { animation-delay: 0.3s; }
+
+        .process-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #DC143C 0%, #E74C3C 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .process-step p {
+            color: var(--muted-foreground);
+            font-size: 0.95rem;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            right: -1rem;
+            top: 30px;
+            font-size: 1.5rem;
+            color: var(--primary);
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .process-step:not(:last-child)::after {
+                display: block;
+            }
+        }
+
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+
+        .cta {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(220, 20, 60, 0.9) 100%);
+            color: var(--primary-foreground);
+        }
+
+        .cta-content {
+            text-align: center;
+            animation: fadeInUp 0.6s var(--ease-out);
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        @media (min-width: 768px) {
+            .cta h2 {
+                font-size: 2.25rem;
+            }
+        }
+
+        .cta p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 32rem;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        @media (min-width: 640px) {
+            .cta-buttons {
+                flex-direction: row;
+            }
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+
+        .footer {
+            background-color: var(--foreground);
+            color: var(--primary-foreground);
+        }
+
+        .footer-divider {
+            width: 100%;
+            height: 80px;
+            margin-top: -1px;
+            color: var(--foreground);
+        }
+
+        .footer-content {
+            padding: 4rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .footer-column {
+            animation: fadeInUp 0.6s var(--ease-out);
+        }
+
+        .footer-column:nth-child(1) { animation-delay: 0s; }
+        .footer-column:nth-child(2) { animation-delay: 0.1s; }
+        .footer-column:nth-child(3) { animation-delay: 0.2s; }
+        .footer-column:nth-child(4) { animation-delay: 0.3s; }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-icon {
+            height: 40px;
+            width: 40px;
+            background: linear-gradient(135deg, #DC143C 0%, #E74C3C 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.125rem;
+            color: white;
+        }
+
+        .footer-column p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity 0.3s var(--ease-out);
+        }
+
+        .footer-column a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+            }
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s var(--ease-out);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Respect prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE ADJUSTMENTS
+           ============================================ */
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .cta h2 {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <!-- Logo -->
+                <a href="#" class="logo-section">
+                    <img src="{% static 'media/logo1.png' %}" alt="TECH CONCEPT SARL" class="logo-img">
+                    <div class="logo-text">
+                        <div class="logo-title">TECH CONCEPT</div>
+                        <div class="logo-subtitle">Solutions Électroniques</div>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="nav-desktop">
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#expertise" class="nav-link">Expertise</a>
+                    <a href="#gallery" class="nav-link">Galerie</a>
+                    <a href="#about" class="nav-link">À propos</a>
+                    <a href="#process" class="nav-link">Processus</a>
+                    <a href="#contact" class="nav-link cta-link">Contactez-nous</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav class="nav-mobile" id="navMobile">
+            <div class="container">
+                <a href="#services" class="nav-link-mobile">Services</a>
+                <a href="#expertise" class="nav-link-mobile">Expertise</a>
+                <a href="#gallery" class="nav-link-mobile">Galerie</a>
+                <a href="#about" class="nav-link-mobile">À propos</a>
+                <a href="#process" class="nav-link-mobile">Processus</a>
+                <a href="#contact" class="nav-link-mobile cta-link">Contactez-nous</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="accent-line"></div>
+                <h1 class="hero-title">Sécurisez votre présent,<br><span class="text-primary">connectez votre avenir</span></h1>
+                <p class="hero-description">Solutions électroniques globales pour votre tranquillité d'esprit. Installations électriques, réseaux informatiques, sécurité incendie et bien plus. Depuis 2010, nous accompagnons les entreprises dans leur transformation numérique et leur sécurisation.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        Demander une consultation gratuite
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="#services" class="btn btn-secondary">Découvrir nos services</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    <img src="{% static 'media/images1.jpeg' %}" alt="Électricien Professionnel TECH CONCEPT" class="hero-slideshow-img active">
+                    <img src="{% static 'media/images2.jpeg' %}" alt="Équipe TECH CONCEPT" class="hero-slideshow-img">
+                    <img src="{% static 'media/images3.jpeg' %}" alt="Installation Solaire" class="hero-slideshow-img">
+                    <img src="{% static 'media/images4.jpeg' %}" alt="Réseau Informatique" class="hero-slideshow-img">
+                    <img src="{% static 'media/images5.jpeg' %}" alt="Câblage Structuré" class="hero-slideshow-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="accent-line"></div>
+                <h2>Nos Services</h2>
+                <p>Une gamme complète de solutions pour tous vos besoins en électronique et sécurité.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Énergie Solaire</h3>
+                    <p>Solutions solaires fiables et durables pour votre indépendance énergétique. Réduction de vos factures énergétiques jusqu'à 80%.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔌</div>
+                    <h3>Électricité Générale</h3>
+                    <p>Installations électriques sécurisées pour tous types de bâtiments. Conformité aux normes NFC 15-100 et certification ISO.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Réseaux Informatiques</h3>
+                    <p>Conception et déploiement de réseaux performants et sécurisés. Infrastructure cloud et solutions hybrides.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📡</div>
+                    <h3>Wi-Fi Professionnel</h3>
+                    <p>Couverture Wi-Fi stable et haut débit pour entreprises et bâtiments. Débit jusqu'à 10 Gbps avec sécurité WPA3.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">☎️</div>
+                    <h3>Téléphonie</h3>
+                    <p>Systèmes de téléphonie IP et solutions de communication modernes. Intégration avec vos outils collaboratifs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔗</div>
+                    <h3>Câblage Structuré</h3>
+                    <p>Installation de réseaux câblés organisés et évolutifs. Certification Cat6A et fibre optique multimode/monomode.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise" id="expertise">
+        <div class="container">
+            <div class="section-header">
+                <div class="accent-line"></div>
+                <h2>Nos Domaines d'Expertise</h2>
+                <p>Expertise reconnue dans les solutions de sécurité et de connectivité.</p>
+            </div>
+
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="expertise-icon">📹</div>
+                    <div>
+                        <h3>Vidéosurveillance</h3>
+                        <p>Systèmes de caméras haute définition 4K pour une surveillance 24h/24. Stockage cloud sécurisé avec IA de détection.</p>
+                    </div>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">🔐</div>
+                    <div>
+                        <h3>Contrôle d'Accès</h3>
+                        <p>Gestion intelligente des accès biométrique et par badge. Intégration avec systèmes de présence et RH.</p>
+                    </div>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">🔥</div>
+                    <div>
+                        <h3>Sécurité Incendie</h3>
+                        <p>Détection, alarme et lutte contre l'incendie : votre sécurité, notre priorité. Conformité NFPA et directives EU.</p>
+                    </div>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">⚠️</div>
+                    <div>
+                        <h3>Clôtures Électriques</h3>
+                        <p>Solutions de protection périmétrique dissusives et efficaces. Systèmes intelligents avec détection de rupture.</p>
+                    </div>
+                </div>
+                <div class="expertise-card">
+                    <div class="expertise-icon">🔧</div>
+                    <div>
+                        <h3>Maintenance Technique</h3>
+                        <p>Entretien préventif et curatif de vos installations pour une performance durable. Contrats SLA 24h/24 7j/7.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="accent-line"></div>
+                <h2>À Propos de TECH CONCEPT SARL</h2>
+                <p>Votre partenaire de confiance depuis plus de 15 ans</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Qui sommes-nous ?</h3>
+                    <p>TECH CONCEPT SARL est une entreprise spécialisée dans les solutions électroniques globales. Fondée en 2010, nous avons accompagné plus de 500 entreprises dans leur transformation numérique et leur sécurisation.</p>
+                    <p>Notre équipe de 50+ experts dispose d'une expérience moyenne de 12 ans dans le secteur. Nous travaillons avec les plus grandes marques internationales pour vous proposer des solutions de pointe.</p>
+                    <p>Notre mission : sécuriser votre présent et connecter votre avenir. Nous nous engageons à fournir des solutions fiables, innovantes et adaptées à vos besoins spécifiques.</p>
+                    
+                    <ul class="about-list">
+                        <li>Certification ISO 9001:2015</li>
+                        <li>Agrément RGE (Reconnu Garant de l'Environnement)</li>
+                        <li>Partenaires officiels des plus grandes marques</li>
+                        <li>Support technique 24h/24 7j/7</li>
+                        <li>Garantie 5 ans sur tous les travaux</li>
+                        <li>Devis gratuit sans engagement</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="{% static 'media/images2.jpeg' %}" alt="Équipe TECH CONCEPT" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Clients Satisfaits</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Années d'Expérience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Experts Qualifiés</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Taux de Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <div class="accent-line"></div>
+                <h2>Notre Galerie</h2>
+                <p>Découvrez nos réalisations et projets</p>
+            </div>
+
+            <div class="gallery-container">
+                <div class="gallery-track" id="galleryTrack">
+                    <div class="gallery-item">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-icon">🔍</div>
+                        </div>
+                        <img src="{% static 'media/images3.jpeg' %}" alt="Installation Solaire">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-icon">🔍</div>
+                        </div>
+                        <img src="{% static 'media/images4.jpeg' %}" alt="Réseau Informatique">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-icon">🔍</div>
+                        </div>
+                        <img src="{% static 'media/images5.jpeg' %}" alt="Câblage Structuré">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-icon">🔍</div>
+                        </div>
+                        <img src="{% static 'media/images6.jpeg' %}" alt="Vidéosurveillance">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-icon">🔍</div>
+                        </div>
+                        <img src="{% static 'media/images7.jpeg' %}" alt="Contrôle d'Accès">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-icon">🔍</div>
+                        </div>
+                        <img src="{% static 'media/images8.jpeg' %}" alt="Sécurité Incendie">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-icon">🔍</div>
+                        </div>
+                        <img src="{% static 'media/images9.jpeg' %}" alt="Électricité Générale">
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-icon">🔍</div>
+                        </div>
+                        <img src="{% static 'media/images3.jpeg' %}" alt="Téléphonie IP">
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-controls">
+                <button class="gallery-btn" id="galleryPrev" title="Précédent">❮</button>
+                <button class="gallery-btn" id="galleryNext" title="Suivant">❯</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <div class="section-header">
+                <div class="accent-line"></div>
+                <h2>Nos Valeurs</h2>
+                <p>Ce qui nous définit et guide nos actions</p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">👥</div>
+                    <h3>Équipe Qualifiée et Expérimentée</h3>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⭐</div>
+                    <h3>Matériel de Qualité Premium</h3>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>Intervention Rapide et Efficace</h3>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🛡️</div>
+                    <h3>Service Après-Vente et Garantie</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="accent-line"></div>
+                <h2>Témoignages Clients</h2>
+                <p>Ce que nos clients disent de nous</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"TECH CONCEPT a transformé notre infrastructure informatique. L'équipe est professionnelle, réactive et vraiment à l'écoute de nos besoins. Nous recommandons vivement !"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div class="author-info">
+                            <h4>Jean Dupont</h4>
+                            <p>Directeur IT, Groupe ABC</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Nous avons fait appel à TECH CONCEPT pour notre installation solaire. Résultat impressionnant : -75% sur nos factures énergétiques. Excellent ROI !"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MS</div>
+                        <div class="author-info">
+                            <h4>Marie Soulier</h4>
+                            <p>Responsable Énergie, Industrie XYZ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Service impeccable du début à la fin. Installation rapide, sans perturbation de nos activités. L'équipe de maintenance est toujours disponible. Parfait !"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PL</div>
+                        <div class="author-info">
+                            <h4>Pierre Laurent</h4>
+                            <p>Gérant, Commerce Retail</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <div class="accent-line"></div>
+                <h2>Notre Processus</h2>
+                <p>Comment nous travaillons avec vous</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>Nous écoutons vos besoins et analysons votre situation actuelle pour proposer la meilleure solution.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h3>Devis Détaillé</h3>
+                    <p>Nous vous proposons un devis transparent et détaillé sans aucun engagement.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h3>Installation</h3>
+                    <p>Notre équipe qualifiée réalise l'installation avec professionnalisme et respect de vos délais.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <h3>Support Continu</h3>
+                    <p>Nous assurons le suivi, la maintenance et le support technique tout au long de votre parcours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container cta-content">
+            <h2>Prêt à transformer votre infrastructure ?</h2>
+            <p>Contactez notre équipe d'experts pour une consultation gratuite et découvrez comment nous pouvons sécuriser votre présent et connecter votre avenir.</p>
+            <div class="cta-buttons">
+                <a href="tel:+33503720303" class="btn btn-white">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    Appelez-nous : 05 03 72 03 03
+                </a>
+                <a href="mailto:cotechsarl@gmail.com" class="btn btn-outline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                    Envoyez un email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <svg class="footer-divider" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,40 Q300,80 600,40 T1200,40 L1200,0 L0,0 Z" fill="currentColor"></path>
+        </svg>
+
+        <div class="container footer-content">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">TC</div>
+                        <h3>TECH CONCEPT</h3>
+                    </div>
+                    <p>Solutions électroniques globales pour votre tranquillité d'esprit et votre avenir connecté. Depuis 2010, nous accompagnons les entreprises dans leur transformation numérique.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#expertise">Expertise</a></li>
+                        <li><a href="#gallery">Galerie</a></li>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#process">Processus</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Énergie Solaire</a></li>
+                        <li><a href="#">Électricité Générale</a></li>
+                        <li><a href="#">Réseaux Informatiques</a></li>
+                        <li><a href="#">Sécurité Incendie</a></li>
+                        <li><a href="#">Maintenance Technique</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            <a href="tel:+33503720303">05 03 72 03 03</a>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                            <a href="mailto:cotechsarl@gmail.com">cotechsarl@gmail.com</a>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>Riviera Palmeraie</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 TECH CONCEPT SARL. Tous droits réservés. | <a href="#" style="opacity: 0.8;">Mentions légales</a> | <a href="#" style="opacity: 0.8;">Politique de confidentialité</a></p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook" title="Facebook">f</a>
+                    <a href="#" aria-label="LinkedIn" title="LinkedIn">in</a>
+                    <a href="#" aria-label="Twitter" title="Twitter">𝕏</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // TECH CONCEPT SARL - JavaScript
+        // Modern Industrial Elegance Design
+        // ============================================
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMobile = document.getElementById('navMobile');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMobile.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        const navLinks = document.querySelectorAll('.nav-link-mobile');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMobile.classList.remove('active');
+            });
+        });
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        let lastScrollY = 0;
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            lastScrollY = scrollY;
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    const offsetTop = target.offsetTop - 80;
+                    
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Gallery Navigation
+        const galleryTrack = document.getElementById('galleryTrack');
+        const galleryPrev = document.getElementById('galleryPrev');
+        const galleryNext = document.getElementById('galleryNext');
+
+        galleryNext.addEventListener('click', () => {
+            galleryTrack.scrollBy({ left: 320, behavior: 'smooth' });
+        });
+
+        galleryPrev.addEventListener('click', () => {
+            galleryTrack.scrollBy({ left: -320, behavior: 'smooth' });
+        });
+
+        // Observe all animated elements
+        document.querySelectorAll('.service-card, .expertise-card, .value-card, .section-header, .testimonial-card, .stat-card, .process-step, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+            observer.observe(el);
+        });
+
+        // Console Message
+        console.log('%c🚀 TECH CONCEPT SARL', 'font-size: 20px; font-weight: bold; color: #DC143C;');
+        console.log('%cSolutions électroniques globales', 'font-size: 14px; color: #666;');
+        console.log('%cSécurisez votre présent, connectez votre avenir', 'font-size: 12px; color: #999; font-style: italic;');
+
+        // ============================================
+        // HERO SLIDESHOW - Auto-défilement
+        // ============================================
+        (function() {
+            const slides = document.querySelectorAll('.hero-slideshow-img');
+            if (slides.length < 2) return;
+
+            let currentIndex = 0;
+            const intervalTime = 4000; // 4 seconds between slides
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                showSlide(currentIndex);
+            }
+
+            // Start auto-play
+            setInterval(nextSlide, intervalTime);
+        })();
+    </script>
+</body>
+</html>
