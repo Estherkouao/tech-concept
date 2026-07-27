@@ -1,0 +1,293 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Sécurité Incendie - TECH CONCEPT SARL{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero page-hero-services">
+    <div class="container">
+        <div class="page-hero-content">
+            <div>
+                <a href="{% url 'home' %}" class="back-link">← Retour à l'accueil</a>
+                <div class="breadcrumb">
+                    <a href="{% url 'home' %}">Accueil</a>
+                    <span>/</span>
+                    <span>Sécurité Incendie</span>
+                </div>
+                <span class="page-hero-icon">🔥</span>
+                <h1>Sécurité Incendie</h1>
+                <p>Détection, alarme et lutte contre l'incendie : votre sécurité, notre priorité. Conformité aux normes NFPA et directives européennes.</p>
+                <div class="page-hero-buttons">
+                    <a href="#devis" class="btn btn-white">Demander un devis</a>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <img src="{% static 'media/images8.jpeg' %}" alt="Sécurité Incendie">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Présentation -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Présentation</h2>
+        </div>
+        <div class="intro-content">
+            <div class="intro-text">
+                <p><strong>TECH CONCEPT SARL</strong> conçoit, installe et maintient des systèmes de sécurité incendie complets pour protéger vos biens et vos collaborateurs. Nous intervenons sur tous types de bâtiments : ERP (Établissements Recevant du Public), IGH (Immeubles de Grande Hauteur), locaux industriels et bureaux.</p>
+                <p>Nos solutions incluent la détection automatique d'incendie, les systèmes d'alarme, le désenfumage, les extincteurs et les systèmes d'extinction automatique (sprinklers, gaz).</p>
+                <p>Nous sommes certifiés et agréés pour la conception et l'installation de systèmes conformes à la réglementation incendie en vigueur.</p>
+            </div>
+            <div class="intro-image">
+                <img src="{% static 'media/images8.jpeg' %}" alt="Sécurité Incendie">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pourquoi choisir -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Pourquoi choisir nos solutions ?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🔍</span>
+                <h3>Détection précoce</h3>
+                <p>Détecteurs de fumée, de chaleur et de gaz multi-capteurs pour une alerte au plus tôt, limitant les dégâts.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔔</span>
+                <h3>Alarme et évacuation</h3>
+                <p>Systèmes d'alarme sonore et visuelle, déclencheurs manuels, plan d'évacuation et message vocal d'alerte.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">💨</span>
+                <h3>Désenfumage</h3>
+                <p>Conduits et extracteurs de désenfumage pour évacuer les fumées et faciliter l'évacuation des personnes.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🧯</span>
+                <h3>Extinction automatique</h3>
+                <p>Sprinklers, système brouillard d'eau, ou gaz inertes (FM200, Novec) pour éteindre automatiquement les départs de feu.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📋</span>
+                <h3>Conformité réglementaire</h3>
+                <p>Systèmes conformes aux normes NF S61-932, NF S61-933, ERP et Code du travail. Attestation de conformité fournie.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔄</span>
+                <h3>Maintenance périodique</h3>
+                <p>Entretien réglementaire obligatoire : vérification semestrielle des détecteurs, alarmes et extincteurs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Étapes -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Étapes de Mise en Place</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>Analyse des risques</h3>
+                    <p>Étude de votre bâtiment, identification des zones à risque et prescription des équipements adaptés.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>Conception SSI</h3>
+                    <p>Conception du Système de Sécurité Incendie (SSI) : catégorie, type de détection, zones et équipements.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>Installation</h3>
+                    <p>Pose des détecteurs, centrales de détection, déclencheurs manuels, avertisseurs et équipements d'extinction.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div>
+                    <h3>Mise en service</h3>
+                    <p>Tests complets du système, calibration des détecteurs, paramétrage des scénarios d'alarme.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div>
+                    <h3>Maintenance réglementaire</h3>
+                    <p>Contrat de maintenance périodique avec visites semestrielles et rapport de conformité annuel.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Marques -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Marques Utilisées</h2>
+        </div>
+        <div class="brands-grid">
+            <div class="brand-item">
+                <span class="brand-logo">🔥</span>
+                <h4>Honeywell</h4>
+                <p>Détection incendie</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🔔</span>
+                <h4>Schneider Electric</h4>
+                <p>SSI et alarme</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🧯</span>
+                <h4>Siemens Building</h4>
+                <p>Sécurité incendie</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">💨</span>
+                <h4>Delta Controls</h4>
+                <p>Désenfumage et ventilation</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">📟</span>
+                <h4>Eurofyre</h4>
+                <p>Systèmes de détection</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🪣</span>
+                <h4>Minimax</h4>
+                <p>Extinction automatique</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Garantie -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Garantie et Conformité</h2>
+        </div>
+        <div class="guarantee-box">
+            <span class="guarantee-icon">🛡️</span>
+            <h3>Protection et conformité assurées</h3>
+            <ul>
+                <li>Garantie de 5 ans sur l'installation</li>
+                <li>Garantie constructeur de 3 ans sur les équipements</li>
+                <li>Attestation de conformité réglementaire</li>
+                <li>Contrat de maintenance obligatoire inclus</li>
+                <li>Visite semestrielle de vérification</li>
+                <li>Intervention d'urgence 24h/24</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Galerie -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Réalisations</h2>
+        </div>
+        <div class="service-gallery-grid">
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images8.jpeg' %}" alt="Sécurité Incendie - Projet 1">
+                <span class="gallery-label">Centre commercial - SSI de catégorie A</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images6.jpeg' %}" alt="Sécurité Incendie - Projet 2">
+                <span class="gallery-label">Entrepôt - Sprinklers et désenfumage</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images7.jpeg' %}" alt="Sécurité Incendie - Projet 3">
+                <span class="gallery-label">Bureaux - Détection et alarme</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Questions Fréquentes</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    Qu'est-ce qu'un SSI (Système de Sécurité Incendie) ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Le SSI est l'ensemble des équipements permettant de détecter un incendie, alerter les occupants et faciliter l'évacuation. Il se compose d'un système de détection incendie (SDI) et d'un système de mise en sécurité incendie (SMSI) incluant le désenfumage et les dispositifs d'évacuation.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Quels sont les obligations réglementaires en matière d'incendie ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Tout établissement recevant du public (ERP) ou immeuble de grande hauteur (IGH) doit être équipé d'un SSI conforme. Les obligations incluent : détecteurs de fumée, alarme sonore, éclairage de sécurité, plans d'évacuation, extincteurs et maintenance régulière avec registre de sécurité.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    À quelle fréquence doit-on vérifier son système incendie ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>La maintenance réglementaire comprend : une vérification visuelle trimestrielle, un test semestriel complet par un technicien qualifié, et une visite annuelle avec rapport de conformité. Toutes les interventions sont consignées dans le registre de sécurité.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Proposez-vous des formations à l'évacuation incendie ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Oui, nous proposons des formations à la sécurité incendie pour vos équipes : manipulation des extincteurs, exercices d'évacuation, formation des équipiers de première intervention (EPI) et du service de sécurité incendie (SSIAP).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Devis -->
+<section class="service-section" id="devis">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Demander un Devis</h2>
+        </div>
+        <div style="text-align: center; max-width: 36rem; margin: 0 auto;">
+            <p style="color: var(--muted-foreground); margin-bottom: 2rem;">Protégez votre entreprise contre l'incendie. Contactez nos spécialistes.</p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="tel:+33503720303" class="btn btn-primary">📞 05 03 72 03 03</a>
+                <a href="mailto:cotechsarl@gmail.com" class="btn btn-secondary">✉️ Nous écrire</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

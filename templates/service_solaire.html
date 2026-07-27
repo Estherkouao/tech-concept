@@ -1,0 +1,402 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Énergie Solaire - TECH CONCEPT SARL{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero page-hero-services">
+    <div class="container">
+        <div class="page-hero-content">
+            <div>
+                <a href="{% url 'home' %}" class="back-link">← Retour à l'accueil</a>
+                <div class="breadcrumb">
+                    <a href="{% url 'home' %}">Accueil</a>
+                    <span>/</span>
+                    <span>Énergie Solaire</span>
+                </div>
+                <span class="page-hero-icon">☀️</span>
+                <h1>Énergie Solaire</h1>
+                <p>Solutions solaires fiables et durables pour votre indépendance énergétique. Réduction de vos factures jusqu'à 80%.</p>
+                <div class="page-hero-buttons">
+                    <a href="#devis" class="btn btn-white">Demander un devis gratuit</a>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <img src="{% static 'media/images3.jpeg' %}" alt="Installation Solaire">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Présentation -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Présentation</h2>
+            <p>L'énergie solaire, une solution d'avenir pour votre entreprise</p>
+        </div>
+        <div class="intro-content">
+            <div class="intro-text">
+                <p>Chez <strong>TECH CONCEPT SARL</strong>, nous sommes spécialisés dans l'installation de systèmes solaires photovoltaïques pour les entreprises et les particuliers. Avec plus de 15 ans d'expérience dans le domaine, nous accompagnons nos clients vers leur indépendance énergétique.</p>
+                <p>Nos solutions solaires sont conçues pour maximiser votre production d'énergie tout en minimisant votre empreinte carbone. Nous utilisons des équipements de haute qualité, certifiés et garantis, pour vous assurer un rendement optimal sur le long terme.</p>
+                <p>Que vous souhaitiez réduire vos factures d'électricité, gagner en autonomie ou contribuer à la transition énergétique, nous avons la solution adaptée à vos besoins.</p>
+            </div>
+            <div class="intro-image">
+                <img src="{% static 'media/images3.jpeg' %}" alt="Installation Solaire">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pourquoi choisir le solaire -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Pourquoi choisir le solaire ?</h2>
+            <p>Les avantages d'investir dans l'énergie solaire</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">💰</span>
+                <h3>Économies substantielles</h3>
+                <p>Réduisez vos factures d'électricité jusqu'à 80% grâce à une production d'énergie gratuite et renouvelable.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🌱</span>
+                <h3>Énergie verte</h3>
+                <p>Contribuez activement à la protection de l'environnement en utilisant une source d'énergie propre et inépuisable.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔋</span>
+                <h3>Autonomie énergétique</h3>
+                <p>Devenez moins dépendant du réseau électrique et protégez-vous des hausses des prix de l'électricité.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📈</span>
+                <h3>Valorisation immobilière</h3>
+                <p>Augmentez la valeur de votre bien immobilier grâce à une installation solaire performante et moderne.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🛡️</span>
+                <h3>Fiabilité et durabilité</h3>
+                <p>Des panneaux solaires conçus pour durer plus de 25 ans avec un entretien minimal et une garantie performante.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🏛️</span>
+                <h3>Aides et subventions</h3>
+                <p>Bénéficiez des aides de l'État, des crédits d'impôt et des subventions locales pour financer votre projet.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nos solutions -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Nos Solutions Solaires</h2>
+            <p>Des offres adaptées à tous vos besoins</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🏠</span>
+                <h3>Autoconsommation résidentielle</h3>
+                <p>Produisez votre propre électricité pour votre maison et réduisez vos factures. Solutions sur-mesure pour maisons individuelles et résidences.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🏢</span>
+                <h3>Solutions professionnelles</h3>
+                <p>Installations solaires pour entreprises, commerces et industries. Optimisez votre production et rentabilisez votre investissement.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔋</span>
+                <h3>Systèmes avec stockage</h3>
+                <p>Stockez votre surplus d'énergie dans des batteries performantes pour une autonomie totale, même la nuit et les jours nuageux.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🏭</span>
+                <h3>Centrales solaires au sol</h3>
+                <p>Optimisez vos terrains inutilisés avec des centrales solaires au sol pour une production d'énergie à grande échelle.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🌡️</span>
+                <h3>Solaire thermique</h3>
+                <p>Solutions de chauffage et d'eau chaude sanitaire par énergie solaire thermique pour réduire votre consommation de gaz ou d'électricité.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>Hybride (Solaire + Réseau)</h3>
+                <p>Systèmes hybrides combinant panneaux solaires et connexion au réseau pour une flexibilité et une sécurité d'approvisionnement maximales.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Étapes d'installation -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Étapes d'Installation</h2>
+            <p>Notre processus en 5 étapes clés</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>Étude personnalisée</h3>
+                    <p>Analyse de votre consommation, de votre toiture et de vos besoins spécifiques pour concevoir la solution idéale.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>Conception sur mesure</h3>
+                    <p>Dimensionnement précis de l'installation avec choix des équipements adaptés à votre budget et vos objectifs.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>Devis détaillé</h3>
+                    <p>Proposition commerciale transparente avec tous les détails techniques, financiers et les aides disponibles.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div>
+                    <h3>Installation professionnelle</h3>
+                    <p>Pose réalisée par nos techniciens certifiés avec respect des normes de sécurité et des délais convenus.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div>
+                    <h3>Mise en service & suivi</h3>
+                    <p>Mise en service de votre installation, formation à son utilisation et suivi de performance garanti.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">6</div>
+                <div>
+                    <h3>Maintenance & SAV</h3>
+                    <p>Contrat de maintenance préventive et curative avec assistance technique 24h/24 et 7j/7.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Marques utilisées -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Marques Utilisées</h2>
+            <p>Nous travaillons avec les meilleures marques du marché</p>
+        </div>
+        <div class="brands-grid">
+            <div class="brand-item">
+                <span class="brand-logo">🔆</span>
+                <h4>Suntech</h4>
+                <p>Panneaux solaires haute performance</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🔋</span>
+                <h4>Tesla Powerwall</h4>
+                <p>Batteries de stockage</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">⚡</span>
+                <h4>Huawei FusionSolar</h4>
+                <p>Onduleurs intelligents</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🔧</span>
+                <h4>Schneider Electric</h4>
+                <p>Équipements électriques</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🌞</span>
+                <h4>Canadian Solar</h4>
+                <p>Panneaux poly et monocristallins</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">📊</span>
+                <h4>SMA Solar</h4>
+                <p>Onduleurs et monitoring</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🏗️</span>
+                <h4>K2 Systems</h4>
+                <p>Structures de montage</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🌍</span>
+                <h4>Victron Energy</h4>
+                <p>Solutions hors-réseau</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Garantie -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Garantie</h2>
+            <p>Nous assurons votre tranquillité d'esprit</p>
+        </div>
+        <div class="guarantee-box">
+            <span class="guarantee-icon">🛡️</span>
+            <h3>Garantie complète sur vos installations solaires</h3>
+            <p>Nous nous engageons sur la qualité de nos installations avec des garanties étendues :</p>
+            <ul>
+                <li>Garantie de 10 ans sur l'installation complète</li>
+                <li>Garantie constructeur de 25 ans sur les panneaux solaires</li>
+                <li>Garantie de 10 ans sur les onduleurs</li>
+                <li>Garantie de 5 à 10 ans sur les batteries</li>
+                <li>Garantie de performance : rendement garanti à 80% après 25 ans</li>
+                <li>Assurance responsabilité civile professionnelle</li>
+                <li>SAV réactif sous 48h</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Photos / Galerie -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Réalisations Solaires</h2>
+            <p>Découvrez nos projets d'installation solaire</p>
+        </div>
+        <div class="service-gallery-grid">
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images3.jpeg' %}" alt="Installation Solaire - Projet 1">
+                <span class="gallery-label">Installation résidentielle 6kWc</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images4.jpeg' %}" alt="Installation Solaire - Projet 2">
+                <span class="gallery-label">Centrale solaire au sol 50kWc</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images5.jpeg' %}" alt="Installation Solaire - Projet 3">
+                <span class="gallery-label">Batterie de stockage Tesla</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images6.jpeg' %}" alt="Installation Solaire - Projet 4">
+                <span class="gallery-label">Installation commerciale 30kWc</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images7.jpeg' %}" alt="Installation Solaire - Projet 5">
+                <span class="gallery-label">Panneaux sur toiture industrielle</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images8.jpeg' %}" alt="Installation Solaire - Projet 6">
+                <span class="gallery-label">Suivi de production en temps réel</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Questions Fréquentes</h2>
+            <p>Tout ce que vous devez savoir sur l'énergie solaire</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    Quelle est la durée de vie d'un panneau solaire ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Les panneaux solaires ont une durée de vie moyenne de 25 à 30 ans. Leur performance reste garantie à 80% après 25 ans d'utilisation. Avec un entretien minimal, ils peuvent continuer à produire de l'électricité bien au-delà de cette période.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Combien puis-je économiser avec une installation solaire ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>En moyenne, nos clients réduisent leur facture d'électricité de 60% à 80%. Le retour sur investissement se fait généralement entre 4 et 8 ans selon la taille de l'installation et votre consommation. Sur 25 ans, les économies cumulées peuvent atteindre plusieurs dizaines de milliers d'euros.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Quelles sont les aides financières disponibles ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Vous pouvez bénéficier de plusieurs aides : la prime à l'autoconsommation, le taux de TVA réduit à 10%, les aides des collectivités locales, et l'obligation d'achat du surplus par EDF. Nos conseillers vous accompagnent dans toutes vos démarches.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    L'installation solaire fonctionne-t-elle par temps nuageux ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Oui, les panneaux solaires continuent de produire de l'électricité même par temps nuageux, bien qu'à un rendement réduit (environ 20-30% de leur capacité maximale). Les systèmes avec batteries de stockage vous permettent de disposer d'énergie même la nuit.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Quel entretien est nécessaire pour une installation solaire ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>L'entretien est minimal. Un nettoyage annuel des panneaux est recommandé pour maintenir un rendement optimal. Nous proposons des contrats de maintenance incluant le nettoyage, la vérification des connexions et le suivi de performance via notre plateforme de monitoring.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Quelle est la durée des travaux d'installation ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Pour une installation résidentielle standard, les travaux durent généralement 1 à 3 jours. Pour les installations professionnelles ou les centrales au sol, le délai peut varier de 1 à 4 semaines selon la complexité et la puissance de l'installation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Demander un devis -->
+<section class="service-section" id="devis">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Demander un Devis</h2>
+            <p>Prêt à passer à l'énergie solaire ? Contactez-nous dès maintenant</p>
+        </div>
+        <div style="text-align: center; max-width: 36rem; margin: 0 auto;">
+            <p style="color: var(--muted-foreground); margin-bottom: 2rem; line-height: 1.8;">
+                Un expert TECH CONCEPT vous contactera sous 24h pour étudier votre projet et vous proposer une solution sur mesure. Profitez de notre expertise et rejoignez les 500+ clients satisfaits.
+            </p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="tel:+33503720303" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    Appelez-nous : 05 03 72 03 03
+                </a>
+                <a href="mailto:cotechsarl@gmail.com" class="btn btn-secondary">
+                    Envoyez un email
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

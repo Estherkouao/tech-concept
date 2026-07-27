@@ -1,0 +1,324 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Maintenance Technique - TECH CONCEPT SARL{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero page-hero-services">
+    <div class="container">
+        <div class="page-hero-content">
+            <div>
+                <a href="{% url 'home' %}" class="back-link">← Retour à l'accueil</a>
+                <div class="breadcrumb">
+                    <a href="{% url 'home' %}">Accueil</a>
+                    <span>/</span>
+                    <span>Maintenance Technique</span>
+                </div>
+                <span class="page-hero-icon">🔧</span>
+                <h1>Maintenance Technique</h1>
+                <p>Entretien préventif et curatif de vos installations pour une performance durable. Contrats SLA 24h/24 7j/7.</p>
+                <div class="page-hero-buttons">
+                    <a href="#devis" class="btn btn-white">Demander un devis</a>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <img src="{% static 'media/images5.jpeg' %}" alt="Maintenance Technique">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Présentation -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Présentation</h2>
+        </div>
+        <div class="intro-content">
+            <div class="intro-text">
+                <p><strong>TECH CONCEPT SARL</strong> assure la maintenance préventive et curative de tous vos systèmes électroniques et électriques. Nos contrats de maintenance sur mesure garantissent la continuité de vos opérations et la longévité de vos équipements.</p>
+                <p>Nous intervenons sur l'ensemble des installations que nous réalisons, ainsi que sur des équipements existants : systèmes solaires, installations électriques, réseaux informatiques, sécurité incendie, contrôle d'accès, vidéosurveillance et téléphonie.</p>
+                <p>Avec des contrats SLA (Service Level Agreement) adaptés à vos besoins, vous bénéficiez d'interventions rapides, de visites préventives régulières et d'un reporting complet.</p>
+            </div>
+            <div class="intro-image">
+                <img src="{% static 'media/images5.jpeg' %}" alt="Maintenance Technique">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pourquoi choisir -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Pourquoi choisir nos contrats de maintenance ?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🛡️</span>
+                <h3>Fiabilité garantie</h3>
+                <p>Anticipez les pannes grâce à une maintenance préventive régulière. Réduisez les arrêts imprévus de vos installations.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>Intervention rapide</h3>
+                <p>SLA d'intervention de 4 à 24h selon votre contrat. Dépannage prioritaire pour les clients sous contrat.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3>Reporting détaillé</h3>
+                <p>Rapports d'intervention complets, historique des maintenances et préconisations pour optimiser vos équipements.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">💰</span>
+                <h3>Maîtrise des coûts</h3>
+                <p>Forfait annuel tout compris, sans surprise. Budget maintenance prévisible et optimisé sur le long terme.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔋</span>
+                <h3>Prolongation durée de vie</h3>
+                <p>Un entretien régulier prolonge la durée de vie de vos équipements jusqu'à 30% et maintient leurs performances.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📱</span>
+                <h3>Suivi digital</h3>
+                <p>Plateforme de suivi en ligne : consultez vos contrats, l'historique des interventions et le planning des visites.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nos offres SLA -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Nos Offres de Maintenance (SLA)</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🥇</span>
+                <h3>SLA Premium</h3>
+                <p>Intervention sous 4 heures, 24h/24 et 7j/7. Visite préventive mensuelle. Pièces détachées incluses. Reporting complet.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🥈</span>
+                <h3>SLA Standard</h3>
+                <p>Intervention sous 12 heures ouvrées. Visite trimestrielle. Pièces détachées en supplément. Rapport d'intervention.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🥉</span>
+                <h3>SLA Économique</h3>
+                <p>Intervention sous 48h ouvrées. Visite semestrielle préventive. Main-d'œuvre incluse, pièces facturées séparément.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎯</span>
+                <h3>SLA Sur Mesure</h3>
+                <p>Un contrat personnalisé selon vos besoins spécifiques : horaires, volumes, sites multiples, équipements critiques.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Étapes -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Notre Processus de Maintenance</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>Audit initial</h3>
+                    <p>Inventaire complet de vos équipements, évaluation de leur état et définition du plan de maintenance adapté.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>Mise en place du contrat</h3>
+                    <p>Définition du périmètre, des SLA, des visites préventives et des modalités d'intervention curative.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>Maintenance préventive</h3>
+                    <p>Visites programmées : vérification, nettoyage, réglages, mise à jour firmware, tests de performance.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div>
+                    <h3>Maintenance curative</h3>
+                    <p>Intervention sur incident : diagnostic, réparation, remplacement des pièces défectueuses et remise en service.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div>
+                    <h3>Reporting et optimisation</h3>
+                    <p>Compte-rendu d'intervention, analyse des tendances, conseils d'optimisation et planification des prochaines visites.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services couverts -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Équipements Maintenus</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">☀️</span>
+                <h3>Panneaux solaires</h3>
+                <p>Nettoyage, vérification des connexions, contrôle de production, onduleurs et batteries.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📹</span>
+                <h3>Vidéosurveillance</h3>
+                <p>Caméras, enregistreurs, câblage, stockage, mise à jour firmware et tests de fonctionnement.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🌐</span>
+                <h3>Réseaux informatiques</h3>
+                <p>Switchs, routeurs, bornes WiFi, firewall, câblage, supervision et mises à jour de sécurité.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔐</span>
+                <h3>Contrôle d'accès</h3>
+                <p>Lecteurs, serrures, contrôleurs, logiciel de gestion, badges et tests de fonctionnement.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔥</span>
+                <h3>Sécurité incendie</h3>
+                <p>Détecteurs, centrales, alarmes, désenfumage, extincteurs et vérification réglementaire.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">☎️</span>
+                <h3>Téléphonie IP</h3>
+                <p>Standard IP, postes téléphoniques, passerelles, qualité de service et configuration.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Marques -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Marques Partenaires</h2>
+        </div>
+        <div class="brands-grid">
+            <div class="brand-item">
+                <span class="brand-logo">⚡</span>
+                <h4>Schneider Electric</h4>
+                <p>Partenaire agréé maintenance</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🌐</span>
+                <h4>Cisco</h4>
+                <p>Partenariat maintenance réseau</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">📹</span>
+                <h4>Hikvision</h4>
+                <p>Centre de service agréé</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">☀️</span>
+                <h4>Suntech</h4>
+                <p>Service après-vente agréé</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Garantie -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Notre Engagement</h2>
+        </div>
+        <div class="guarantee-box">
+            <span class="guarantee-icon">🤝</span>
+            <h3>Engagement de service</h3>
+            <ul>
+                <li>SLA d'intervention garanti sous peine de pénalités</li>
+                <li>Techniciens certifiés et formés en continu</li>
+                <li>Pièces détachées d'origine constructeur</li>
+                <li>Reporting mensuel pour les contrats Premium</li>
+                <li>Application mobile pour suivre vos interventions</li>
+                <li>Facturation mensuelle ou annuelle au choix</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Questions Fréquentes</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    Qu'est-ce qu'un contrat SLA ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Un SLA (Service Level Agreement) est un contrat de niveau de service qui définit précisément les engagements de maintenance : délais d'intervention, horaires de couverture, pièces incluses, reporting, etc. C'est une garantie de qualité de service avec des indicateurs mesurables.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+            Pourquoi souscrire un contrat de maintenance ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Un contrat de maintenance vous assure une intervention prioritaire, réduit les temps d'arrêt, prolonge la durée de vie de vos équipements et vous évite des coûts de dépannage imprévus souvent plus élevés. C'est un investissement qui se rentabilise rapidement.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Proposez-vous une maintenance sans contrat ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Oui, nous proposons également des interventions ponctuelles de dépannage sans contrat. Cependant, les clients sous contrat SLA bénéficient d'une priorité d'intervention, de tarifs préférentiels et d'un suivi régulier de leurs installations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Devis -->
+<section class="service-section" id="devis">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Demander un Devis</h2>
+        </div>
+        <div style="text-align: center; max-width: 36rem; margin: 0 auto;">
+            <p style="color: var(--muted-foreground); margin-bottom: 2rem;">Confiez la maintenance de vos installations à des professionnels de confiance.</p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="tel:+33503720303" class="btn btn-primary">📞 05 03 72 03 03</a>
+                <a href="mailto:cotechsarl@gmail.com" class="btn btn-secondary">✉️ Nous écrire</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

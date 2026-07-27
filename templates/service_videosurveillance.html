@@ -1,0 +1,301 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Vidéosurveillance - TECH CONCEPT SARL{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero page-hero-services">
+    <div class="container">
+        <div class="page-hero-content">
+            <div>
+                <a href="{% url 'home' %}" class="back-link">← Retour à l'accueil</a>
+                <div class="breadcrumb">
+                    <a href="{% url 'home' %}">Accueil</a>
+                    <span>/</span>
+                    <span>Vidéosurveillance</span>
+                </div>
+                <span class="page-hero-icon">📹</span>
+                <h1>Vidéosurveillance</h1>
+                <p>Systèmes de caméras haute définition 4K pour une surveillance 24h/24. Protégez vos biens et vos collaborateurs.</p>
+                <div class="page-hero-buttons">
+                    <a href="#devis" class="btn btn-white">Demander un devis gratuit</a>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <img src="{% static 'media/images6.jpeg' %}" alt="Vidéosurveillance">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Présentation -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Présentation</h2>
+            <p>Une surveillance visuelle complète pour votre tranquillité</p>
+        </div>
+        <div class="intro-content">
+            <div class="intro-text">
+                <p><strong>TECH CONCEPT SARL</strong> vous propose des solutions de vidéosurveillance professionnelles adaptées à tous les types de bâtiments. Que vous soyez un commerce, une entreprise, une administration ou un particulier, nous concevons et installons des systèmes sur mesure pour sécuriser vos espaces.</p>
+                <p>Nos systèmes intègrent les dernières technologies : caméras haute définition 4K, vision nocturne avancée, détection intelligente par IA, stockage cloud sécurisé et accès à distance via application mobile.</p>
+                <p>Avec nos solutions, surveillez vos locaux en temps réel, où que vous soyez, et recevez des alertes instantanées en cas d'activité suspecte.</p>
+            </div>
+            <div class="intro-image">
+                <img src="{% static 'media/images6.jpeg' %}" alt="Vidéosurveillance">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pourquoi choisir -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Pourquoi choisir nos solutions ?</h2>
+            <p>Les avantages de la vidéosurveillance professionnelle</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">📸</span>
+                <h3>Images 4K Ultra HD</h3>
+                <p>Des images d'une netteté exceptionnelle pour identifier avec précision les personnes, les véhicules et les objets.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🧠</span>
+                <h3>Intelligence Artificielle</h3>
+                <p>Détection intelligente des mouvements, reconnaissance faciale et analyse comportementale pour réduire les fausses alertes.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">☁️</span>
+                <h3>Stockage Cloud Sécurisé</h3>
+                <p>Vos enregistrements sauvegardés dans le cloud avec chiffrement de bout en bout. Accessibles partout, sécurisés en toutes circonstances.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📱</span>
+                <h3>Accès à distance</h3>
+                <p>Surveillez vos caméras en temps réel depuis votre smartphone, tablette ou ordinateur, où que vous soyez dans le monde.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔔</span>
+                <h3>Alertes instantanées</h3>
+                <p>Recevez des notifications push en temps réel en cas de détection d'intrusion ou d'activité anormale.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🌙</span>
+                <h3>Vision nocturne</h3>
+                <p>Vision nocturne haute performance jusqu'à 50 mètres pour une surveillance efficace 24h/24 et 7j/7.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Étapes -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Étapes d'Installation</h2>
+            <p>Notre processus en 5 étapes</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>Audit de sécurité</h3>
+                    <p>Analyse de vos locaux, identification des zones à risque et définition de vos besoins en surveillance.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>Conception du système</h3>
+                    <p>Choix du nombre et du type de caméras, positionnement optimal et planification du câblage réseau.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>Installation des équipements</h3>
+                    <p>Pose professionnelle des caméras, câblage structuré, configuration des enregistreurs et du réseau.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div>
+                    <h3>Configuration et paramétrage</h3>
+                    <p>Calibration des caméras, réglage des zones de détection, configuration des alertes et accès à distance.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div>
+                    <h3>Formation et mise en service</h3>
+                    <p>Formation de vos équipes à l'utilisation du système et mise en service avec test complet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Marques -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Marques Utilisées</h2>
+            <p>Les leaders mondiaux de la vidéosurveillance</p>
+        </div>
+        <div class="brands-grid">
+            <div class="brand-item">
+                <span class="brand-logo">📹</span>
+                <h4>Hikvision</h4>
+                <p>Caméras et enregistreurs</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">📷</span>
+                <h4>Dahua</h4>
+                <p>Solutions de surveillance</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🎥</span>
+                <h4>Axis Communications</h4>
+                <p>Caméras professionnelles</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🖥️</span>
+                <h4>Bosch Security</h4>
+                <p>Systèmes de sécurité</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">📡</span>
+                <h4>Ubiquiti UniFi</h4>
+                <p>Caméras IP Protect</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">💾</span>
+                <h4>Synology</h4>
+                <p>NVR et stockage</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Garantie -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Garantie</h2>
+        </div>
+        <div class="guarantee-box">
+            <span class="guarantee-icon">🛡️</span>
+            <h3>Garantie complète sur vos systèmes</h3>
+            <ul>
+                <li>Garantie de 5 ans sur l'installation complète</li>
+                <li>Garantie constructeur de 3 ans sur les caméras</li>
+                <li>Garantie de 3 ans sur les enregistreurs NVR</li>
+                <li>Maintenance préventive et curative incluse</li>
+                <li>Assistance technique 24h/24 et 7j/7</li>
+                <li>Extension de garantie possible jusqu'à 10 ans</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Galerie -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Réalisations Vidéosurveillance</h2>
+        </div>
+        <div class="service-gallery-grid">
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images6.jpeg' %}" alt="Vidéosurveillance - Projet 1">
+                <span class="gallery-label">Entrepôt logistique 32 caméras</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images4.jpeg' %}" alt="Vidéosurveillance - Projet 2">
+                <span class="gallery-label">Bureau commercial 8 caméras</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images5.jpeg' %}" alt="Vidéosurveillance - Projet 3">
+                <span class="gallery-label">Parking extérieur 16 caméras</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images7.jpeg' %}" alt="Vidéosurveillance - Projet 4">
+                <span class="gallery-label">Centre commercial 64 caméras</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Questions Fréquentes</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    Quelle est la différence entre une caméra analogique et IP ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Les caméras IP offrent une bien meilleure résolution (jusqu'à 4K et plus), une installation simplifiée via le réseau Ethernet, des fonctionnalités intelligentes (détection IA, audio bidirectionnel) et une intégration facilitée avec d'autres systèmes de sécurité.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Combien de temps sont conservés les enregistrements ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>La durée de conservation dépend de votre besoin : de 7 jours à 90 jours selon la capacité de stockage. Nous proposons des solutions de stockage local (NVR) et cloud pouvant être configurées selon la réglementation en vigueur (RGPD).</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Puis-je accéder à mes caméras depuis mon téléphone ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Oui, toutes nos solutions incluent un accès à distance via une application mobile intuitive compatible iOS et Android. Vous pouvez visualiser vos caméras en direct, consulter les enregistrements et recevoir des alertes où que vous soyez.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Les caméras sont-elles visibles ou discrètes ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Nous proposons les deux options. Les caméras visibles ont un effet dissuasif, tandis que les caméras discrètes (dômes, miniatures) permettent une surveillance plus discrète. Notre équipe vous conseille sur le meilleur choix selon vos objectifs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Devis -->
+<section class="service-section" id="devis">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Demander un Devis</h2>
+        </div>
+        <div style="text-align: center; max-width: 36rem; margin: 0 auto;">
+            <p style="color: var(--muted-foreground); margin-bottom: 2rem;">Protégez ce qui compte pour vous. Contactez nos experts en vidéosurveillance dès aujourd'hui.</p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="tel:+33503720303" class="btn btn-primary">📞 Appelez-nous : 05 03 72 03 03</a>
+                <a href="mailto:cotechsarl@gmail.com" class="btn btn-secondary">✉️ Envoyez un email</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

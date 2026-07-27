@@ -1,0 +1,339 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Réseau Informatique - TECH CONCEPT SARL{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero-services">
+    <div class="container">
+        <div class="page-hero-content">
+            <div>
+                <a href="{% url 'home' %}" class="back-link">← Retour à l'accueil</a>
+                <div class="breadcrumb">
+                    <a href="{% url 'home' %}">Accueil</a>
+                    <span>/</span>
+                    <span>Réseau Informatique</span>
+                </div>
+                <span class="page-hero-icon">🌐</span>
+                <h1>Réseau Informatique</h1>
+                <p>Conception et déploiement de réseaux performants et sécurisés. Infrastructure cloud et solutions hybrides.</p>
+                <div class="page-hero-buttons">
+                    <a href="#devis" class="btn btn-white">Demander un devis</a>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <img src="{% static 'media/images4.jpeg' %}" alt="Réseau Informatique">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Présentation</h2>
+        </div>
+        <div class="intro-content">
+            <div class="intro-text">
+                <p><strong>TECH CONCEPT SARL</strong> conçoit et déploie des infrastructures réseaux performantes, sécurisées et évolutives pour les entreprises de toutes tailles.</p>
+                <p>De la petite PME au grand groupe, nous installons des réseaux informatiques fiables incluant le câblage structuré (Cat6A, fibre optique), les équipements actifs (switchs, routeurs, firewalls), le Wi-Fi professionnel (WPA3, Wi-Fi 6/6E) et les solutions cloud.</p>
+                <p>Notre objectif : vous garantir une connectivité optimale, une sécurité maximale et une infrastructure prête pour le futur.</p>
+            </div>
+            <div class="intro-image">
+                <img src="{% static 'media/images4.jpeg' %}" alt="Réseau Informatique">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Pourquoi choisir nos solutions ?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🚀</span>
+                <h3>Haut débit garanti</h3>
+                <p>Réseaux câblés Gigabit et 10 Gigabit avec fibre optique pour des débits jusqu'à 10 Gbps.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📶</span>
+                <h3>Wi-Fi professionnel</h3>
+                <p>Couverture Wi-Fi 6/6E homogène et sans interruption. Roaming transparent et bande passante optimisée.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔒</span>
+                <h3>Sécurité renforcée</h3>
+                <p>Firewall nouvelle génération, VLAN, segmentation réseau, VPN, contrôle d'accès NAC et WPA3.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">☁️</span>
+                <h3>Solutions Cloud</h3>
+                <p>Infrastructure hybride, cloud privé/public, SD-WAN et télétravail sécurisé.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📈</span>
+                <h3>Évolutivité</h3>
+                <p>Infrastructure conçue pour évoluer avec votre entreprise. Ajout de postes, de sites ou de services sans refonte.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🛠️</span>
+                <h3>Support & Supervision</h3>
+                <p>Supervision 24h/24, maintenance préventive et corrective, intervention rapide sur site ou à distance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Nos Solutions Réseau</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🔗</span>
+                <h3>Câblage structuré</h3>
+                <p>Câblage cuivre Cat6A, fibre optique multimode/monomode. Baies de brassage organisées, certification Fluke.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📡</span>
+                <h3>Wi-Fi d'entreprise</h3>
+                <p>Bornes Wi-Fi 6E, contrôleur WiFi, portail captif, analyse de couverture et optimisation des fréquences.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🖥️</span>
+                <h3>Réseau local (LAN)</h3>
+                <p>Switchs managed PoE+, routeurs professionnels, VLAN par service, QoS pour applications critiques.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🌍</span>
+                <h3>Réseau étendu (WAN)</h3>
+                <p>VPN site-à-site, SD-WAN, MPLS, liaison redondante entre sites distants avec basculement automatique.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🛡️</span>
+                <h3>Sécurité réseau</h3>
+                <p>Firewall NGFW, IDS/IPS, anti-DDoS, proxy, filtrage web, antivirus réseau, authentification 2FA.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">💻</span>
+                <h3>Télétravail sécurisé</h3>
+                <p>VPN SSL/IPsec, bureau virtuel, accès distant sécurisé, BYOD, solution de visioconférence.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Étapes de Déploiement</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>Audit de l'existant</h3>
+                    <p>Analyse de votre infrastructure actuelle, identification des points faibles et définition des besoins.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>Architecture réseau</h3>
+                    <p>Conception de l'architecture réseau, choix des équipements et planification du déploiement.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>Déploiement</h3>
+                    <p>Câblage, installation des équipements, configuration des switchs, routeurs, bornes WiFi et firewall.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div>
+                    <h3>Tests et optimisation</h3>
+                    <p>Tests de débit, cartographie WiFi, vérification de la sécurité, optimisation des performances.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div>
+                    <h3>Formation & documentation</h3>
+                    <p>Formation de votre équipe IT, remise de la documentation technique et mise en place de la supervision.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Marques Utilisées</h2>
+        </div>
+        <div class="brands-grid">
+            <div class="brand-item">
+                <span class="brand-logo">🌐</span>
+                <h4>Cisco</h4>
+                <p>Switchs, routeurs, firewall</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">📶</span>
+                <h4>Ubiquiti UniFi</h4>
+                <p>Wi-Fi et équipements réseau</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🛡️</span>
+                <h4>Fortinet</h4>
+                <p>Firewalls et sécurité</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🔗</span>
+                <h4>MikroTik</h4>
+                <p>Routeurs et solutions ISP</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">📦</span>
+                <h4>Synology</h4>
+                <p>Stockage NAS et sauvegarde</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">☁️</span>
+                <h4>Aruba (HPE)</h4>
+                <p>Solutions Wi-Fi et switching</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🔌</span>
+                <h4>PatchSee</h4>
+                <p>Câblage structuré certifié</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">📊</span>
+                <h4>PRTG</h4>
+                <p>Supervision réseau</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Garantie</h2>
+        </div>
+        <div class="guarantee-box">
+            <span class="guarantee-icon">🛡️</span>
+            <h3>Garantie et support technique</h3>
+            <ul>
+                <li>Garantie de 5 ans sur l'installation et le câblage</li>
+                <li>Garantie constructeur sur tous les équipements</li>
+                <li>Contrat de maintenance préventive et corrective</li>
+                <li>Supervision réseau 24h/24 et 7j/7</li>
+                <li>SLA d'intervention sous 4 heures</li>
+                <li>Mise à jour firmware et correctifs de sécurité</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Réalisations</h2>
+        </div>
+        <div class="service-gallery-grid">
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images4.jpeg' %}" alt="Réseau Projet 1">
+                <span class="gallery-label">Siège social - 250 postes</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images5.jpeg' %}" alt="Réseau Projet 2">
+                <span class="gallery-label">Data Center - Fibre optique</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images6.jpeg' %}" alt="Réseau Projet 3">
+                <span class="gallery-label">Wi-Fi campus - 50 bornes</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images8.jpeg' %}" alt="Réseau Projet 4">
+                <span class="gallery-label">Réseau multi-sites VPN</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Questions Fréquentes</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    Quelle est la différence entre Wi-Fi 5, Wi-Fi 6 et Wi-Fi 6E ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Le Wi-Fi 6 (802.11ax) offre un débit jusqu'à 40% supérieur au Wi-Fi 5, une meilleure gestion des appareils connectés et une latence réduite. Le Wi-Fi 6E ajoute une nouvelle bande 6 GHz pour encore plus de débit et moins d'interférences. Idéal pour les environnements denses.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Quel type de câble réseau choisir ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Pour une installation professionnelle, nous recommandons le Cat6A (classe EA) qui supporte le 10 Gigabit jusqu'à 100 mètres. Pour les liaisons longues distances ou les débits très élevés, la fibre optique multimode OM4 ou monomode est la solution idéale.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Comment sécuriser mon réseau d'entreprise ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Une sécurisation complète passe par : un firewall nouvelle génération, la segmentation en VLAN, le contrôle d'accès (NAC/802.1X), le chiffrement WiFi WPA3-Enterprise, un VPN pour les accès distants, et une supervision continue des menaces. Nous vous accompagnons dans la mise en place de ces solutions.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Proposez-vous des contrats de maintenance réseau ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Oui, nous proposons plusieurs niveaux de contrats : maintenance préventive (supervision, mises à jour, rapports mensuels), maintenance corrective (intervention sous 4h ou 24h), et contrat full managed (gestion complète de votre infrastructure réseau).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section" id="devis">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Demander un Devis</h2>
+        </div>
+        <div style="text-align: center; max-width: 36rem; margin: 0 auto;">
+            <p style="color: var(--muted-foreground); margin-bottom: 2rem;">Optimisez votre infrastructure réseau avec nos experts.</p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="tel:+33503720303" class="btn btn-primary">📞 05 03 72 03 03</a>
+                <a href="mailto:cotechsarl@gmail.com" class="btn btn-secondary">✉️ Nous écrire</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

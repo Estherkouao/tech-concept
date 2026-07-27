@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Clôture Électrique - TECH CONCEPT SARL{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero page-hero-services">
+    <div class="container">
+        <div class="page-hero-content">
+            <div>
+                <a href="{% url 'home' %}" class="back-link">← Retour à l'accueil</a>
+                <div class="breadcrumb">
+                    <a href="{% url 'home' %}">Accueil</a>
+                    <span>/</span>
+                    <span>Clôture Électrique</span>
+                </div>
+                <span class="page-hero-icon">⚡</span>
+                <h1>Clôture Électrique</h1>
+                <p>Solutions de protection périmétrique dissuasives et efficaces. Sécurisez votre propriété avec nos systèmes intelligents.</p>
+                <div class="page-hero-buttons">
+                    <a href="#devis" class="btn btn-white">Demander un devis</a>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <img src="{% static 'media/images7.jpeg' %}" alt="Clôture Électrique">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Présentation -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Présentation</h2>
+        </div>
+        <div class="intro-content">
+            <div class="intro-text">
+                <p><strong>TECH CONCEPT SARL</strong> conçoit et installe des systèmes de clôtures électriques et de protection périmétrique pour sécuriser vos propriétés résidentielles, commerciales et industrielles.</p>
+                <p>Nos solutions de clôture électrique sont dissuasives, fiables et conformes aux normes de sécurité en vigueur. Elles constituent une barrière physique et psychologique efficace contre les intrusions.</p>
+                <p>Nous proposons également des systèmes de détection périmétrique intelligents qui détectent toute tentative d'intrusion et déclenchent une alarme instantanée.</p>
+            </div>
+            <div class="intro-image">
+                <img src="{% static 'media/images7.jpeg' %}" alt="Clôture Électrique">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pourquoi choisir -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Pourquoi choisir nos solutions ?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🛡️</span>
+                <h3>Protection dissuasive</h3>
+                <p>Effet dissuasif puissant grâce à la signalisation visible et la barrière électrique. Réduit considérablement les risques d'intrusion.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔍</span>
+                <h3>Détection intelligente</h3>
+                <p>Systèmes de détection périmétrique avec analyse des perturbations pour distinguer une menace réelle d'une fausse alerte.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔔</span>
+                <h3>Alerte instantanée</h3>
+                <p>Notification immédiate sur votre smartphone en cas de tentative d'intrusion ou de coupure du câble.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔋</span>
+                <h3>Autonomie et fiabilité</h3>
+                <p>Alimentation sécurisée avec batterie de secours. Fonctionnement garanti même en cas de coupure secteur.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📐</span>
+                <h3>Sur mesure</h3>
+                <p>Solutions adaptées à tous types de terrains et de périmètres. Installation discrète ou visible selon vos préférences.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔗</span>
+                <h3>Intégration alarme</h3>
+                <p>Compatible avec vos systèmes d'alarme existants, vidéosurveillance et contrôle d'accès pour une sécurité globale.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Étapes -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Étapes d'Installation</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>Étude du terrain</h3>
+                    <p>Analyse du périmètre, du type de sol et des points d'accès pour déterminer la solution la plus adaptée.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>Conception du système</h3>
+                    <p>Choix du type de clôture, de l'électrificateur, du nombre de fils et des accessoires de détection.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>Installation des poteaux</h3>
+                    <p>Pose des poteaux d'angle, intermédiaires et des isolateurs. Tension et alignement des câbles conducteurs.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div>
+                    <h3>Mise en place de l'électrificateur</h3>
+                    <p>Installation de l'électrificateur, raccordement à la terre, paramétrage de la puissance et test de la barrière.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div>
+                    <h3>Test et configuration</h3>
+                    <p>Test de détection, réglage de la sensibilité, configuration des alertes et formation à l'utilisation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Marques -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Marques Utilisées</h2>
+        </div>
+        <div class="brands-grid">
+            <div class="brand-item">
+                <span class="brand-logo">⚡</span>
+                <h4>Gallagher</h4>
+                <p>Électrificateurs professionnels</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🪵</span>
+                <h4>Stafix</h4>
+                <p>Solutions de clôture électrique</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🔌</span>
+                <h4>Nemtek</h4>
+                <p>Électrificateurs sécurité</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🛡️</span>
+                <h4>Zaun</h4>
+                <p>Clôtures et grilles</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">📡</span>
+                <h4>Optex</h4>
+                <p>Barrières infrarouges</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🧱</span>
+                <h4>BFT</h4>
+                <p>Motorisation de portail</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Garantie -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Garantie</h2>
+        </div>
+        <div class="guarantee-box">
+            <span class="guarantee-icon">🛡️</span>
+            <h3>Garantie complète</h3>
+            <ul>
+                <li>Garantie de 5 ans sur l'installation</li>
+                <li>Garantie de 3 ans sur l'électrificateur</li>
+                <li>Garantie de 2 ans sur les accessoires</li>
+                <li>Maintenance préventive annuelle</li>
+                <li>Intervention de dépannage sous 48h</li>
+                <li>Assistance téléphonique 7j/7</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Questions Fréquentes</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    La clôture électrique est-elle dangereuse ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Non, nos clôtures électriques sont conçues pour être dissuasives sans être dangereuses. L'impulsion électrique est de très courte durée (quelques millièmes de seconde) et à haute tension mais faible intensité, ce qui provoque une décharge désagréable mais sans danger pour la vie.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Quelle est la consommation électrique d'une clôture ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>La consommation est très faible, de l'ordre de quelques watts par jour. Nos électrificateurs dernière génération sont très économes et peuvent fonctionner sur batterie avec panneau solaire pour une autonomie totale.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Peut-on installer une clôture électrique sur un mur existant ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Oui, tout à fait. Nous pouvons installer des fils conducteurs sur le dessus ou le long d'un mur existant pour renforcer sa sécurité. C'est une solution très efficace pour protéger un périmètre déjà bâti.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Devis -->
+<section class="service-section" id="devis">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Demander un Devis</h2>
+        </div>
+        <div style="text-align: center; max-width: 36rem; margin: 0 auto;">
+            <p style="color: var(--muted-foreground); margin-bottom: 2rem;">Sécurisez votre périmètre dès aujourd'hui. Contactez nos experts.</p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="tel:+33503720303" class="btn btn-primary">📞 05 03 72 03 03</a>
+                <a href="mailto:cotechsarl@gmail.com" class="btn btn-secondary">✉️ Nous écrire</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

@@ -1,2029 +1,1835 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TECH CONCEPT SARL - Solutions électroniques globales : énergie solaire, électricité générale, réseaux informatiques, sécurité incendie et bien plus.">
-    <meta name="theme-color" content="#DC143C">
-    <title>TECH CONCEPT SARL - Solutions Électroniques Globales</title>
-    {% load static %}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ============================================
-           TECH CONCEPT SARL - Styles CSS
-           Modern Industrial Elegance Design
-           ============================================ */
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}TECH CONCEPT SARL - Solutions Électroniques Globales{% endblock %}
 
-        /* Root Variables */
-        :root {
-            --primary: #DC143C;
-            --primary-foreground: #F8F8F8;
-            --foreground: #1A1A1A;
-            --background: #F8F8F8;
-            --card: #FFFFFF;
-            --secondary: #E8F0F8;
-            --muted: #E0E0E0;
-            --muted-foreground: #666666;
-            --border: #E0E0E0;
-            --accent: #DC143C;
-            --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-            --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-        }
+{% block extra_css %}
+<style>
+    /* ============================================
+       HERO SECTION (Homepage-specific)
+       ============================================ */
 
-        /* Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .hero {
+        padding-top: 12rem;
+        padding-bottom: 6rem;
+        background: linear-gradient(to bottom, rgba(232, 240, 248, 0.3), transparent);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    .hero-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        align-items: center;
+        width: 100%;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--foreground);
-            background-color: var(--background);
-            line-height: 1.6;
-            font-size: 16px;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.3s var(--ease-out);
-        }
-
-        /* Container */
-        .container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        @media (min-width: 768px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .container {
-                padding: 0 2rem;
-            }
-        }
-
-        /* Utilities */
-        .accent-line {
-            height: 4px;
-            width: 48px;
-            background-color: var(--primary);
-            border-radius: 9999px;
-            margin-bottom: 1.5rem;
-        }
-
-        .text-primary {
-            color: var(--primary);
-        }
-
-        /* ============================================
-           HEADER & NAVIGATION
-           ============================================ */
-
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            background-color: transparent;
-            transition: all 0.3s var(--ease-out);
-        }
-
-        .header.scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        .nav-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 110px;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            animation: fadeIn 0.6s var(--ease-out);
-        }
-
-        .logo-img {
-            height: 90px;
-            width: auto;
-            object-fit: contain;
-            flex-shrink: 0;
-        }
-
-        .logo-text {
-            display: none;
-        }
-
-        @media (min-width: 640px) {
-            .logo-text {
-                display: block;
-            }
-
-            .logo-title {
-                font-size: 1.125rem;
-                font-weight: 700;
-                color: var(--primary);
-            }
-
-            .logo-subtitle {
-                font-size: 0.75rem;
-                color: var(--muted-foreground);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-img {
-                height: 70px;
-            }
-        }
-
-        /* Desktop Navigation */
-        .nav-desktop {
-            display: none;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .nav-desktop {
-                display: flex;
-            }
-        }
-
-        .nav-link {
-            font-weight: 500;
-            color: var(--foreground);
-            transition: color 0.3s var(--ease-out);
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-        }
-
-        .nav-link.cta-link {
-            background-color: var(--primary);
-            color: var(--primary-foreground);
-            padding: 0.5rem 1.5rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s var(--ease-out);
-        }
-
-        .nav-link.cta-link:hover {
-            transform: scale(1.05);
-        }
-
-        /* Mobile Menu */
-        .menu-toggle {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 0.5rem;
-            transition: background-color 0.3s var(--ease-out);
-        }
-
-        @media (min-width: 768px) {
-            .menu-toggle {
-                display: none;
-            }
-        }
-
-        .menu-toggle:hover {
-            background-color: var(--secondary);
-        }
-
-        .menu-toggle span {
-            width: 24px;
-            height: 2px;
-            background-color: var(--foreground);
-            transition: all 0.3s var(--ease-out);
-            border-radius: 1px;
-        }
-
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(8px, -8px);
-        }
-
-        /* Mobile Navigation */
-        .nav-mobile {
-            display: none;
-            flex-direction: column;
-            gap: 0.25rem;
-            background-color: white;
-            border-top: 1px solid var(--border);
-            padding: 0.75rem 0 1.25rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            animation: slideInUp 0.3s var(--ease-out);
-        }
-
-        .nav-mobile.active {
-            display: flex;
-        }
-
-        @media (min-width: 768px) {
-            .nav-mobile {
-                display: none !important;
-            }
-        }
-
-        .nav-link-mobile {
-            display: block;
-            padding: 0.85rem 1.5rem;
-            color: var(--foreground);
-            font-weight: 500;
-            font-size: 1.05rem;
-            border-radius: 0.5rem;
-            margin: 0 0.75rem;
-            transition: all 0.3s var(--ease-out);
-        }
-
-        .nav-link-mobile:hover {
-            color: var(--primary);
-            background-color: rgba(220, 20, 60, 0.05);
-        }
-
-        .nav-link-mobile:active {
-            background-color: rgba(220, 20, 60, 0.1);
-        }
-
-        .nav-link-mobile.cta-link {
-            background-color: var(--primary);
-            color: var(--primary-foreground);
-            border-radius: 0.5rem;
-            margin: 0.5rem 0.75rem 0;
-            text-align: center;
-            padding: 0.85rem 1.5rem;
-        }
-
-        .nav-link-mobile.cta-link:hover {
-            background-color: #b01030;
-            transform: scale(1.02);
-        }
-
-        /* ============================================
-           HERO SECTION
-           ============================================ */
-
-        .hero {
-            padding-top: 9rem;
-            padding-bottom: 5rem;
-            background: linear-gradient(to bottom, rgba(232, 240, 248, 0.3), transparent);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-
+    @media (min-width: 1024px) {
         .hero-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            align-items: center;
-            width: 100%;
+            grid-template-columns: 1fr 1fr;
         }
+    }
 
-        @media (min-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
+    .hero-text {
+        animation: slideInLeft 0.6s var(--ease-out);
+    }
 
-        .hero-text {
-            animation: slideInLeft 0.6s var(--ease-out);
-        }
+    .hero-title {
+        font-size: 2.25rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
 
+    @media (min-width: 768px) {
         .hero-title {
-            font-size: 2rem;
-            line-height: 1.2;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
         }
+    }
 
-        @media (min-width: 768px) {
-            .hero-title {
-                font-size: 3rem;
-            }
+    @media (min-width: 1024px) {
+        .hero-title {
+            font-size: 4rem;
         }
+    }
 
-        @media (min-width: 1024px) {
-            .hero-title {
-                font-size: 3.5rem;
-            }
-        }
+    .hero-description {
+        font-size: 1.25rem;
+        color: var(--muted-foreground);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
 
-        .hero-description {
-            font-size: 1.125rem;
-            color: var(--muted-foreground);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 
+    @media (min-width: 640px) {
         .hero-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            flex-direction: row;
         }
+    }
 
-        @media (min-width: 640px) {
-            .hero-buttons {
-                flex-direction: row;
-            }
-        }
+    .hero-image {
+        animation: slideInRight 0.6s var(--ease-out);
+        height: 100%;
+        display: flex;
+        align-items: stretch;
+    }
 
-        .hero-image {
-            animation: slideInRight 0.6s var(--ease-out);
-            height: 100%;
-            display: flex;
-            align-items: stretch;
-        }
+    .image-placeholder {
+        width: 100%;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+        background: linear-gradient(135deg, #DC143C 0%, #E74C3C 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        position: relative;
+        min-height: 450px;
+    }
 
+    @media (min-width: 1024px) {
         .image-placeholder {
-            width: 100%;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
-            background: linear-gradient(135deg, #DC143C 0%, #E74C3C 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-            position: relative;
-            min-height: 350px;
-        }
-
-        @media (min-width: 1024px) {
-            .image-placeholder {
-                height: 100%;
-                min-height: 550px;
-            }
-        }
-
-        /* Slideshow fade animation */
-        .hero-slideshow-img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
             height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+            min-height: 700px;
         }
+    }
 
-        .hero-slideshow-img.active {
-            opacity: 1;
+    /* Slideshow fade animation */
+    .hero-slideshow-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .hero-slideshow-img.active {
+        opacity: 1;
+    }
+
+    /* ============================================
+       SERVICES SECTION (Homepage-specific)
+       ============================================ */
+
+    .services {
+        padding: 5rem 0;
+        background-color: white;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+        .services-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
+    }
 
-        /* ============================================
-           BUTTONS
-           ============================================ */
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem 2rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            transition: all 0.3s var(--ease-out);
-            border: 2px solid transparent;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            position: relative;
-            overflow: hidden;
+    @media (min-width: 1024px) {
+        .services-grid {
+            grid-template-columns: repeat(3, 1fr);
         }
+    }
 
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--primary-foreground);
+    .service-card {
+        padding: 2rem;
+        background-color: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 0.5rem;
+        transition: all 0.3s var(--ease-out);
+        animation: fadeInUp 0.6s var(--ease-out);
+    }
+
+    .service-card:nth-child(1) { animation-delay: 0s; }
+    .service-card:nth-child(2) { animation-delay: 0.1s; }
+    .service-card:nth-child(3) { animation-delay: 0.2s; }
+    .service-card:nth-child(4) { animation-delay: 0.3s; }
+    .service-card:nth-child(5) { animation-delay: 0.4s; }
+    .service-card:nth-child(6) { animation-delay: 0.5s; }
+
+    .service-card:hover {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        transform: translateY(-4px);
+    }
+
+    .service-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    .service-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+        color: var(--muted-foreground);
+        font-size: 0.95rem;
+    }
+
+    /* ============================================
+       EXPERTISE SECTION (Homepage-specific)
+       ============================================ */
+
+    .expertise {
+        padding: 5rem 0;
+        background-color: rgba(232, 240, 248, 0.1);
+    }
+
+    .expertise-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 56rem;
+        margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+        .expertise-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
+    }
 
-        .btn-primary:hover {
-            transform: scale(1.05);
+    .expertise-card {
+        display: flex;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        background-color: white;
+        border: 1px solid var(--border);
+        border-radius: 0.5rem;
+        transition: all 0.3s var(--ease-out);
+        animation: fadeInUp 0.6s var(--ease-out);
+    }
+
+    .expertise-card:nth-child(1) { animation-delay: 0s; }
+    .expertise-card:nth-child(2) { animation-delay: 0.1s; }
+    .expertise-card:nth-child(3) { animation-delay: 0.2s; }
+    .expertise-card:nth-child(4) { animation-delay: 0.3s; }
+    .expertise-card:nth-child(5) { animation-delay: 0.4s; }
+
+    .expertise-card:hover {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        transform: translateY(-4px);
+    }
+
+    .expertise-icon {
+        font-size: 2rem;
+        flex-shrink: 0;
+    }
+
+    .expertise-card h3 {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .expertise-card p {
+        color: var(--muted-foreground);
+        font-size: 0.9rem;
+    }
+
+    /* ============================================
+       ARTICLES / BLOG SECTION (Homepage-specific)
+       ============================================ */
+
+    .articles {
+        padding: 5rem 0;
+        background-color: rgba(232, 240, 248, 0.1);
+    }
+
+    .articles-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    @media (min-width: 640px) {
+        .articles-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
+    }
 
-        .btn-primary:active {
-            transform: scale(0.97);
+    @media (min-width: 1024px) {
+        .articles-grid {
+            grid-template-columns: repeat(3, 1fr);
         }
+    }
 
-        .btn-secondary {
-            border-color: var(--primary);
-            color: var(--primary);
-            background-color: transparent;
+    .article-card {
+        background-color: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        overflow: hidden;
+        transition: all 0.3s var(--ease-out);
+        animation: fadeInUp 0.6s var(--ease-out);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .article-card:nth-child(1) { animation-delay: 0s; }
+    .article-card:nth-child(2) { animation-delay: 0.15s; }
+    .article-card:nth-child(3) { animation-delay: 0.3s; }
+
+    .article-card:hover {
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+        transform: translateY(-6px);
+    }
+
+    .article-image {
+        height: 200px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #E8F0F8 0%, #F0F8FF 100%);
+        position: relative;
+    }
+
+    @media (min-width: 768px) {
+        .article-image {
+            height: 220px;
         }
+    }
 
-        .btn-secondary:hover {
-            background-color: rgba(220, 20, 60, 0.05);
+    .article-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s var(--ease-out);
+    }
+
+    .article-card:hover .article-image img {
+        transform: scale(1.08);
+    }
+
+    .article-tag {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: var(--primary);
+        color: white;
+        padding: 0.35rem 0.85rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .article-body {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    .article-date {
+        font-size: 0.85rem;
+        color: var(--muted-foreground);
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .article-body h3 {
+        font-size: 1.125rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.4;
+        transition: color 0.3s var(--ease-out);
+    }
+
+    .article-card:hover .article-body h3 {
+        color: var(--primary);
+    }
+
+    .article-body p {
+        color: var(--muted-foreground);
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 1.25rem;
+        flex-grow: 1;
+    }
+
+    .article-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: gap 0.3s var(--ease-out);
+    }
+
+    .article-link:hover {
+        gap: 0.75rem;
+    }
+
+    .article-divider {
+        width: 100%;
+        height: 1px;
+        background: var(--border);
+        margin: 0.75rem 0;
+    }
+
+    .article-author {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-size: 0.85rem;
+        color: var(--muted-foreground);
+    }
+
+    .article-author-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #DC143C 0%, #E74C3C 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 700;
+    }
+
+    .articles-cta {
+        text-align: center;
+        margin-top: 3rem;
+    }
+
+    /* ============================================
+       NOS RÉALISATIONS (Homepage-specific)
+       ============================================ */
+
+    .realisations {
+        padding: 5rem 0;
+        background-color: white;
+    }
+
+    .realisations-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    @media (min-width: 1024px) {
+        .realisations-grid {
+            grid-template-columns: 1fr;
         }
+    }
 
-        .btn-white {
-            background-color: white;
-            color: var(--primary);
+    .projet-card {
+        background-color: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        overflow: hidden;
+        transition: all 0.3s var(--ease-out);
+        animation: fadeInUp 0.6s var(--ease-out);
+    }
+
+    .projet-card:nth-child(1) { animation-delay: 0s; }
+    .projet-card:nth-child(2) { animation-delay: 0.15s; }
+    .projet-card:nth-child(3) { animation-delay: 0.3s; }
+
+    .projet-card:hover {
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+        transform: translateY(-4px);
+    }
+
+    .projet-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem 2rem;
+        background: linear-gradient(135deg, var(--primary) 0%, rgba(220, 20, 60, 0.9) 100%);
+        color: white;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .projet-header h3 {
+        font-size: 1.25rem;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .projet-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0.3rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    .projet-body {
+        padding: 2rem;
+    }
+
+    /* Before / After photos */
+    .projet-photos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    @media (max-width: 480px) {
+        .projet-photos {
+            grid-template-columns: 1fr;
         }
+    }
 
-        .btn-white:hover {
-            transform: scale(1.05);
+    .photo-box {
+        border-radius: 0.75rem;
+        overflow: hidden;
+        position: relative;
+        height: 220px;
+    }
+
+    @media (min-width: 768px) {
+        .photo-box {
+            height: 260px;
         }
+    }
 
-        .btn-outline {
-            border-color: white;
-            color: white;
-            background-color: transparent;
+    .photo-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s var(--ease-out);
+    }
+
+    .projet-card:hover .photo-box img {
+        transform: scale(1.05);
+    }
+
+    .photo-label {
+        position: absolute;
+        top: 0.75rem;
+        left: 0.75rem;
+        padding: 0.3rem 0.85rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .photo-label.before {
+        background: rgba(0, 0, 0, 0.65);
+        color: white;
+    }
+
+    .photo-label.after {
+        background: var(--primary);
+        color: white;
+    }
+
+    /* Project details grid */
+    .projet-details {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+        .projet-details {
+            grid-template-columns: repeat(2, 1fr);
         }
+    }
 
-        .btn-outline:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+    @media (min-width: 768px) {
+        .projet-details {
+            grid-template-columns: repeat(3, 1fr);
         }
+    }
 
-        /* ============================================
-           SECTION HEADERS
-           ============================================ */
+    .detail-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.85rem 1rem;
+        background-color: rgba(232, 240, 248, 0.2);
+        border-radius: 0.5rem;
+        border: 1px solid rgba(220, 20, 60, 0.06);
+    }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-            animation: fadeInUp 0.6s var(--ease-out);
+    .detail-icon {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        border-radius: 0.375rem;
+        background: rgba(220, 20, 60, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+    }
+
+    .detail-content {
+        flex-grow: 1;
+    }
+
+    .detail-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--muted-foreground);
+        font-weight: 600;
+        margin-bottom: 0.15rem;
+    }
+
+    .detail-value {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--foreground);
+        line-height: 1.4;
+    }
+
+    .detail-value.small {
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: var(--muted-foreground);
+    }
+
+    .projet-footer {
+        padding: 1rem 2rem;
+        background-color: rgba(232, 240, 248, 0.3);
+        border-top: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .projet-footer .client-info {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .projet-footer .client-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #DC143C 0%, #E74C3C 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
+    .projet-footer .client-name {
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    .projet-footer .client-title {
+        font-size: 0.8rem;
+        color: var(--muted-foreground);
+    }
+
+    .projet-footer .projet-status {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    .projet-footer .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #22c55e;
+        display: inline-block;
+    }
+
+    /* Stats Section */
+    .stats {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, var(--primary) 0%, rgba(220, 20, 60, 0.9) 100%);
+        color: white;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    @media (min-width: 640px) {
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
+    }
 
-        .section-header .accent-line {
-            margin-left: auto;
-            margin-right: auto;
+    @media (min-width: 1024px) {
+        .stats-grid {
+            grid-template-columns: repeat(4, 1fr);
         }
+    }
 
+    .stat-card {
+        animation: fadeInUp 0.6s var(--ease-out);
+    }
+
+    .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        font-family: 'Poppins', sans-serif;
+        margin-bottom: 0.5rem;
+        color: white;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+
+    /* Testimonials */
+    .testimonials {
+        padding: 5rem 0;
+        background-color: white;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+        .testimonials-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .testimonials-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .testimonial-card {
+        padding: 2rem;
+        background-color: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        transition: all 0.3s var(--ease-out);
+        animation: fadeInUp 0.6s var(--ease-out);
+    }
+
+    .testimonial-card:hover {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        transform: translateY(-4px);
+    }
+
+    .testimonial-stars {
+        color: #f59e0b;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .testimonial-text {
+        color: var(--muted-foreground);
+        font-style: italic;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .testimonial-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #DC143C 0%, #E74C3C 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        font-size: 1.25rem;
+    }
+
+    .testimonial-name {
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+
+    .testimonial-company {
+        font-size: 0.85rem;
+        color: var(--muted-foreground);
+    }
+
+    /* ============================================
+       PROCESS SECTION (Homepage-specific)
+       ============================================ */
+
+    .process {
+        padding: 5rem 0;
+        background-color: rgba(232, 240, 248, 0.1);
+    }
+
+    .process-steps {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 72rem;
+        margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+        .process-steps {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .process-steps {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .process-step {
+        display: flex;
+        gap: 1.25rem;
+        padding: 1.5rem;
+        background-color: white;
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        transition: all 0.3s var(--ease-out);
+        animation: fadeInUp 0.6s var(--ease-out);
+    }
+
+    .process-step:nth-child(1) { animation-delay: 0s; }
+    .process-step:nth-child(2) { animation-delay: 0.05s; }
+    .process-step:nth-child(3) { animation-delay: 0.1s; }
+    .process-step:nth-child(4) { animation-delay: 0.15s; }
+    .process-step:nth-child(5) { animation-delay: 0.2s; }
+    .process-step:nth-child(6) { animation-delay: 0.25s; }
+    .process-step:nth-child(7) { animation-delay: 0.3s; }
+    .process-step:nth-child(8) { animation-delay: 0.35s; }
+    .process-step:nth-child(9) { animation-delay: 0.4s; }
+
+    .process-step:hover {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        transform: translateY(-4px);
+    }
+
+    .process-number {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #DC143C 0%, #E74C3C 100%);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.5rem;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .process-step h3 {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .process-step p {
+        color: var(--muted-foreground);
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    /* Gallery Section */
+    .gallery {
+        padding: 5rem 0;
+        background-color: white;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+        .gallery-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .gallery-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .gallery-item {
+        height: 200px;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s var(--ease-out);
+        position: relative;
+    }
+
+    .gallery-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .gallery-item .gallery-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.7));
+        opacity: 0;
+        transition: opacity 0.3s var(--ease-out);
+        display: flex;
+        align-items: flex-end;
+        padding: 1rem;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+    }
+
+    .gallery-overlay span {
+        color: white;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    /* ============================================
+       WHY CHOOSE US / POURQUOI NOUS CHOISIR
+       ============================================ */
+
+    .why-choose-us {
+        padding: 5rem 0;
+        background-color: rgba(232, 240, 248, 0.15);
+        position: relative;
+    }
+
+    .why-choose-us .section-header {
+        text-align: center;
+        margin-bottom: 3.5rem;
+    }
+
+    .why-choose-us .section-header .accent-line {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .why-choose-us .section-header h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+        .why-choose-us .section-header h2 {
+            font-size: 2rem;
+        }
+    }
+
+    .why-choose-us .section-header p {
+        color: var(--muted-foreground);
+        max-width: 36rem;
+        margin: 0 auto;
+    }
+
+    .why-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        max-width: 64rem;
+        margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+        .why-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .why-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .why-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.25rem 1.5rem;
+        background-color: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        transition: all 0.3s var(--ease-out);
+        animation: fadeInUp 0.6s var(--ease-out);
+    }
+
+    .why-item:nth-child(1) { animation-delay: 0s; }
+    .why-item:nth-child(2) { animation-delay: 0.05s; }
+    .why-item:nth-child(3) { animation-delay: 0.1s; }
+    .why-item:nth-child(4) { animation-delay: 0.15s; }
+    .why-item:nth-child(5) { animation-delay: 0.2s; }
+    .why-item:nth-child(6) { animation-delay: 0.25s; }
+    .why-item:nth-child(7) { animation-delay: 0.3s; }
+    .why-item:nth-child(8) { animation-delay: 0.35s; }
+    .why-item:nth-child(9) { animation-delay: 0.4s; }
+
+    .why-item:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        transform: translateY(-3px);
+        border-color: rgba(220, 20, 60, 0.2);
+    }
+
+    .why-check {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 700;
+        box-shadow: 0 4px 8px rgba(34, 197, 94, 0.3);
+    }
+
+    .why-item span:last-child {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--foreground);
+        line-height: 1.4;
+    }
+
+    @media (min-width: 768px) {
+        .why-item span:last-child {
+            font-size: 1.05rem;
+        }
+    }
+
+    /* Section headers general */
+    .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .section-header .accent-line {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-header h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
         .section-header h2 {
             font-size: 2rem;
-            margin-bottom: 1rem;
         }
-
-        @media (min-width: 768px) {
-            .section-header h2 {
-                font-size: 2.25rem;
-            }
-        }
-
-        .section-header p {
-            font-size: 1.125rem;
-            color: var(--muted-foreground);
-            max-width: 32rem;
-            margin: 0 auto;
-        }
-
-        /* ============================================
-           SERVICES SECTION
-           ============================================ */
-
-        .services {
-            padding: 5rem 0;
-            background-color: white;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .service-card {
-            padding: 2rem;
-            background-color: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            transition: all 0.3s var(--ease-out);
-            animation: fadeInUp 0.6s var(--ease-out);
-        }
-
-        .service-card:nth-child(1) { animation-delay: 0s; }
-        .service-card:nth-child(2) { animation-delay: 0.1s; }
-        .service-card:nth-child(3) { animation-delay: 0.2s; }
-        .service-card:nth-child(4) { animation-delay: 0.3s; }
-        .service-card:nth-child(5) { animation-delay: 0.4s; }
-        .service-card:nth-child(6) { animation-delay: 0.5s; }
-
-        .service-card:hover {
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            transform: translateY(-4px);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .service-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .service-card p {
-            color: var(--muted-foreground);
-            font-size: 0.95rem;
-        }
-
-        /* ============================================
-           EXPERTISE SECTION
-           ============================================ */
-
-        .expertise {
-            padding: 5rem 0;
-            background-color: rgba(232, 240, 248, 0.1);
-        }
-
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            max-width: 56rem;
-            margin: 0 auto;
-        }
-
-        @media (min-width: 768px) {
-            .expertise-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .expertise-card {
-            display: flex;
-            gap: 1.5rem;
-            padding: 1.5rem;
-            background-color: white;
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            transition: all 0.3s var(--ease-out);
-            animation: fadeInUp 0.6s var(--ease-out);
-        }
-
-        .expertise-card:nth-child(1) { animation-delay: 0s; }
-        .expertise-card:nth-child(2) { animation-delay: 0.1s; }
-        .expertise-card:nth-child(3) { animation-delay: 0.2s; }
-        .expertise-card:nth-child(4) { animation-delay: 0.3s; }
-        .expertise-card:nth-child(5) { animation-delay: 0.4s; }
-
-        .expertise-card:hover {
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            transform: translateY(-4px);
-        }
-
-        .expertise-icon {
-            font-size: 2rem;
-            flex-shrink: 0;
-        }
-
-        .expertise-card h3 {
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .expertise-card p {
-            color: var(--muted-foreground);
-            font-size: 0.9rem;
-        }
-
-        /* ============================================
-           GALLERY SECTION
-           ============================================ */
-
-        .gallery {
-            padding: 5rem 0;
-            background-color: white;
-        }
-
-        .gallery-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.5rem;
-        }
-
-        .gallery-track {
-            display: flex;
-            gap: 1.5rem;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding: 1rem 0;
-            scroll-snap-type: x mandatory;
-        }
-
-        .gallery-track::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .gallery-track::-webkit-scrollbar-track {
-            background: var(--border);
-            border-radius: 10px;
-        }
-
-        .gallery-track::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 10px;
-        }
-
-        .gallery-track::-webkit-scrollbar-thumb:hover {
-            background: rgba(220, 20, 60, 0.8);
-        }
-
-        .gallery-item {
-            flex: 0 0 calc(50% - 0.75rem);
-            min-width: 280px;
-            height: 280px;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            background: linear-gradient(135deg, #E8F0F8 0%, #F0F8FF 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--muted-foreground);
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s var(--ease-out);
-            scroll-snap-align: start;
-            cursor: pointer;
-            position: relative;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        @media (min-width: 768px) {
-            .gallery-item {
-                flex: 0 0 calc(33.333% - 1rem);
-                min-width: 300px;
-                height: 300px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .gallery-item {
-                flex: 0 0 calc(25% - 1.125rem);
-                min-width: 280px;
-                height: 280px;
-            }
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s var(--ease-out);
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            background: rgba(0, 0, 0, 0.4);
-        }
-
-        .gallery-overlay-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.3s var(--ease-out);
-        }
-
-        .gallery-item:hover .gallery-overlay-icon {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .gallery-controls {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .gallery-btn {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            border: 2px solid var(--primary);
-            background-color: transparent;
-            color: var(--primary);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s var(--ease-out);
-            font-size: 20px;
-        }
-
-        .gallery-btn:hover {
-            background-color: var(--primary);
-            color: white;
-            transform: scale(1.1);
-        }
-
-        .gallery-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* ============================================
-           VALUES SECTION
-           ============================================ */
-
-        .values {
-            padding: 5rem 0;
-            background-color: white;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .values-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        .value-card {
-            text-align: center;
-            animation: fadeInUp 0.6s var(--ease-out);
-        }
-
-        .value-card:nth-child(1) { animation-delay: 0s; }
-        .value-card:nth-child(2) { animation-delay: 0.1s; }
-        .value-card:nth-child(3) { animation-delay: 0.2s; }
-        .value-card:nth-child(4) { animation-delay: 0.3s; }
-
-        .value-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .value-card h3 {
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        /* ============================================
-           ABOUT SECTION
-           ============================================ */
-
-        .about {
-            padding: 5rem 0;
-            background-color: rgba(232, 240, 248, 0.1);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        @media (min-width: 1024px) {
-            .about-content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .about-text h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            color: var(--muted-foreground);
-            line-height: 1.8;
-        }
-
-        .about-list {
-            list-style: none;
-            margin-top: 2rem;
-        }
-
-        .about-list li {
-            padding: 0.75rem 0;
-            padding-left: 2rem;
-            position: relative;
-            color: var(--muted-foreground);
-        }
-
-        .about-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-            font-size: 1.25rem;
-        }
-
-        .about-image {
-            height: 400px;
-            border-radius: 0.5rem;
-            background: linear-gradient(135deg, #E8F0F8 0%, #F0F8FF 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--muted-foreground);
-            font-size: 16px;
-        }
-
-        /* ============================================
-           STATS SECTION
-           ============================================ */
-
-        .stats {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, var(--primary) 0%, rgba(220, 20, 60, 0.9) 100%);
-            color: white;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .stats-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        .stat-card {
-            text-align: center;
-            animation: fadeInUp 0.6s var(--ease-out);
-        }
-
-        .stat-card:nth-child(1) { animation-delay: 0s; }
-        .stat-card:nth-child(2) { animation-delay: 0.1s; }
-        .stat-card:nth-child(3) { animation-delay: 0.2s; }
-        .stat-card:nth-child(4) { animation-delay: 0.3s; }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        /* ============================================
-           TESTIMONIALS SECTION
-           ============================================ */
-
-        .testimonials {
-            padding: 5rem 0;
-            background-color: white;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .testimonials-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .testimonial-card {
-            padding: 2rem;
-            background-color: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            transition: all 0.3s var(--ease-out);
-            animation: fadeInUp 0.6s var(--ease-out);
-        }
-
-        .testimonial-card:nth-child(1) { animation-delay: 0s; }
-        .testimonial-card:nth-child(2) { animation-delay: 0.1s; }
-        .testimonial-card:nth-child(3) { animation-delay: 0.2s; }
-
-        .testimonial-card:hover {
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            transform: translateY(-4px);
-        }
-
-        .stars {
-            color: #FFC107;
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-
-        .testimonial-text {
-            color: var(--muted-foreground);
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            line-height: 1.8;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #DC143C 0%, #E74C3C 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-
-        .author-info h4 {
-            font-size: 0.95rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .author-info p {
-            font-size: 0.85rem;
-            color: var(--muted-foreground);
-        }
-
-        /* ============================================
-           PROCESS SECTION
-           ============================================ */
-
-        .process {
-            padding: 5rem 0;
-            background-color: rgba(232, 240, 248, 0.1);
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .process-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        .process-step {
-            text-align: center;
-            animation: fadeInUp 0.6s var(--ease-out);
-            position: relative;
-        }
-
-        .process-step:nth-child(1) { animation-delay: 0s; }
-        .process-step:nth-child(2) { animation-delay: 0.1s; }
-        .process-step:nth-child(3) { animation-delay: 0.2s; }
-        .process-step:nth-child(4) { animation-delay: 0.3s; }
-
-        .process-number {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #DC143C 0%, #E74C3C 100%);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin: 0 auto 1.5rem;
-        }
-
-        .process-step h3 {
-            font-size: 1.125rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .process-step p {
-            color: var(--muted-foreground);
-            font-size: 0.95rem;
-        }
-
-        .process-step:not(:last-child)::after {
-            content: "→";
-            position: absolute;
-            right: -1rem;
-            top: 30px;
-            font-size: 1.5rem;
-            color: var(--primary);
-            display: none;
-        }
-
-        @media (min-width: 768px) {
-            .process-step:not(:last-child)::after {
-                display: block;
-            }
-        }
-
-        /* ============================================
-           CTA SECTION
-           ============================================ */
-
-        .cta {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, var(--primary) 0%, rgba(220, 20, 60, 0.9) 100%);
-            color: var(--primary-foreground);
-        }
-
-        .cta-content {
-            text-align: center;
-            animation: fadeInUp 0.6s var(--ease-out);
-        }
-
-        .cta h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        @media (min-width: 768px) {
-            .cta h2 {
-                font-size: 2.25rem;
-            }
-        }
-
-        .cta p {
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-            max-width: 32rem;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-        }
-
-        .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        @media (min-width: 640px) {
-            .cta-buttons {
-                flex-direction: row;
-            }
-        }
-
-        /* ============================================
-           FOOTER
-           ============================================ */
-
-        .footer {
-            background-color: var(--foreground);
-            color: var(--primary-foreground);
-        }
-
-        .footer-divider {
-            width: 100%;
-            height: 80px;
-            margin-top: -1px;
-            color: var(--foreground);
-        }
-
-        .footer-content {
-            padding: 4rem 0;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        @media (min-width: 768px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .footer-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        .footer-column {
-            animation: fadeInUp 0.6s var(--ease-out);
-        }
-
-        .footer-column:nth-child(1) { animation-delay: 0s; }
-        .footer-column:nth-child(2) { animation-delay: 0.1s; }
-        .footer-column:nth-child(3) { animation-delay: 0.2s; }
-        .footer-column:nth-child(4) { animation-delay: 0.3s; }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-logo-icon {
-            height: 40px;
-            width: 40px;
-            background: linear-gradient(135deg, #DC143C 0%, #E74C3C 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-        .footer-logo h3 {
-            font-size: 1.125rem;
-            color: white;
-        }
-
-        .footer-column p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        .footer-column h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-column a {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            transition: opacity 0.3s var(--ease-out);
-        }
-
-        .footer-column a:hover {
-            opacity: 1;
-            color: var(--accent);
-        }
-
-        .contact-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .contact-list li {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        @media (min-width: 768px) {
-            .footer-bottom {
-                flex-direction: row;
-            }
-        }
-
-        .footer-bottom p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s var(--ease-out);
-        }
-
-        .social-links a:hover {
-            background-color: var(--accent);
-            transform: scale(1.1);
-        }
-
-        /* ============================================
-           ANIMATIONS
-           ============================================ */
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Respect prefers-reduced-motion */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* ============================================
-           RESPONSIVE ADJUSTMENTS
-           ============================================ */
-
-        @media (max-width: 640px) {
-            .hero-title {
-                font-size: 1.75rem;
-            }
-
-            .section-header h2 {
-                font-size: 1.75rem;
-            }
-
-            .cta h2 {
-                font-size: 1.5rem;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <div class="nav-wrapper">
-                <!-- Logo -->
-                <a href="#" class="logo-section">
-                    <img src="{% static 'media/logo1.png' %}" alt="TECH CONCEPT SARL" class="logo-img">
-                    <div class="logo-text">
-                        <div class="logo-title">TECH CONCEPT</div>
-                        <div class="logo-subtitle">Solutions Électroniques</div>
-                    </div>
-                </a>
-
-                <!-- Desktop Navigation -->
-                <nav class="nav-desktop">
-                    <a href="#services" class="nav-link">Services</a>
-                    <a href="#expertise" class="nav-link">Expertise</a>
-                    <a href="#gallery" class="nav-link">Galerie</a>
-                    <a href="#about" class="nav-link">À propos</a>
-                    <a href="#process" class="nav-link">Processus</a>
-                    <a href="#contact" class="nav-link cta-link">Contactez-nous</a>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button class="menu-toggle" id="menuToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Navigation -->
-        <nav class="nav-mobile" id="navMobile">
-            <div class="container">
-                <a href="#services" class="nav-link-mobile">Services</a>
-                <a href="#expertise" class="nav-link-mobile">Expertise</a>
-                <a href="#gallery" class="nav-link-mobile">Galerie</a>
-                <a href="#about" class="nav-link-mobile">À propos</a>
-                <a href="#process" class="nav-link-mobile">Processus</a>
-                <a href="#contact" class="nav-link-mobile cta-link">Contactez-nous</a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
+    }
+
+    .section-header p {
+        color: var(--muted-foreground);
+        max-width: 36rem;
+        margin: 0 auto;
+    }
+
+    /* Section with id for nav */
+    section[id] {
+        scroll-margin-top: 110px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- ============================================
+     HERO SECTION
+     ============================================ -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
             <div class="hero-text">
                 <div class="accent-line"></div>
-                <h1 class="hero-title">Sécurisez votre présent,<br><span class="text-primary">connectez votre avenir</span></h1>
-                <p class="hero-description">Solutions électroniques globales pour votre tranquillité d'esprit. Installations électriques, réseaux informatiques, sécurité incendie et bien plus. Depuis 2010, nous accompagnons les entreprises dans leur transformation numérique et leur sécurisation.</p>
+                <h1 class="hero-title">
+                    Sécurisez votre présent,<br>
+                    <span class="text-primary">connectez votre avenir</span>
+                </h1>
+                <p class="hero-description">
+                    TECH CONCEPT SARL, votre partenaire de confiance pour l'installation, la maintenance et la sécurisation de vos infrastructures électroniques et numériques.
+                </p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        Demander une consultation gratuite
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </a>
-                    <a href="#services" class="btn btn-secondary">Découvrir nos services</a>
+                    <a href="{% url 'home' %}#services" class="btn btn-primary">Découvrez nos services</a>
+                    <a href="{% url 'home' %}#contact" class="btn btn-secondary">Contactez-nous</a>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="image-placeholder">
-                    <img src="{% static 'media/images1.jpeg' %}" alt="Électricien Professionnel TECH CONCEPT" class="hero-slideshow-img active">
-                    <img src="{% static 'media/images2.jpeg' %}" alt="Équipe TECH CONCEPT" class="hero-slideshow-img">
-                    <img src="{% static 'media/images3.jpeg' %}" alt="Installation Solaire" class="hero-slideshow-img">
-                    <img src="{% static 'media/images4.jpeg' %}" alt="Réseau Informatique" class="hero-slideshow-img">
-                    <img src="{% static 'media/images5.jpeg' %}" alt="Câblage Structuré" class="hero-slideshow-img">
+                    <img src="{% static 'media/images1.jpeg' %}" alt="TECH CONCEPT - Solutions Électroniques" class="hero-slideshow-img active">
+                    <img src="{% static 'media/images2.jpeg' %}" alt="TECH CONCEPT - Solutions Électroniques" class="hero-slideshow-img">
+                    <img src="{% static 'media/images3.jpeg' %}" alt="TECH CONCEPT - Solutions Électroniques" class="hero-slideshow-img">
+                    <img src="{% static 'media/images4.jpeg' %}" alt="TECH CONCEPT - Solutions Électroniques" class="hero-slideshow-img">
+                    <img src="{% static 'media/images5.jpeg' %}" alt="TECH CONCEPT - Solutions Électroniques" class="hero-slideshow-img">
+                    <img src="{% static 'media/images6.jpeg' %}" alt="TECH CONCEPT - Solutions Électroniques" class="hero-slideshow-img">
+                    <img src="{% static 'media/images7.jpeg' %}" alt="TECH CONCEPT - Solutions Électroniques" class="hero-slideshow-img">
+                    <img src="{% static 'media/images8.jpeg' %}" alt="TECH CONCEPT - Solutions Électroniques" class="hero-slideshow-img">
+                    <img src="{% static 'media/images9.jpeg' %}" alt="TECH CONCEPT - Solutions Électroniques" class="hero-slideshow-img">
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <div class="accent-line"></div>
-                <h2>Nos Services</h2>
-                <p>Une gamme complète de solutions pour tous vos besoins en électronique et sécurité.</p>
+
+<!-- ============================================
+     SERVICES SECTION
+     ============================================ -->
+<section class="services" id="services">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Nos Services</h2>
+            <p>Des solutions électroniques globales pour tous vos besoins</p>
+        </div>
+        <div class="services-grid">
+            <a href="{% url 'service_solaire' %}" class="service-card">
+                <span class="service-icon">☀️</span>
+                <h3>Énergie Solaire</h3>
+                <p>Installation de panneaux solaires et systèmes d'autoconsommation pour réduire vos factures d'électricité jusqu'à 80%.</p>
+            </a>
+            <a href="{% url 'service_electricite' %}" class="service-card">
+                <span class="service-icon">🔌</span>
+                <h3>Électricité Générale</h3>
+                <p>Installation, dépannage et mise aux normes de vos installations électriques résidentielles et professionnelles.</p>
+            </a>
+            <a href="{% url 'service_reseau' %}" class="service-card">
+                <span class="service-icon">🌐</span>
+                <h3>Réseaux Informatiques</h3>
+                <p>Conception et déploiement de réseaux informatiques performants, sécurisés et évolutifs pour votre entreprise.</p>
+            </a>
+            <a href="{% url 'service_videosurveillance' %}" class="service-card">
+                <span class="service-icon">📹</span>
+                <h3>Vidéosurveillance</h3>
+                <p>Installation de caméras HD, 4K et systèmes de vidéo protection pour la sécurité de vos biens et de vos employés.</p>
+            </a>
+            <a href="{% url 'service_controle_acces' %}" class="service-card">
+                <span class="service-icon">🔐</span>
+                <h3>Contrôle d'Accès</h3>
+                <p>Systèmes de contrôle d'accès biométriques, par badges ou codes pour sécuriser vos locaux.</p>
+            </a>
+            <a href="{% url 'service_incendie' %}" class="service-card">
+                <span class="service-icon">🔥</span>
+                <h3>Sécurité Incendie</h3>
+                <p>Détection et alarme incendie conformes aux normes en vigueur pour protéger vos biens et vos collaborateurs.</p>
+            </a>
+            <a href="{% url 'service_cloture' %}" class="service-card">
+                <span class="service-icon">⚠️</span>
+                <h3>Clôtures Électriques</h3>
+                <p>Installation de clôtures électriques et systèmes de protection périmétrique pour votre sécurité.</p>
+            </a>
+            <a href="{% url 'service_telephonie' %}" class="service-card">
+                <span class="service-icon">☎️</span>
+                <h3>Téléphonie IP</h3>
+                <p>Solutions de téléphonie sur IP pour des communications professionnelles fiables et économiques.</p>
+            </a>
+            <a href="{% url 'service_maintenance' %}" class="service-card">
+                <span class="service-icon">🔧</span>
+                <h3>Maintenance Technique</h3>
+                <p>Contrats de maintenance préventive et corrective pour tous vos équipements électroniques.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     EXPERTISE SECTION
+     ============================================ -->
+<section class="expertise" id="expertise">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Notre Expertise</h2>
+            <p>Un savoir-faire reconnu dans plusieurs domaines</p>
+        </div>
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <span class="expertise-icon">⚡</span>
+                <div>
+                    <h3>Installation & Mise en Service</h3>
+                    <p>De l'étude à la réalisation, nous installons vos équipements avec précision et dans le respect des normes.</p>
+                </div>
             </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">⚡</div>
-                    <h3>Énergie Solaire</h3>
-                    <p>Solutions solaires fiables et durables pour votre indépendance énergétique. Réduction de vos factures énergétiques jusqu'à 80%.</p>
+            <div class="expertise-card">
+                <span class="expertise-icon">🔧</span>
+                <div>
+                    <h3>Diagnostic & Dépannage</h3>
+                    <p>Intervention rapide pour identifier et résoudre vos problèmes techniques, avec un SAV réactif.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🔌</div>
-                    <h3>Électricité Générale</h3>
-                    <p>Installations électriques sécurisées pour tous types de bâtiments. Conformité aux normes NFC 15-100 et certification ISO.</p>
+            </div>
+            <div class="expertise-card">
+                <span class="expertise-icon">📋</span>
+                <div>
+                    <h3>Audit & Conseil</h3>
+                    <p>Analyse de vos besoins et recommandations personnalisées pour optimiser vos infrastructures.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3>Réseaux Informatiques</h3>
-                    <p>Conception et déploiement de réseaux performants et sécurisés. Infrastructure cloud et solutions hybrides.</p>
+            </div>
+            <div class="expertise-card">
+                <span class="expertise-icon">📦</span>
+                <div>
+                    <h3>Fourniture d'Équipements</h3>
+                    <p>Matériel professionnel de grandes marques sélectionné pour sa qualité, sa fiabilité et sa durabilité.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">📡</div>
-                    <h3>Wi-Fi Professionnel</h3>
-                    <p>Couverture Wi-Fi stable et haut débit pour entreprises et bâtiments. Débit jusqu'à 10 Gbps avec sécurité WPA3.</p>
+            </div>
+            <div class="expertise-card">
+                <span class="expertise-icon">🛡️</span>
+                <div>
+                    <h3>Maintenance Préventive</h3>
+                    <p>Contrats sur-mesure pour assurer le bon fonctionnement et la longévité de vos installations.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">☎️</div>
-                    <h3>Téléphonie</h3>
-                    <p>Systèmes de téléphonie IP et solutions de communication modernes. Intégration avec vos outils collaboratifs.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔗</div>
-                    <h3>Câblage Structuré</h3>
-                    <p>Installation de réseaux câblés organisés et évolutifs. Certification Cat6A et fibre optique multimode/monomode.</p>
+            </div>
+            <div class="expertise-card">
+                <span class="expertise-icon">🌐</span>
+                <div>
+                    <h3>Projets Clé en Main</h3>
+                    <p>De la conception à la livraison, nous pilotons l'intégralité de votre projet pour une tranquillité totale.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Expertise Section -->
-    <section class="expertise" id="expertise">
-        <div class="container">
-            <div class="section-header">
-                <div class="accent-line"></div>
-                <h2>Nos Domaines d'Expertise</h2>
-                <p>Expertise reconnue dans les solutions de sécurité et de connectivité.</p>
-            </div>
+<section class="stats-section">
 
-            <div class="expertise-grid">
-                <div class="expertise-card">
-                    <div class="expertise-icon">📹</div>
-                    <div>
-                        <h3>Vidéosurveillance</h3>
-                        <p>Systèmes de caméras haute définition 4K pour une surveillance 24h/24. Stockage cloud sécurisé avec IA de détection.</p>
-                    </div>
-                </div>
-                <div class="expertise-card">
-                    <div class="expertise-icon">🔐</div>
-                    <div>
-                        <h3>Contrôle d'Accès</h3>
-                        <p>Gestion intelligente des accès biométrique et par badge. Intégration avec systèmes de présence et RH.</p>
-                    </div>
-                </div>
-                <div class="expertise-card">
-                    <div class="expertise-icon">🔥</div>
-                    <div>
-                        <h3>Sécurité Incendie</h3>
-                        <p>Détection, alarme et lutte contre l'incendie : votre sécurité, notre priorité. Conformité NFPA et directives EU.</p>
-                    </div>
-                </div>
-                <div class="expertise-card">
-                    <div class="expertise-icon">⚠️</div>
-                    <div>
-                        <h3>Clôtures Électriques</h3>
-                        <p>Solutions de protection périmétrique dissusives et efficaces. Systèmes intelligents avec détection de rupture.</p>
-                    </div>
-                </div>
-                <div class="expertise-card">
-                    <div class="expertise-icon">🔧</div>
-                    <div>
-                        <h3>Maintenance Technique</h3>
-                        <p>Entretien préventif et curatif de vos installations pour une performance durable. Contrats SLA 24h/24 7j/7.</p>
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-badge">
+                POURQUOI NOUS CHOISIR
+            </span>
+
+            <h2>
+                Votre partenaire technologique de confiance
+            </h2>
+
+            <p>
+                Depuis plusieurs années, TECH CONCEPT accompagne les particuliers,
+                les entreprises et les institutions dans leurs projets
+                d'électricité, de sécurité électronique, d'énergie solaire
+                et de réseaux informatiques.
+            </p>
+
         </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-header">
-                <div class="accent-line"></div>
-                <h2>À Propos de TECH CONCEPT SARL</h2>
-                <p>Votre partenaire de confiance depuis plus de 15 ans</p>
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <h3 class="counter" data-target="500">0</h3>
+
+                <span>Projets réalisés</span>
+
             </div>
 
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Qui sommes-nous ?</h3>
-                    <p>TECH CONCEPT SARL est une entreprise spécialisée dans les solutions électroniques globales. Fondée en 2010, nous avons accompagné plus de 500 entreprises dans leur transformation numérique et leur sécurisation.</p>
-                    <p>Notre équipe de 50+ experts dispose d'une expérience moyenne de 12 ans dans le secteur. Nous travaillons avec les plus grandes marques internationales pour vous proposer des solutions de pointe.</p>
-                    <p>Notre mission : sécuriser votre présent et connecter votre avenir. Nous nous engageons à fournir des solutions fiables, innovantes et adaptées à vos besoins spécifiques.</p>
-                    
-                    <ul class="about-list">
-                        <li>Certification ISO 9001:2015</li>
-                        <li>Agrément RGE (Reconnu Garant de l'Environnement)</li>
-                        <li>Partenaires officiels des plus grandes marques</li>
-                        <li>Support technique 24h/24 7j/7</li>
-                        <li>Garantie 5 ans sur tous les travaux</li>
-                        <li>Devis gratuit sans engagement</li>
-                    </ul>
-                </div>
-                <div class="about-image">
-                    <img src="{% static 'media/images2.jpeg' %}" alt="Équipe TECH CONCEPT" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;">
-                </div>
+            <div class="stat-card">
+
+                <h3 class="counter" data-target="98">0</h3>
+
+                <span>Clients satisfaits</span>
+
             </div>
+
+            <div class="stat-card">
+
+                <h3 class="counter" data-target="15">0</h3>
+
+                <span>Années d'expérience</span>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>24/7</h3>
+
+                <span>Support technique</span>
+
+            </div>
+
         </div>
-    </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Clients Satisfaits</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Années d'Expérience</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Experts Qualifiés</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">Taux de Satisfaction</div>
-                </div>
-            </div>
+        <div class="advantages">
+
+            <div>✔ Techniciens qualifiés</div>
+            <div>✔ Garantie des installations</div>
+            <div>✔ Intervention rapide</div>
+            <div>✔ Matériel certifié</div>
+            <div>✔ Devis gratuit</div>
+            <div>✔ Maintenance préventive</div>
+
         </div>
-    </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <div class="section-header">
-                <div class="accent-line"></div>
-                <h2>Notre Galerie</h2>
-                <p>Découvrez nos réalisations et projets</p>
-            </div>
+    </div>
 
-            <div class="gallery-container">
-                <div class="gallery-track" id="galleryTrack">
-                    <div class="gallery-item">
-                        <div class="gallery-overlay">
-                            <div class="gallery-overlay-icon">🔍</div>
-                        </div>
-                        <img src="{% static 'media/images3.jpeg' %}" alt="Installation Solaire">
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-overlay">
-                            <div class="gallery-overlay-icon">🔍</div>
-                        </div>
-                        <img src="{% static 'media/images4.jpeg' %}" alt="Réseau Informatique">
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-overlay">
-                            <div class="gallery-overlay-icon">🔍</div>
-                        </div>
-                        <img src="{% static 'media/images5.jpeg' %}" alt="Câblage Structuré">
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-overlay">
-                            <div class="gallery-overlay-icon">🔍</div>
-                        </div>
-                        <img src="{% static 'media/images6.jpeg' %}" alt="Vidéosurveillance">
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-overlay">
-                            <div class="gallery-overlay-icon">🔍</div>
-                        </div>
-                        <img src="{% static 'media/images7.jpeg' %}" alt="Contrôle d'Accès">
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-overlay">
-                            <div class="gallery-overlay-icon">🔍</div>
-                        </div>
-                        <img src="{% static 'media/images8.jpeg' %}" alt="Sécurité Incendie">
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-overlay">
-                            <div class="gallery-overlay-icon">🔍</div>
-                        </div>
-                        <img src="{% static 'media/images9.jpeg' %}" alt="Électricité Générale">
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-overlay">
-                            <div class="gallery-overlay-icon">🔍</div>
-                        </div>
-                        <img src="{% static 'media/images3.jpeg' %}" alt="Téléphonie IP">
-                    </div>
-                </div>
-            </div>
-
-            <div class="gallery-controls">
-                <button class="gallery-btn" id="galleryPrev" title="Précédent">❮</button>
-                <button class="gallery-btn" id="galleryNext" title="Suivant">❯</button>
-            </div>
+</section>
+<!-- ============================================
+     PROCESS SECTION
+     ============================================ -->
+<section class="process" id="process">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Notre Processus</h2>
+            <p>Comment nous travaillons pour vous satisfaire</p>
         </div>
-    </section>
-
-    <!-- Values Section -->
-    <section class="values">
-        <div class="container">
-            <div class="section-header">
-                <div class="accent-line"></div>
-                <h2>Nos Valeurs</h2>
-                <p>Ce qui nous définit et guide nos actions</p>
-            </div>
-
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">👥</div>
-                    <h3>Équipe Qualifiée et Expérimentée</h3>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">⭐</div>
-                    <h3>Matériel de Qualité Premium</h3>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">⚡</div>
-                    <h3>Intervention Rapide et Efficace</h3>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">🛡️</div>
-                    <h3>Service Après-Vente et Garantie</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <div class="accent-line"></div>
-                <h2>Témoignages Clients</h2>
-                <p>Ce que nos clients disent de nous</p>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"TECH CONCEPT a transformé notre infrastructure informatique. L'équipe est professionnelle, réactive et vraiment à l'écoute de nos besoins. Nous recommandons vivement !"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">JD</div>
-                        <div class="author-info">
-                            <h4>Jean Dupont</h4>
-                            <p>Directeur IT, Groupe ABC</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Nous avons fait appel à TECH CONCEPT pour notre installation solaire. Résultat impressionnant : -75% sur nos factures énergétiques. Excellent ROI !"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MS</div>
-                        <div class="author-info">
-                            <h4>Marie Soulier</h4>
-                            <p>Responsable Énergie, Industrie XYZ</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Service impeccable du début à la fin. Installation rapide, sans perturbation de nos activités. L'équipe de maintenance est toujours disponible. Parfait !"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">PL</div>
-                        <div class="author-info">
-                            <h4>Pierre Laurent</h4>
-                            <p>Gérant, Commerce Retail</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="process" id="process">
-        <div class="container">
-            <div class="section-header">
-                <div class="accent-line"></div>
-                <h2>Notre Processus</h2>
-                <p>Comment nous travaillons avec vous</p>
-            </div>
-
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="process-number">1</div>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="process-number">1</div>
+                <div>
                     <h3>Consultation</h3>
-                    <p>Nous écoutons vos besoins et analysons votre situation actuelle pour proposer la meilleure solution.</p>
+                    <p>Prise de contact et écoute attentive de vos besoins, de vos contraintes et de vos objectifs pour bien cerner votre projet.</p>
                 </div>
-
-                <div class="process-step">
-                    <div class="process-number">2</div>
-                    <h3>Devis Détaillé</h3>
-                    <p>Nous vous proposons un devis transparent et détaillé sans aucun engagement.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">2</div>
+                <div>
+                    <h3>Visite technique</h3>
+                    <p>Déplacement sur site pour évaluer les contraintes techniques, prendre les mesures nécessaires et vérifier la faisabilité.</p>
                 </div>
-
-                <div class="process-step">
-                    <div class="process-number">3</div>
+            </div>
+            <div class="process-step">
+                <div class="process-number">3</div>
+                <div>
+                    <h3>Étude</h3>
+                    <p>Analyse approfondie et conception de la solution technique la mieux adaptée à vos besoins et à votre budget.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-number">4</div>
+                <div>
+                    <h3>Devis</h3>
+                    <p>Établissement d'un devis détaillé et transparent avec toutes les prestations, équipements et garanties inclus.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-number">5</div>
+                <div>
+                    <h3>Validation</h3>
+                    <p>Présentation et validation du devis avec le client avant le lancement des travaux.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-number">6</div>
+                <div>
                     <h3>Installation</h3>
-                    <p>Notre équipe qualifiée réalise l'installation avec professionnalisme et respect de vos délais.</p>
+                    <p>Mise en œuvre par nos techniciens certifiés, dans le respect des normes en vigueur et des délais convenus.</p>
                 </div>
-
-                <div class="process-step">
-                    <div class="process-number">4</div>
-                    <h3>Support Continu</h3>
-                    <p>Nous assurons le suivi, la maintenance et le support technique tout au long de votre parcours.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">7</div>
+                <div>
+                    <h3>Tests</h3>
+                    <p>Tests complets de l'installation, vérification de la conformité et de bon fonctionnement de tous les équipements.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-number">8</div>
+                <div>
+                    <h3>Formation du client</h3>
+                    <p>Formation à l'utilisation et à la maintenance de base pour une autonomie totale.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-number">9</div>
+                <div>
+                    <h3>Maintenance</h3>
+                    <p>Suivi régulier, maintenance préventive et corrective, avec une assistance disponible 24h/24 et 7j/7.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- CTA Section -->
-    <section class="cta" id="contact">
-        <div class="container cta-content">
-            <h2>Prêt à transformer votre infrastructure ?</h2>
-            <p>Contactez notre équipe d'experts pour une consultation gratuite et découvrez comment nous pouvons sécuriser votre présent et connecter votre avenir.</p>
-            <div class="cta-buttons">
-                <a href="tel:+33503720303" class="btn btn-white">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                    Appelez-nous : 05 03 72 03 03
-                </a>
-                <a href="mailto:cotechsarl@gmail.com" class="btn btn-outline">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                    </svg>
-                    Envoyez un email
-                </a>
-            </div>
+<!-- ============================================
+     TESTIMONIALS SECTION
+     ============================================ -->
+<section class="testimonials">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Ce que disent nos clients</h2>
+            <p>La satisfaction de nos clients est notre meilleure publicité</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <svg class="footer-divider" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,40 Q300,80 600,40 T1200,40 L1200,0 L0,0 Z" fill="currentColor"></path>
-        </svg>
-
-        <div class="container footer-content">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <div class="footer-logo">
-                        <div class="footer-logo-icon">TC</div>
-                        <h3>TECH CONCEPT</h3>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"TECH CONCEPT a réalisé l'installation complète de notre système de vidéosurveillance. Professionnalisme, respect des délais et qualité du travail irréprochable. Je recommande vivement !"</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JD</div>
+                    <div>
+                        <div class="testimonial-name">Jean Dupont</div>
+                        <div class="testimonial-company">Directeur, Société ABC</div>
                     </div>
-                    <p>Solutions électroniques globales pour votre tranquillité d'esprit et votre avenir connecté. Depuis 2010, nous accompagnons les entreprises dans leur transformation numérique.</p>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#expertise">Expertise</a></li>
-                        <li><a href="#gallery">Galerie</a></li>
-                        <li><a href="#about">À propos</a></li>
-                        <li><a href="#process">Processus</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#">Énergie Solaire</a></li>
-                        <li><a href="#">Électricité Générale</a></li>
-                        <li><a href="#">Réseaux Informatiques</a></li>
-                        <li><a href="#">Sécurité Incendie</a></li>
-                        <li><a href="#">Maintenance Technique</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Contact</h4>
-                    <ul class="contact-list">
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
-                            <a href="tel:+33503720303">05 03 72 03 03</a>
-                        </li>
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                            </svg>
-                            <a href="mailto:cotechsarl@gmail.com">cotechsarl@gmail.com</a>
-                        </li>
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            <span>Riviera Palmeraie</span>
-                        </li>
-                    </ul>
                 </div>
             </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 TECH CONCEPT SARL. Tous droits réservés. | <a href="#" style="opacity: 0.8;">Mentions légales</a> | <a href="#" style="opacity: 0.8;">Politique de confidentialité</a></p>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook" title="Facebook">f</a>
-                    <a href="#" aria-label="LinkedIn" title="LinkedIn">in</a>
-                    <a href="#" aria-label="Twitter" title="Twitter">𝕏</a>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Nous avons confié à TECH CONCEPT la rénovation complète de notre réseau informatique. Une équipe compétente et à l'écoute, des solutions performantes. Un vrai partenariat de confiance."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SM</div>
+                    <div>
+                        <div class="testimonial-name">Sophie Martin</div>
+                        <div class="testimonial-company">Responsable SI, Groupe XYZ</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Installation solaire réalisée par TECH CONCEPT. Résultat impeccable, économies immédiates sur nos factures. Le suivi et le service après-vente sont excellents. Merci à toute l'équipe !"</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">PK</div>
+                    <div>
+                        <div class="testimonial-name">Paul Kouamé</div>
+                        <div class="testimonial-company">CEO, Entreprise 123</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        // ============================================
-        // TECH CONCEPT SARL - JavaScript
-        // Modern Industrial Elegance Design
-        // ============================================
+<!-- ============================================
+     ARTICLES / BLOG SECTION
+     ============================================ -->
+<section class="articles" id="blog">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Articles & Actualités</h2>
+            <p>Restez informé des dernières tendances et innovations technologiques</p>
+        </div>
+        <div class="articles-grid">
+            <article class="article-card">
+                <div class="article-image">
+                    <img src="{% static 'media/images3.jpeg' %}" alt="Énergie solaire">
+                    <span class="article-tag">Solaire</span>
+                </div>
+                <div class="article-body">
+                    <div class="article-date">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        15 Mars 2025
+                    </div>
+                    <h3>Les avantages de l'énergie solaire pour les entreprises</h3>
+                    <p>Découvrez comment l'énergie solaire peut réduire vos coûts opérationnels et améliorer votre bilan carbone.</p>
+                    <div class="article-divider"></div>
+                    <div class="article-author">
+                        <div class="article-author-avatar">TC</div>
+                        <span>Par TECH CONCEPT</span>
+                    </div>
+                </div>
+            </article>
+            <article class="article-card">
+                <div class="article-image">
+                    <img src="{% static 'media/images4.jpeg' %}" alt="Vidéosurveillance">
+                    <span class="article-tag">Sécurité</span>
+                </div>
+                <div class="article-body">
+                    <div class="article-date">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        28 Février 2025
+                    </div>
+                    <h3>Guide complet de la vidéosurveillance en 2025</h3>
+                    <p>Quels équipements choisir ? Comment optimiser votre système de sécurité ? Notre guide complet vous éclaire.</p>
+                    <div class="article-divider"></div>
+                    <div class="article-author">
+                        <div class="article-author-avatar">TC</div>
+                        <span>Par TECH CONCEPT</span>
+                    </div>
+                </div>
+            </article>
+            <article class="article-card">
+                <div class="article-image">
+                    <img src="{% static 'media/images5.jpeg' %}" alt="Réseaux">
+                    <span class="article-tag">Réseaux</span>
+                </div>
+                <div class="article-body">
+                    <div class="article-date">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        10 Février 2025
+                    </div>
+                    <h3>Comment sécuriser votre réseau informatique ?</h3>
+                    <p>Les bonnes pratiques et les solutions essentielles pour protéger votre infrastructure numérique contre les cybermenaces.</p>
+                    <div class="article-divider"></div>
+                    <div class="article-author">
+                        <div class="article-author-avatar">TC</div>
+                        <span>Par TECH CONCEPT</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="articles-cta">
+            <a href="#" class="btn btn-secondary">Voir tous les articles</a>
+        </div>
+    </div>
+</section>
 
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navMobile = document.getElementById('navMobile');
+<!-- ============================================
+     GALLERY SECTION
+     ============================================ -->
+<section class="gallery" id="gallery">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Galerie Photos</h2>
+            <p>Découvrez quelques-unes de nos réalisations</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="{% static 'media/images1.jpeg' %}" alt="Réalisation 1">
+                <div class="gallery-overlay"><span>Installation solaire</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="{% static 'media/images2.jpeg' %}" alt="Réalisation 2">
+                <div class="gallery-overlay"><span>Vidéosurveillance HD</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="{% static 'media/images3.jpeg' %}" alt="Réalisation 3">
+                <div class="gallery-overlay"><span>Réseau informatique</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="{% static 'media/images4.jpeg' %}" alt="Réalisation 4">
+                <div class="gallery-overlay"><span>Contrôle d'accès</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="{% static 'media/images5.jpeg' %}" alt="Réalisation 5">
+                <div class="gallery-overlay"><span>Électricité générale</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="{% static 'media/images6.jpeg' %}" alt="Réalisation 6">
+                <div class="gallery-overlay"><span>Sécurité incendie</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="{% static 'media/images7.jpeg' %}" alt="Réalisation 7">
+                <div class="gallery-overlay"><span>Téléphonie IP</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="{% static 'media/images8.jpeg' %}" alt="Réalisation 8">
+                <div class="gallery-overlay"><span>Clôture électrique</span></div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navMobile.classList.toggle('active');
-        });
 
-        // Close mobile menu when a link is clicked
-        const navLinks = document.querySelectorAll('.nav-link-mobile');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navMobile.classList.remove('active');
-            });
-        });
 
-        // Header Scroll Effect
-        const header = document.getElementById('header');
-        let lastScrollY = 0;
+<!-- ============================================
+     REALISATIONS SECTION
+     ============================================ -->
+<section class="realisations" id="realisations">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Nos Réalisations</h2>
+            <p>Des projets concrets qui témoignent de notre savoir-faire</p>
+        </div>
+        <div class="realisations-grid">
+            <!-- Projet 1 -->
+            <div class="projet-card">
+                <div class="projet-header">
+                    <h3>🏢 Siège Social - Groupe ABC</h3>
+                    <span class="projet-badge">Projet 2025</span>
+                </div>
+                <div class="projet-body">
+                    <div class="projet-photos">
+                        <div class="photo-box">
+                            <span class="photo-label before">Avant</span>
+                            <img src="{% static 'media/images1.jpeg' %}" alt="Avant - Groupe ABC">
+                        </div>
+                        <div class="photo-box">
+                            <span class="photo-label after">Après</span>
+                            <img src="{% static 'media/images2.jpeg' %}" alt="Après - Groupe ABC">
+                        </div>
+                    </div>
+                    <div class="projet-details">
+                        <div class="detail-item">
+                            <div class="detail-icon">📹</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Vidéosurveillance</div>
+                                <div class="detail-value">24 caméras HD 4K</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">🔐</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Contrôle d'accès</div>
+                                <div class="detail-value">Biométrique + Badges</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">🌐</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Réseau</div>
+                                <div class="detail-value">Fibre optique + Wi-Fi 6</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">🔥</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Incendie</div>
+                                <div class="detail-value">Détection + Alarme</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">⚡</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Électricité</div>
+                                <div class="detail-value">Mise aux normes complète</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">☀️</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Solaire</div>
+                                <div class="detail-value">30 panneaux + batterie</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="projet-footer">
+                    <div class="client-info">
+                        <div class="client-avatar">JD</div>
+                        <div>
+                            <div class="client-name">Jean Dupont</div>
+                            <div class="client-title">Directeur Général - Groupe ABC</div>
+                        </div>
+                    </div>
+                    <div class="projet-status">
+                        <span class="status-dot"></span>
+                        Projet livré en janvier 2025
+                    </div>
+                </div>
+            </div>
+            <!-- Projet 2 -->
+            <div class="projet-card">
+                <div class="projet-header">
+                    <h3>🏭 Usine de Production - Industries XYZ</h3>
+                    <span class="projet-badge">Projet 2024</span>
+                </div>
+                <div class="projet-body">
+                    <div class="projet-photos">
+                        <div class="photo-box">
+                            <span class="photo-label before">Avant</span>
+                            <img src="{% static 'media/images3.jpeg' %}" alt="Avant - Industries XYZ">
+                        </div>
+                        <div class="photo-box">
+                            <span class="photo-label after">Après</span>
+                            <img src="{% static 'media/images4.jpeg' %}" alt="Après - Industries XYZ">
+                        </div>
+                    </div>
+                    <div class="projet-details">
+                        <div class="detail-item">
+                            <div class="detail-icon">☀️</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Centrale Solaire</div>
+                                <div class="detail-value">50 kWc - Autoconsommation</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">🌐</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Réseau</div>
+                                <div class="detail-value">Infrastructure complète</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">📹</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Sécurité</div>
+                                <div class="detail-value">16 caméras + clôture</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">☎️</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Téléphonie</div>
+                                <div class="detail-value">IP pour 50 postes</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">🔧</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Maintenance</div>
+                                <div class="detail-value">Contrat 3 ans</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">⚡</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Électricité</div>
+                                <div class="detail-value">Tableaux + éclairage LED</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="projet-footer">
+                    <div class="client-info">
+                        <div class="client-avatar">SM</div>
+                        <div>
+                            <div class="client-name">Sophie Martin</div>
+                            <div class="client-title">Directrice Technique - Industries XYZ</div>
+                        </div>
+                    </div>
+                    <div class="projet-status">
+                        <span class="status-dot"></span>
+                        Projet livré en septembre 2024
+                    </div>
+                </div>
+            </div>
+            <!-- Projet 3 -->
+            <div class="projet-card">
+                <div class="projet-header">
+                    <h3>🏨 Hôtel Résidence - Le Palace</h3>
+                    <span class="projet-badge">Projet 2024</span>
+                </div>
+                <div class="projet-body">
+                    <div class="projet-photos">
+                        <div class="photo-box">
+                            <span class="photo-label before">Avant</span>
+                            <img src="{% static 'media/images5.jpeg' %}" alt="Avant - Hôtel">
+                        </div>
+                        <div class="photo-box">
+                            <span class="photo-label after">Après</span>
+                            <img src="{% static 'media/images6.jpeg' %}" alt="Après - Hôtel">
+                        </div>
+                    </div>
+                    <div class="projet-details">
+                        <div class="detail-item">
+                            <div class="detail-icon">📹</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Vidéosurveillance</div>
+                                <div class="detail-value">32 caméras + NVR</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">🔐</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Contrôle d'accès</div>
+                                <div class="detail-value">80 chambres + zones</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">🔥</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Incendie</div>
+                                <div class="detail-value">Système complet NF</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">🌐</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Réseau</div>
+                                <div class="detail-value">Wi-Fi 6 dans tout l'établissement</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">☎️</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Téléphonie</div>
+                                <div class="detail-value">Standard IP 100 lignes</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">⚡</div>
+                            <div class="detail-content">
+                                <div class="detail-label">Électricité</div>
+                                <div class="detail-value">Rénovation complète</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="projet-footer">
+                    <div class="client-info">
+                        <div class="client-avatar">PK</div>
+                        <div>
+                            <div class="client-name">Paul Kouamé</div>
+                            <div class="client-title">Propriétaire - Hôtel Le Palace</div>
+                        </div>
+                    </div>
+                    <div class="projet-status">
+                        <span class="status-dot"></span>
+                        Projet livré en mars 2024
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            
-            if (scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            lastScrollY = scrollY;
-        });
 
-        // Smooth Scroll for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    const offsetTop = target.offsetTop - 110;
-                    
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Intersection Observer for Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Gallery Navigation
-        const galleryTrack = document.getElementById('galleryTrack');
-        const galleryPrev = document.getElementById('galleryPrev');
-        const galleryNext = document.getElementById('galleryNext');
-
-        galleryNext.addEventListener('click', () => {
-            galleryTrack.scrollBy({ left: 320, behavior: 'smooth' });
-        });
-
-        galleryPrev.addEventListener('click', () => {
-            galleryTrack.scrollBy({ left: -320, behavior: 'smooth' });
-        });
-
-        // Observe all animated elements
-        document.querySelectorAll('.service-card, .expertise-card, .value-card, .section-header, .testimonial-card, .stat-card, .process-step, .gallery-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
-            observer.observe(el);
-        });
-
-        // Console Message
-        console.log('%c🚀 TECH CONCEPT SARL', 'font-size: 20px; font-weight: bold; color: #DC143C;');
-        console.log('%cSolutions électroniques globales', 'font-size: 14px; color: #666;');
-        console.log('%cSécurisez votre présent, connectez votre avenir', 'font-size: 12px; color: #999; font-style: italic;');
-
-        // ============================================
-        // HERO SLIDESHOW - Auto-défilement
-        // ============================================
-        (function() {
-            const slides = document.querySelectorAll('.hero-slideshow-img');
-            if (slides.length < 2) return;
-
-            let currentIndex = 0;
-            const intervalTime = 4000; // 4 seconds between slides
-
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    slide.classList.toggle('active', i === index);
-                });
-            }
-
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % slides.length;
-                showSlide(currentIndex);
-            }
-
-            // Start auto-play
-            setInterval(nextSlide, intervalTime);
-        })();
-    </script>
-</body>
-</html>
+<!-- Slideshow Script -->
+<script>
+    // Hero slideshow
+    (function() {
+        const slides = document.querySelectorAll('.hero-slideshow-img');
+        if (slides.length > 0) {
+            let current = 0;
+            slides[0].classList.add('active');
+            setInterval(() => {
+                slides[current].classList.remove('active');
+                current = (current + 1) % slides.length;
+                slides[current].classList.add('active');
+            }, 3000);
+        }
+    })();
+</script>
+{% endblock %}

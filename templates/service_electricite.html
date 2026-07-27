@@ -1,0 +1,319 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Électricité Générale - TECH CONCEPT SARL{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero-services">
+    <div class="container">
+        <div class="page-hero-content">
+            <div>
+                <a href="{% url 'home' %}" class="back-link">← Retour à l'accueil</a>
+                <div class="breadcrumb">
+                    <a href="{% url 'home' %}">Accueil</a>
+                    <span>/</span>
+                    <span>Électricité Générale</span>
+                </div>
+                <span class="page-hero-icon">🔌</span>
+                <h1>Électricité Générale</h1>
+                <p>Installations électriques sécurisées pour tous types de bâtiments. Conformité aux normes NFC 15-100 et certification ISO.</p>
+                <div class="page-hero-buttons">
+                    <a href="#devis" class="btn btn-white">Demander un devis</a>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <img src="{% static 'media/images9.jpeg' %}" alt="Électricité Générale">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Présentation</h2>
+        </div>
+        <div class="intro-content">
+            <div class="intro-text">
+                <p><strong>TECH CONCEPT SARL</strong> est votre partenaire de confiance pour tous vos travaux d'électricité générale. Que ce soit pour une construction neuve, une rénovation ou une mise aux normes, notre équipe d'électriciens qualifiés intervient sur tous types de projets.</p>
+                <p>Nous réalisons des installations électriques complètes pour les bâtiments résidentiels, commerciaux et industriels, en respectant scrupuleusement les normes NFC 15-100 et les réglementations en vigueur.</p>
+                <p>De l'étude technique à la mise en service, nous vous accompagnons à chaque étape pour garantir une installation sûre, performante et durable.</p>
+            </div>
+            <div class="intro-image">
+                <img src="{% static 'media/images9.jpeg' %}" alt="Électricité Générale">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Pourquoi choisir nos services ?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">✅</span>
+                <h3>Conformité aux normes</h3>
+                <p>Installations conformes à la norme NFC 15-100, au Consuel et aux exigences des assurances. Attestation de conformité fournie.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">👷</span>
+                <h3>Électriciens certifiés</h3>
+                <p>Une équipe d'électriciens qualifiés, expérimentés et régulièrement formés aux nouvelles technologies et réglementations.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>Installations complètes</h3>
+                <p>Du tableau électrique à la prise, en passant par le câblage, l'éclairage, le chauffage et les systèmes connectés.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔋</span>
+                <h3>Solutions économes</h3>
+                <p>Conseils et solutions pour optimiser votre consommation électrique : éclairage LED, détecteurs de présence, variateurs.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🏗️</span>
+                <h3>Neuf & Rénovation</h3>
+                <p>Intervention sur tous types de projets : construction neuve, rénovation complète ou partielle, mise aux normes.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📋</span>
+                <h3>Devis transparent</h3>
+                <p>Devis détaillé et gratuit, avec planning prévisionnel. Pas de mauvaises surprises, nos prix sont fermes et définitifs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Nos Solutions</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🏠</span>
+                <h3>Résidentiel</h3>
+                <p>Installation complète pour maisons individuelles et appartements : tableau électrique, câblage, prises, éclairage, VMC, chauffage.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🏢</span>
+                <h3>Bureaux & Commerces</h3>
+                <p>Électricité pour locaux professionnels : éclairage, prises, réseau, climatisation, éclairage de sécurité, alarme.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🏭</span>
+                <h3>Industriel</h3>
+                <p>Installations électriques industrielles : armoires électriques, motorisation, automate, éclairage haute puissance, TGBT.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🌿</span>
+                <h3>Domotique</h3>
+                <p>Maison connectée et intelligente : automatismes, gestion technique du bâtiment (GTB), pilotage à distance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Étapes d'Installation</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>Étude technique</h3>
+                    <p>Analyse des besoins, visite technique, dimensionnement de l'installation et définition du plan électrique.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>Devis détaillé</h3>
+                    <p>Proposition commerciale avec plan de câblage, matériel, main-d'œuvre et délais d'exécution.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>Réalisation des travaux</h3>
+                    <p>Installation électrique complète : pose des câbles, tableau électrique, prises, interrupteurs, éclairage.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div>
+                    <h3>Vérification & Tests</h3>
+                    <p>Contrôle de conformité, tests de continuité, mesure d'isolement, vérification du différentiel.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div>
+                    <h3>Mise en service</h3>
+                    <p>Mise sous tension, réglages, attestation de conformité Consuel et remise des documents.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Marques Utilisées</h2>
+        </div>
+        <div class="brands-grid">
+            <div class="brand-item">
+                <span class="brand-logo">⚡</span>
+                <h4>Schneider Electric</h4>
+                <p>Tableaux et appareillage</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🔌</span>
+                <h4>Legrand</h4>
+                <p>Appareillage électrique</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">💡</span>
+                <h4>Philips</h4>
+                <p>Éclairage professionnel</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">📦</span>
+                <h4>Hager</h4>
+                <p>Tableaux et coffrets</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🪶</span>
+                <h4>Nexans</h4>
+                <p>Câbles et conducteurs</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🏠</span>
+                <h4>Delta Dore</h4>
+                <p>Domotique et programmation</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Garantie</h2>
+        </div>
+        <div class="guarantee-box">
+            <span class="guarantee-icon">🛡️</span>
+            <h3>Garantie décennale et professionnelle</h3>
+            <ul>
+                <li>Garantie décennale couvrant les travaux d'électricité</li>
+                <li>Garantie de 5 ans sur les installations</li>
+                <li>Garantie de 2 ans sur le matériel</li>
+                <li>Assurance responsabilité civile professionnelle</li>
+                <li>Attestation de conformité Consuel</li>
+                <li>SAV réactif et intervention rapide</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Réalisations</h2>
+        </div>
+        <div class="service-gallery-grid">
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images9.jpeg' %}" alt="Électricité Projet 1">
+                <span class="gallery-label">Immeuble de bureaux 2000m²</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images4.jpeg' %}" alt="Électricité Projet 2">
+                <span class="gallery-label">Entrepôt logistique</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images5.jpeg' %}" alt="Électricité Projet 3">
+                <span class="gallery-label">Résidence 12 appartements</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images8.jpeg' %}" alt="Électricité Projet 4">
+                <span class="gallery-label">Commerce de proximité</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Questions Fréquentes</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    Qu'est-ce que la norme NFC 15-100 ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>C'est la norme française qui définit les règles de conception et de réalisation des installations électriques basse tension. Elle garantit la sécurité des personnes et des biens. Toute installation doit être conforme à cette norme pour être validée par le Consuel et assurée.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Qu'est-ce que le Consuel ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Le Consuel (Comité national pour la sécurité des usagers de l'électricité) est l'organisme qui délivre l'attestation de conformité électrique. Ce document est obligatoire pour toutes les nouvelles installations ou rénovations importantes avant le raccordement au réseau.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Quand dois-je refaire mon installation électrique ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Il est recommandé de refaire l'installation si elle a plus de 30 ans. Les signes d'usure incluent : des prises qui chauffent, des fusibles qui sautent fréquemment, des fils apparents, ou l'absence de mise à la terre. Une installation vétuste présente un risque d'incendie.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Proposez-vous un service d'urgence / dépannage ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Oui, nous assurons un service de dépannage électrique d'urgence 7j/7 pour tous nos clients. Notre équipe intervient rapidement pour résoudre tout problème électrique : panne, court-circuit, disjoncteur qui saute, etc.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-section" id="devis">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Demander un Devis</h2>
+        </div>
+        <div style="text-align: center; max-width: 36rem; margin: 0 auto;">
+            <p style="color: var(--muted-foreground); margin-bottom: 2rem;">Besoin d'une installation électrique ? Contactez nos électriciens professionnels.</p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="tel:+33503720303" class="btn btn-primary">📞 05 03 72 03 03</a>
+                <a href="mailto:cotechsarl@gmail.com" class="btn btn-secondary">✉️ Nous écrire</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

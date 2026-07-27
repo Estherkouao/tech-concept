@@ -1,0 +1,284 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contrôle d'Accès - TECH CONCEPT SARL{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero page-hero-services">
+    <div class="container">
+        <div class="page-hero-content">
+            <div>
+                <a href="{% url 'home' %}" class="back-link">← Retour à l'accueil</a>
+                <div class="breadcrumb">
+                    <a href="{% url 'home' %}">Accueil</a>
+                    <span>/</span>
+                    <span>Contrôle d'Accès</span>
+                </div>
+                <span class="page-hero-icon">🔐</span>
+                <h1>Contrôle d'Accès</h1>
+                <p>Gestion intelligente des accès par badge, biométrie et code. Sécurisez vos locaux et gérez les flux de personnes.</p>
+                <div class="page-hero-buttons">
+                    <a href="#devis" class="btn btn-white">Demander un devis</a>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <img src="{% static 'media/images7.jpeg' %}" alt="Contrôle d'Accès">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Présentation -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Présentation</h2>
+        </div>
+        <div class="intro-content">
+            <div class="intro-text">
+                <p><strong>TECH CONCEPT SARL</strong> installe des systèmes de contrôle d'accès modernes et performants pour sécuriser vos bâtiments et gérer les flux de personnes. Nos solutions s'adaptent à vos besoins : de la petite PME au grand groupe.</p>
+                <p>Que ce soit par badge, code, biométrie (empreinte digitale, reconnaissance faciale) ou application mobile, nous concevons un système sur mesure avec un logiciel de gestion centralisée.</p>
+                <p>Nos systèmes s'intègrent parfaitement avec vos autres équipements de sécurité (vidéosurveillance, alarme intrusion) pour une protection globale et cohérente.</p>
+            </div>
+            <div class="intro-image">
+                <img src="{% static 'media/images7.jpeg' %}" alt="Contrôle d'Accès">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pourquoi choisir -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Pourquoi choisir nos solutions ?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🆔</span>
+                <h3>Multi-modes d'authentification</h3>
+                <p>Badge RFID, code PIN, biométrie (empreinte, reconnaissance faciale), application mobile ou combinés pour une sécurité renforcée.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3>Gestion centralisée</h3>
+                <p>Logiciel intuitif pour gérer les droits d'accès, les horaires, les niveaux de permission et consulter les historiques en temps réel.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">⏰</span>
+                <h3>Planification horaire</h3>
+                <p>Définissez des plages horaires d'accès personnalisées par utilisateur, groupe ou zone. Idéal pour le contrôle du personnel.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📱</span>
+                <h3>Gestion à distance</h3>
+                <p>Administrez votre système depuis n'importe où : délivrez des badges virtuels, déverrouillez des portes et consultez les rapports.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🚨</span>
+                <h3>Anti-passback</h3>
+                <p>Empêche le prêt de badge en interdisant une deuxième entrée sans sortie préalable. Sécurité maximale pour vos zones sensibles.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔗</span>
+                <h3>Intégration domotique</h3>
+                <p>Connectez votre contrôle d'accès aux autres systèmes : éclairage, chauffage, alarme pour une gestion intelligente du bâtiment.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Étapes -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Étapes d'Installation</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>Analyse des besoins</h3>
+                    <p>Étude de votre bâtiment, des flux de personnes et définition des zones sécurisées et des niveaux d'accès.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>Conception du système</h3>
+                    <p>Choix des lecteurs, des serrures électriques, du type d'identification et planification du câblage.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>Installation et câblage</h3>
+                    <p>Pose des équipements, câblage des lecteurs aux contrôleurs, installation des serrures et gâches électriques.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div>
+                    <h3>Configuration logicielle</h3>
+                    <p>Paramétrage du serveur, création des utilisateurs, attribution des droits et configuration des plannings.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div>
+                    <h3>Test et formation</h3>
+                    <p>Tests complets du système, formation des administrateurs et des utilisateurs, remise de la documentation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Marques -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Marques Utilisées</h2>
+        </div>
+        <div class="brands-grid">
+            <div class="brand-item">
+                <span class="brand-logo">🆔</span>
+                <h4>ZKTeco</h4>
+                <p>Contrôle d'accès biométrique</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🔐</span>
+                <h4>CDVI</h4>
+                <p>Solutions de contrôle d'accès</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🏷️</span>
+                <h4>HID Global</h4>
+                <p>Lecteurs de badges</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🔑</span>
+                <h4>Dormakaba</h4>
+                <p>Serrurerie et accès</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">📟</span>
+                <h4>Paxton</h4>
+                <p>Systèmes d'accès compacts</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🧩</span>
+                <h4>STid</h4>
+                <p>Lecteurs RFID haute sécurité</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Garantie -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Garantie</h2>
+        </div>
+        <div class="guarantee-box">
+            <span class="guarantee-icon">🛡️</span>
+            <h3>Garantie complète</h3>
+            <ul>
+                <li>Garantie de 5 ans sur l'installation</li>
+                <li>Garantie de 3 ans sur les lecteurs et contrôleurs</li>
+                <li>Garantie de 2 ans sur les serrures électriques</li>
+                <li>SAV et assistance technique 7j/7</li>
+                <li>Mise à jour logicielle incluse pendant 3 ans</li>
+                <li>Extension de garantie possible</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Galerie -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Réalisations</h2>
+        </div>
+        <div class="service-gallery-grid">
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images7.jpeg' %}" alt="Contrôle d'Accès Projet 1">
+                <span class="gallery-label">Siège social - 15 points d'accès</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images4.jpeg' %}" alt="Contrôle d'Accès Projet 2">
+                <span class="gallery-label">Usine - Contrôle biométrique</span>
+            </div>
+            <div class="service-gallery-item">
+                <img src="{% static 'media/images5.jpeg' %}" alt="Contrôle d'Accès Projet 3">
+                <span class="gallery-label">Bureaux - Badge + code</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Questions Fréquentes</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    Quelle est la différence entre un badge RFID et un badge magnétique ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Le badge RFID est sans contact, plus durable et plus sécurisé que le badge magnétique. Il permet une lecture à distance (quelques centimètres) et peut stocker plus d'informations. Les badges RFID sont aujourd'hui la norme pour le contrôle d'accès professionnel.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Puis-je utiliser mon téléphone comme badge d'accès ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Oui, nos systèmes modernes supportent la technologie NFC et Bluetooth. Vos collaborateurs peuvent utiliser leur smartphone Android ou iOS pour ouvrir les portes via une application dédiée. Solution idéale pour éviter la gestion de badges physiques.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Est-il possible de gérer les accès à distance ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolument. Notre logiciel de gestion cloud vous permet d'administrer votre système de contrôle d'accès depuis n'importe où : créer des badges, modifier les droits, déverrouiller une porte à distance et consulter les historiques en temps réel.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Devis -->
+<section class="service-section" id="devis">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Demander un Devis</h2>
+        </div>
+        <div style="text-align: center; max-width: 36rem; margin: 0 auto;">
+            <p style="color: var(--muted-foreground); margin-bottom: 2rem;">Sécurisez vos accès avec des solutions professionnelles. Contactez nos experts.</p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="tel:+33503720303" class="btn btn-primary">📞 05 03 72 03 03</a>
+                <a href="mailto:cotechsarl@gmail.com" class="btn btn-secondary">✉️ Nous écrire</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Téléphonie - TECH CONCEPT SARL{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+<section class="page-hero page-hero-services">
+    <div class="container">
+        <div class="page-hero-content">
+            <div>
+                <a href="{% url 'home' %}" class="back-link">← Retour à l'accueil</a>
+                <div class="breadcrumb">
+                    <a href="{% url 'home' %}">Accueil</a>
+                    <span>/</span>
+                    <span>Téléphonie</span>
+                </div>
+                <span class="page-hero-icon">☎️</span>
+                <h1>Téléphonie</h1>
+                <p>Systèmes de téléphonie IP et solutions de communication modernes. Optimisez votre communication d'entreprise.</p>
+                <div class="page-hero-buttons">
+                    <a href="#devis" class="btn btn-white">Demander un devis</a>
+                </div>
+            </div>
+            <div class="page-hero-image">
+                <img src="{% static 'media/images4.jpeg' %}" alt="Téléphonie">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Présentation -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Présentation</h2>
+        </div>
+        <div class="intro-content">
+            <div class="intro-text">
+                <p><strong>TECH CONCEPT SARL</strong> vous accompagne dans la mise en place de solutions de téléphonie modernes, flexibles et économiques. De la téléphonie IP au standard virtuel, nous concevons des systèmes de communication adaptés à votre organisation.</p>
+                <p>Nos solutions de téléphonie d'entreprise vous permettent de réduire vos coûts tout en améliorant la qualité de vos communications, grâce à la VoIP (Voice over IP) et aux technologies de communication unifiée.</p>
+                <p>Que vous soyez une TPE, une PME ou un grand groupe, nous avons la solution téléphonique adaptée à votre budget et à vos besoins.</p>
+            </div>
+            <div class="intro-image">
+                <img src="{% static 'media/images4.jpeg' %}" alt="Téléphonie IP">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pourquoi choisir -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Pourquoi choisir nos solutions ?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">💰</span>
+                <h3>Économies importantes</h3>
+                <p>Réduisez vos factures téléphoniques jusqu'à 60% grâce à la VoIP et aux appels illimités vers les fixes et mobiles.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📱</span>
+                <h3>Mobilité totale</h3>
+                <p>Votre numéro de poste vous suit partout via l'application mobile. Appels, transferts et conférences depuis votre smartphone.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔗</span>
+                <h3>Intégration CRM</h3>
+                <p>Connectez votre téléphonie à votre CRM, logiciel de ticketing ou outils collaboratifs pour une productivité optimale.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📊</span>
+                <h3>Supervision et reporting</h3>
+                <p>Tableau de bord en temps réel : appels en cours, statistiques, enregistrements, qualité de service (QoS).</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎧</span>
+                <h3>Standard virtuel</h3>
+                <p>Accueil téléphonique automatisé, menu vocal interactif (SVI), files d'attente, distribution automatique des appels.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔒</span>
+                <h3>Sécurité des communications</h3>
+                <p>Chiffrement TLS/SRTP des appels, pare-feu VoIP, anti-spam, anti-fraude et protection DDoS.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Étapes -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Étapes de Mise en Place</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>Audit téléphonique</h3>
+                    <p>Analyse de votre consommation, de votre infrastructure existante et de vos besoins en communication.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>Conception de la solution</h3>
+                    <p>Choix du type de standard (cloud ou sur site), nombre de postes, fonctionnalités et intégrations.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>Déploiement et configuration</h3>
+                    <p>Installation du standard IP, configuration des postes, paramétrage des règles et des services.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div>
+                    <h3>Portabilité des numéros</h3>
+                    <p>Portage de vos numéros existants vers la nouvelle solution sans interruption de service.</p>
+                </div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div>
+                    <h3>Formation et support</h3>
+                    <p>Formation de vos équipes, documentation utilisateur et mise en place du support technique.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Marques -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Marques Utilisées</h2>
+        </div>
+        <div class="brands-grid">
+            <div class="brand-item">
+                <span class="brand-logo">☎️</span>
+                <h4>Yealink</h4>
+                <p>Téléphones IP et DECT</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🌐</span>
+                <h4>3CX</h4>
+                <p>Standard IP logiciel</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">📞</span>
+                <h4>Grandstream</h4>
+                <p>Téléphones IP et passerelles</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🔤</span>
+                <h4>Alcatel-Lucent</h4>
+                <p>Solutions de téléphonie</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">💻</span>
+                <h4>FreePBX</h4>
+                <p>Système open source</p>
+            </div>
+            <div class="brand-item">
+                <span class="brand-logo">🎧</span>
+                <h4>Jabra</h4>
+                <p>Casques et accessoires</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Garantie -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Garantie et Support</h2>
+        </div>
+        <div class="guarantee-box">
+            <span class="guarantee-icon">🛡️</span>
+            <h3>Engagement de service</h3>
+            <ul>
+                <li>Garantie de 2 ans sur les équipements</li>
+                <li>SLA de disponibilité : 99,9%</li>
+                <li>Support technique par téléphone et à distance</li>
+                <li>Maintenance préventive et corrective</li>
+                <li>Mise à jour logicielle et firmware</li>
+                <li>Assistance d'urgence 7j/7</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="service-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Questions Fréquentes</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    Qu'est-ce que la téléphonie IP (VoIP) ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>La téléphonie IP (ou VoIP) permet de passer des appels téléphoniques via Internet plutôt que via le réseau téléphonique traditionnel. Cela réduit considérablement les coûts, surtout pour les appels longue distance et internationaux, et offre des fonctionnalités avancées.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Puis-je conserver mes numéros actuels ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Oui, nous assurons la portabilité de vos numéros existants vers notre solution. Le processus est simple et transparent, sans interruption de service. Vous conservez tous vos numéros fixes et même certains numéros mobiles.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    La qualité des appels est-elle bonne ?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolument. Avec une connexion Internet adaptée et notre configuration QoS (Quality of Service), la qualité des appels est excellente, souvent meilleure que le réseau traditionnel. Nous garantissons une qualité HD sur tous les appels.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Devis -->
+<section class="service-section" id="devis">
+    <div class="container">
+        <div class="section-header">
+            <div class="accent-line"></div>
+            <h2>Demander un Devis</h2>
+        </div>
+        <div style="text-align: center; max-width: 36rem; margin: 0 auto;">
+            <p style="color: var(--muted-foreground); margin-bottom: 2rem;">Modernisez votre téléphonie d'entreprise dès aujourd'hui.</p>
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="tel:+33503720303" class="btn btn-primary">📞 05 03 72 03 03</a>
+                <a href="mailto:cotechsarl@gmail.com" class="btn btn-secondary">✉️ Nous écrire</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
