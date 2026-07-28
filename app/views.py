@@ -43,6 +43,10 @@ def service_maintenance(request):
     return render(request, 'service_maintenance.html')
 
 
+def connexion(request):
+    return render(request, 'connexion.html')
+
+
 def demande_devis(request):
     if request.method == 'POST':
         form = DemandeDevisForm(request.POST, request.FILES)
@@ -64,3 +68,14 @@ def demande_devis(request):
         form = DemandeDevisForm()
 
     return render(request, 'demande_devis.html', {'form': form})
+
+
+def contact(request):
+    return render(request, 'contact.html')
+
+def connexion(request):
+    return render(request, "connexion.html")    
+
+def apropos(request):
+    return render(request, "apropos.html")    
+    

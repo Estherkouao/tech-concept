@@ -13,6 +13,9 @@ urlpatterns = [
     path('services/cloture-electrique/', views.service_cloture, name='service_cloture'),
     path('services/maintenance/', views.service_maintenance, name='service_maintenance'),
     path('demande-devis/', views.demande_devis, name='demande_devis'),
+    path("contact/", views.contact, name="contact"),
+    path("connexion/", views.connexion, name="connexion"),
+    path("a-propos/", views.apropos, name="apropos"),
 ]
 
 

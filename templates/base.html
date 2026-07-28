@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     
     <style>
         /* ============================================
@@ -583,7 +584,7 @@
         .page-hero {
             padding-top: 10rem;
             padding-bottom: 4rem;
-            background: linear-gradient(135deg, var(--primary) 0%, rgba(220, 20, 60, 0.9) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(7, 6, 1, 0.9) 100%);
             color: white;
             position: relative;
             overflow: hidden;
@@ -1977,9 +1978,566 @@
         transform:translateX(8px);
 
         }
+        /*=============================
+        CONTACT
+        =============================*/
+
+        .contact-section{
+
+        padding:100px 0;
+
+        }
+
+        .contact-grid{
+
+        display:grid;
+
+        grid-template-columns:1fr 1.2fr;
+
+        gap:60px;
+
+        }
+
+        .contact-info h2,
+        .contact-form h2{
+
+        margin-bottom:30px;
+
+        }
+
+        .info-card{
+
+        padding:25px;
+
+        margin-bottom:20px;
+
+        border-radius:15px;
+
+        background:#fff;
+
+        box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+        }
+
+        .info-card h4{
+
+        margin-bottom:10px;
+
+        color:#ef4444;
+
+        }
+
+        .contact-form{
+
+        background:#fff;
+
+        padding:40px;
+
+        border-radius:20px;
+
+        box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+        }
+
+        .form-group{
+
+        margin-bottom:20px;
+
+        }
+
+        .form-group label{
+
+        display:block;
+
+        margin-bottom:8px;
+
+        font-weight:600;
+
+        }
+
+        .form-group input,
+        .form-group textarea{
+
+        width:100%;
+
+        padding:15px;
+
+        border:1px solid #ddd;
+
+        border-radius:10px;
+
+        font-size:16px;
+
+        outline:none;
+
+        transition:.3s;
+
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus{
+
+        border-color:#ef4444;
+
+        }
+
+        .map-section iframe{
+
+        width:100%;
+
+        height:500px;
+
+        border:none;
+
+        }
+
+        @media(max-width:992px){
+
+        .contact-grid{
+
+        grid-template-columns:1fr;
+
+        }
+
+        }
+        /*=========================================
+            GOOGLE MAP
+        =========================================*/
+
+        .location-section{
+
+        padding:100px 0;
+
+        background:#fafafa;
+
+        }
+
+        .map-wrapper{
+
+        position:relative;
+
+        margin-top:60px;
+
+        border-radius:25px;
+
+        overflow:hidden;
+
+        box-shadow:0 20px 50px rgba(0,0,0,.12);
+
+        }
+
+        .map-wrapper iframe{
+
+        width:100%;
+
+        height:550px;
+
+        border:none;
+
+        filter:grayscale(10%);
+
+        }
+
+        .map-card{
+
+        position:absolute;
+
+        top:40px;
+
+        left:40px;
+
+        background:white;
+
+        padding:35px;
+
+        border-radius:20px;
+
+        width:330px;
+
+        box-shadow:0 20px 50px rgba(0,0,0,.18);
+
+        animation:fadeInUp .8s;
+
+        }
+
+        .marker-icon{
+
+        width:70px;
+
+        height:70px;
+
+        background:#ef4444;
+
+        border-radius:50%;
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        font-size:34px;
+
+        margin-bottom:20px;
+
+        color:white;
+
+        }
+
+        .map-card h3{
+
+        margin-bottom:12px;
+
+        font-size:28px;
+
+        }
+
+        .map-card p{
+
+        color:#666;
+
+        line-height:1.8;
+
+        margin-bottom:25px;
+
+        }
+
+        @media(max-width:992px){
+
+        .map-card{
+
+        position:relative;
+
+        left:auto;
+
+        top:auto;
+
+        width:100%;
+
+        border-radius:0;
+
+        }
+
+        .map-wrapper iframe{
+
+        height:400px;
+
+        }
+
+        }
+        /*==============================
+            WHATSAPP BUTTON
+        ==============================*/
+
+        .whatsapp-float{
+
+        position:fixed;
+
+        bottom:30px;
+
+        right:30px;
+
+        width:68px;
+
+        height:68px;
+
+        background:#25D366;
+
+        border-radius:50%;
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        box-shadow:0 15px 35px rgba(37,211,102,.45);
+
+        z-index:9999;
+
+        transition:.35s;
+
+        animation:whatsappPulse 2s infinite;
+
+        }
+
+        .whatsapp-float:hover{
+
+        transform:scale(1.12);
+
+        background:#1ebe5d;
+
+        }
+
+        @keyframes whatsappPulse{
+
+        0%{
+
+        box-shadow:0 0 0 0 rgba(37,211,102,.6);
+
+        }
+
+        70%{
+
+        box-shadow:0 0 0 22px rgba(37,211,102,0);
+
+        }
+
+        100%{
+
+        box-shadow:0 0 0 0 rgba(37,211,102,0);
+
+        }
+
+        }
+
+        @media(max-width:768px){
+
+        .whatsapp-float{
+
+        width:60px;
+
+        height:60px;
+
+        bottom:20px;
+
+        right:20px;
+
+        }
+
+        .whatsapp-float svg{
+
+        width:28px;
+
+        height:28px;
+
+        }
+
+        }
+        /*=========================================
+            HORAIRES & DELAIS DE REPONSE
+        =========================================*/
+
+        .response-section{
+
+        padding:100px 0;
+
+        background:#fafafa;
+
+        }
+
+        .response-grid{
+
+        display:grid;
+
+        grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+        gap:35px;
+
+        margin-top:60px;
+
+        }
+
+        .response-card{
+
+        background:white;
+
+        padding:35px;
+
+        border-radius:20px;
+
+        box-shadow:0 15px 35px rgba(0,0,0,.06);
+
+        transition:.35s;
+
+        }
+
+        .response-card:hover{
+
+        transform:translateY(-10px);
+
+        }
+
+        .response-icon{
+
+        width:70px;
+
+        height:70px;
+
+        background:#ef4444;
+
+        color:white;
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        font-size:30px;
+
+        border-radius:50%;
+
+        margin-bottom:25px;
+
+        }
+
+        .response-card h3{
+
+        margin-bottom:25px;
+
+        font-size:24px;
+
+        }
+
+        .response-card ul{
+
+        list-style:none;
+
+        padding:0;
+
+        }
+
+        .response-card ul li{
+
+        display:flex;
+
+        justify-content:space-between;
+
+        padding:12px 0;
+
+        border-bottom:1px solid #eee;
+
+        font-size:15px;
+
+        }
+
+        .response-card ul li:last-child{
+
+        border:none;
+
+        }
+
+        .response-card p{
+
+        color:#666;
+
+        line-height:1.8;
+
+        margin-bottom:25px;
+
+        }
+        .login-btn{
+            background:#222;
+            color:#fff;
+            text-align:center;
+            border-radius:10px;
+            margin-top:12px;
+        }
+
+        .login-btn:hover{
+            background:#111;
+        }
+
+        .whatsapp-btn{
+            background:#25D366;
+            color:#fff;
+            text-align:center;
+            border-radius:10px;
+            margin-top:12px;
+        }
+
+        .whatsapp-btn:hover{
+            background:#20b659;
+        }
+
+        .mobile-social{
+            display:flex;
+            justify-content:space-between;
+            gap:10px;
+            margin-top:15px;
+        }
+
+        .mobile-social a{
+            flex:1;
+            text-align:center;
+            padding:10px;
+            background:#f5f5f5;
+            border-radius:10px;
+            font-size:14px;
+            font-weight:600;
+            transition:.3s;
+        }
+
+        .mobile-social a:hover{
+            background:#DC143C;
+            color:#fff;
+        }
+        .mobile-top-bar{
+            background:#0D2B55;
+            color:#fff;
+            padding:18px;
+            border-bottom:1px solid rgba(255,255,255,.1);
+        }
+
+        .mobile-top-item{
+            margin-bottom:12px;
+            font-size:14px;
+        }
+
+        .mobile-top-item a{
+            color:#fff;
+            text-decoration:none;
+        }
+
+        .mobile-top-item a:hover{
+            color:#ff9800;
+        }
+
+        .mobile-socials{
+            display:flex;
+            gap:10px;
+            flex-wrap:wrap;
+            margin-top:15px;
+        }
+
+        .mobile-socials a{
+            flex:1;
+            text-align:center;
+            padding:10px;
+            border:1px solid rgba(255,255,255,.15);
+            border-radius:8px;
+            color:#fff;
+            text-decoration:none;
+            transition:.3s;
+        }
+
+        .mobile-socials a:hover{
+            background:#ff9800;
+            color:#fff;
+        }
     </style>
     {% block extra_css %}{% endblock %}
 </head>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/2250503720303?text=Bonjour%20TECH%20CONCEPT,%20je%20souhaite%20obtenir%20des%20informations."
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="Contacter TECH CONCEPT sur WhatsApp">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="34"
+         height="34"
+         viewBox="0 0 32 32"
+         fill="white">
+
+        <path d="M19.11 17.38c-.27-.14-1.58-.78-1.82-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.56-1.47-1.82-.15-.27-.02-.42.11-.56.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.44-.82-1.97-.22-.52-.44-.45-.6-.46h-.51c-.18 0-.47.07-.72.34-.24.27-.95.93-.95 2.27s.98 2.64 1.11 2.82c.14.18 1.92 2.93 4.66 4.11.65.28 1.16.45 1.56.58.66.21 1.27.18 1.75.11.53-.08 1.58-.65 1.8-1.27.22-.63.22-1.16.15-1.27-.06-.11-.24-.18-.51-.31z"/>
+
+        <path d="M16.01 3C8.82 3 3 8.81 3 16c0 2.54.74 4.91 2.02 6.92L3.5 29l6.25-1.47A12.93 12.93 0 0 0 16 29c7.19 0 13-5.81 13-13S23.2 3 16.01 3zm0 23.61c-2.09 0-4.04-.61-5.69-1.66l-.41-.26-3.71.87.88-3.62-.27-.42A10.54 10.54 0 0 1 5.39 16c0-5.86 4.76-10.62 10.62-10.62S26.63 10.14 26.63 16 21.87 26.61 16.01 26.61z"/>
+
+    </svg>
+
+</a>
 <body>
     <!-- ===========================================
      TOP BAR
@@ -2109,11 +2667,11 @@
                     </div>
 
                     <a href="{% url 'home' %}#gallery" class="nav-link">Galerie</a>
-                    <a href="{% url 'home' %}#about" class="nav-link">À propos</a>
                     <a href="{% url 'home' %}#process" class="nav-link">Processus</a>
-                    <a href="{% url 'home' %}#contact" class="nav-link">Contactez-nous</a>
+                    <a href="{% url 'contact' %}" class="nav-link">Contactez-nous</a>
+                    <a href="{% url 'apropos' %}" class="nav-link">À propos</a>
                     <a href="{% url 'demande_devis' %}" class="nav-link cta-link">Demande de devis</a>
-                    <a href="" class="nav-link cta-link">Connexion</a>
+                    <a href="{% url 'connexion' %}" class="nav-link cta-link">Connexion</a>
                 </nav>
 
                 <!-- Mobile Menu Button -->
@@ -2125,39 +2683,199 @@
             </div>
         </div>
 
-        <!-- Mobile Navigation -->
+       <!-- Mobile Navigation -->
         <nav class="nav-mobile" id="navMobile">
-            <div class="container">
-                <!-- Services mobile dropdown -->
-                <button class="nav-mobile-dropdown-toggle" data-target="mobileServices">
-                    Services
-                    <span class="dropdown-arrow">▼</span>
-                </button>
-                <div class="nav-mobile-submenu" id="mobileServices">
-                    <a href="{% url 'service_solaire' %}" class="nav-link-mobile-sub">⚡ Énergie Solaire</a>
-                    <a href="{% url 'service_electricite' %}" class="nav-link-mobile-sub">🔌 Électricité Générale</a>
-                    <a href="{% url 'service_reseau' %}" class="nav-link-mobile-sub">🌐 Réseaux Informatiques</a>
-                    <a href="{% url 'service_telephonie' %}" class="nav-link-mobile-sub">☎️ Téléphonie IP</a>
-                    <a href="{% url 'service_maintenance' %}" class="nav-link-mobile-sub">🔧 Maintenance Technique</a>
+            <!-- Top Bar Mobile -->
+            <div class="mobile-top-bar">
+
+                <div class="mobile-top-item">
+                    📍 Riviera Palmeraie, Abidjan
                 </div>
 
-                <!-- Expertise mobile dropdown -->
-                <button class="nav-mobile-dropdown-toggle" data-target="mobileExpertise">
-                    Expertise
-                    <span class="dropdown-arrow">▼</span>
-                </button>
-                <div class="nav-mobile-submenu" id="mobileExpertise">
-                    <a href="{% url 'service_videosurveillance' %}" class="nav-link-mobile-sub">📹 Vidéosurveillance</a>
-                    <a href="{% url 'service_controle_acces' %}" class="nav-link-mobile-sub">🔐 Contrôle d'Accès</a>
-                    <a href="{% url 'service_incendie' %}" class="nav-link-mobile-sub">🔥 Sécurité Incendie</a>
-                    <a href="{% url 'service_cloture' %}" class="nav-link-mobile-sub">⚠️ Clôtures Électriques</a>
+                <div class="mobile-top-item">
+                    🕒 Lun - Sam : 08h00 - 18h00
                 </div>
 
-                <a href="{% url 'home' %}#gallery" class="nav-link-mobile">Galerie</a>
-                <a href="{% url 'home' %}#about" class="nav-link-mobile">À propos</a>
-                <a href="{% url 'home' %}#process" class="nav-link-mobile">Processus</a>
-                <a href="{% url 'home' %}#contact" class="nav-link-mobile cta-link">Contactez-nous</a>
+                <div class="mobile-top-item">
+                    <a href="tel:+2250503720303">
+                        📞 +225 05 03 72 03 03
+                    </a>
+                </div>
+
+                <div class="mobile-top-item">
+                    <a href="mailto:cotechsarl@gmail.com">
+                        ✉ cotechsarl@gmail.com
+                    </a>
+                </div>
+
+                <div class="mobile-socials">
+                    <a href="#" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                        Facebook
+                    </a>
+
+                    <a href="#" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                        LinkedIn
+                    </a>
+
+                    <a href="https://wa.me/2250503720303" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                </div>
+
             </div>
+
+            <div class="container">
+
+                <!-- Accueil -->
+                <a href="{% url 'home' %}" class="nav-link-mobile">
+                    🏠 Accueil
+                </a>
+
+                <!-- Services -->
+                <button class="nav-mobile-dropdown-toggle" data-target="mobileServices">
+                    ⚙️ Nos Services
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+
+                <div class="nav-mobile-submenu" id="mobileServices">
+
+                    <a href="{% url 'service_solaire' %}" class="nav-link-mobile-sub">
+                        ☀️ Énergie Solaire
+                    </a>
+
+                    <a href="{% url 'service_electricite' %}" class="nav-link-mobile-sub">
+                        ⚡ Électricité Générale
+                    </a>
+
+                    <a href="{% url 'service_reseau' %}" class="nav-link-mobile-sub">
+                        🌐 Réseaux Informatiques
+                    </a>
+
+                    <a href="{% url 'service_telephonie' %}" class="nav-link-mobile-sub">
+                        ☎️ Téléphonie IP
+                    </a>
+
+                    <a href="{% url 'service_maintenance' %}" class="nav-link-mobile-sub">
+                        🔧 Maintenance Technique
+                    </a>
+
+                </div>
+
+                <!-- Expertise -->
+
+                <button class="nav-mobile-dropdown-toggle" data-target="mobileExpertise">
+
+                    🛡️ Expertise
+
+                    <span class="dropdown-arrow">▼</span>
+
+                </button>
+
+                <div class="nav-mobile-submenu" id="mobileExpertise">
+
+                    <a href="{% url 'service_videosurveillance' %}" class="nav-link-mobile-sub">
+                        📹 Vidéosurveillance
+                    </a>
+
+                    <a href="{% url 'service_controle_acces' %}" class="nav-link-mobile-sub">
+                        🔐 Contrôle d'accès
+                    </a>
+
+                    <a href="{% url 'service_incendie' %}" class="nav-link-mobile-sub">
+                        🔥 Sécurité Incendie
+                    </a>
+
+                    <a href="{% url 'service_cloture' %}" class="nav-link-mobile-sub">
+                        ⚡ Clôture Électrique
+                    </a>
+
+                </div>
+
+                <!-- Galerie -->
+
+                <a href="{% url 'home' %}#gallery" class="nav-link-mobile">
+                    🖼 Galerie
+                </a>
+
+                <!-- Processus -->
+
+                <a href="{% url 'home' %}#process" class="nav-link-mobile">
+                    📋 Notre Processus
+                </a>
+
+                <!-- A propos -->
+
+                <a href="{% url 'apropos' %}" class="nav-link-mobile">
+                    🏢 À propos
+                </a>
+
+                <!-- Contact -->
+
+                <a href="{% url 'contact' %}" class="nav-link-mobile">
+                    📍 Contact
+                </a>
+
+                <!-- Demande devis -->
+
+                <a href="{% url 'demande_devis' %}" class="nav-link-mobile cta-link">
+                    📄 Demande de devis
+                </a>
+
+                <!-- Connexion -->
+
+                <a href="{% url 'connexion' %}" class="nav-link-mobile login-btn">
+                    👤 Connexion
+                </a>
+
+                <!-- Téléphone -->
+
+                <a href="tel:+2250503720303" class="nav-link-mobile">
+                    📞 +225 05 03 72 03 03
+                </a>
+
+                <!-- Email -->
+
+                <a href="mailto:cotechsarl@gmail.com" class="nav-link-mobile">
+                    ✉ cotechsarl@gmail.com
+                </a>
+
+                <!-- WhatsApp -->
+
+                <a href="https://wa.me/2250503720303"
+                target="_blank"
+                class="nav-link-mobile whatsapp-btn">
+                    💬 WhatsApp
+                </a>
+
+                <hr style="margin:25px 0;opacity:.15;">
+
+                <!-- Réseaux sociaux -->
+
+                <div class="mobile-social">
+
+                    <a href="#">
+                        📘 Facebook
+                    </a>
+
+                    <a href="#">
+                        💼 LinkedIn
+                    </a>
+
+                    <a href="#">
+                        📷 Instagram
+                    </a>
+
+                    <a href="#">
+                        ▶ YouTube
+                    </a>
+
+                </div>
+
+            </div>
+
         </nav>
     </header>
 
