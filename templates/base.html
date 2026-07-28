@@ -2516,6 +2516,121 @@
             background:#ff9800;
             color:#fff;
         }
+        /*=============================
+        TOP BAR MOBILE
+        ==============================*/
+
+        .mobile-top-bar{
+            background:#0D2B55;
+            color:#fff;
+            padding:25px 20px;
+        }
+
+        .mobile-company{
+            display:flex;
+            align-items:center;
+            gap:15px;
+            margin-bottom:25px;
+        }
+
+        .mobile-company img{
+            width:60px;
+            height:60px;
+            border-radius:12px;
+            background:#fff;
+            padding:5px;
+        }
+
+        .mobile-company h3{
+            font-size:18px;
+            margin-bottom:4px;
+        }
+
+        .mobile-company p{
+            font-size:13px;
+            opacity:.8;
+        }
+
+        .mobile-contact-card{
+            display:flex;
+            align-items:center;
+            gap:15px;
+            background:rgba(255,255,255,.08);
+            border-radius:12px;
+            padding:15px;
+            margin-bottom:12px;
+        }
+
+        .mobile-contact-card i{
+            width:45px;
+            height:45px;
+            border-radius:50%;
+            background:#ff9800;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:18px;
+        }
+
+        .mobile-contact-card strong{
+            display:block;
+            font-size:14px;
+            margin-bottom:3px;
+        }
+
+        .mobile-contact-card span,
+        .mobile-contact-card a{
+            color:#fff;
+            font-size:13px;
+            text-decoration:none;
+        }
+
+        .mobile-social-title{
+            margin:25px 0 15px;
+            font-size:15px;
+            font-weight:600;
+        }
+
+        .mobile-socials{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:12px;
+            margin-bottom:25px;
+        }
+
+        .mobile-socials a{
+            width:55px;
+            height:55px;
+            border-radius:50%;
+            background:rgba(255,255,255,.1);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#fff;
+            font-size:22px;
+            transition:.3s;
+        }
+
+        .mobile-socials a:hover{
+            background:#ff9800;
+            transform:translateY(-4px);
+        }
+
+        .mobile-devis-btn{
+            display:block;
+            text-align:center;
+            background:#ff9800;
+            color:#fff;
+            text-decoration:none;
+            padding:16px;
+            border-radius:10px;
+            font-weight:700;
+            transition:.3s;
+        }
+
+        .mobile-devis-btn:hover{
+            background:#e68900;
+        }
     </style>
     {% block extra_css %}{% endblock %}
 </head>
@@ -2545,7 +2660,7 @@
     <div class="top-bar">
         <div class="container top-bar-content">
 
-            <div class="top-left">
+            <div class="top-left">     
                 <span>📍 Riviera Palmeraie, Abidjan</span>
                 <span>🕒 Lun - Sam : 08h00 - 18h00</span>
             </div>
@@ -2685,45 +2800,82 @@
 
        <!-- Mobile Navigation -->
         <nav class="nav-mobile" id="navMobile">
-            <!-- Top Bar Mobile -->
+            <!-- ========================= -->
+            <!-- TOP BAR MOBILE -->
+            <!-- ========================= -->
             <div class="mobile-top-bar">
 
-                <div class="mobile-top-item">
-                    📍 Riviera Palmeraie, Abidjan
+                <div class="mobile-company">
+                    <img src="{% static 'media/logo1.png' %}" alt="TECH CONCEPT">
+                    <div>
+                        <h3>TECH CONCEPT SARL</h3>
+                        <p>Votre partenaire en solutions technologiques</p>
+                    </div>
                 </div>
 
-                <div class="mobile-top-item">
-                    🕒 Lun - Sam : 08h00 - 18h00
+                <div class="mobile-contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Adresse</strong>
+                        <span>Riviera Palmeraie, Abidjan</span>
+                    </div>
                 </div>
 
-                <div class="mobile-top-item">
-                    <a href="tel:+2250503720303">
-                        📞 +225 05 03 72 03 03
-                    </a>
+                <div class="mobile-contact-card">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <strong>Horaires</strong>
+                        <span>Lun - Sam : 08h00 - 18h00</span>
+                    </div>
                 </div>
 
-                <div class="mobile-top-item">
-                    <a href="mailto:cotechsarl@gmail.com">
-                        ✉ cotechsarl@gmail.com
-                    </a>
+                <div class="mobile-contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Téléphone</strong>
+                        <a href="tel:+2250503720303">
+                            +225 05 03 72 03 03
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mobile-contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <a href="mailto:cotechsarl@gmail.com">
+                            cotechsarl@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mobile-social-title">
+                    Suivez-nous
                 </div>
 
                 <div class="mobile-socials">
-                    <a href="#" target="_blank">
+
+                    <a href="#">
                         <i class="fab fa-facebook-f"></i>
-                        Facebook
                     </a>
 
-                    <a href="#" target="_blank">
+                    <a href="#">
                         <i class="fab fa-linkedin-in"></i>
-                        LinkedIn
                     </a>
 
-                    <a href="https://wa.me/2250503720303" target="_blank">
+                    <a href="https://wa.me/2250503720303">
                         <i class="fab fa-whatsapp"></i>
-                        WhatsApp
                     </a>
+
+                    <a href="mailto:cotechsarl@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+
                 </div>
+
+                <a href="{% url 'demande_devis' %}" class="mobile-devis-btn">
+                    Demander un devis
+                </a>
 
             </div>
 
