@@ -310,25 +310,44 @@
         }
 
         /* Mobile Navigation */
-        .nav-mobile {
-            display: none;
-            flex-direction: column;
-            gap: 0.25rem;
-            background-color: white;
-            border-top: 1px solid var(--border);
-            padding: 0.75rem 0 1.25rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            animation: slideInUp 0.3s var(--ease-out);
+        .nav-mobile{
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 360px;
+            max-width:100%;
+            height:100vh;
+            background:#fff;
+            z-index:99999;
+            overflow-y:auto;
+            transition:.4s ease;
+            display:block;
+            padding:0;
+            box-shadow:-15px 0 40px rgba(0,0,0,.18);
         }
 
-        .nav-mobile.active {
-            display: flex;
+        .nav-mobile.active{
+            right:0;
         }
 
         @media (min-width: 768px) {
             .nav-mobile {
                 display: none !important;
             }
+        }
+        .mobile-overlay{
+            position:fixed;
+            inset:0;
+            background:rgba(0,0,0,.55);
+            opacity:0;
+            visibility:hidden;
+            transition:.3s;
+            z-index:99998;
+        }
+
+        .mobile-overlay.active{
+            opacity:1;
+            visibility:visible;
         }
 
         .nav-link-mobile {
@@ -2631,7 +2650,28 @@
         .mobile-devis-btn:hover{
             background:#e68900;
         }
-    </style>
+        .nav-mobile{
+            position: fixed;
+            top: 110px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 110px);
+            overflow-y: auto;
+            background: #fff;
+            z-index: 9999;
+        }
+
+        @media(max-width:768px){
+            .header{
+                top:0;
+            }
+
+            .nav-mobile{
+                top:90px;
+                height:calc(100vh - 90px);
+            }
+        }
+            </style>
     {% block extra_css %}{% endblock %}
 </head>
 <!-- WhatsApp Floating Button -->
@@ -2797,236 +2837,168 @@
                 </button>
             </div>
         </div>
+        <div class="mobile-overlay" id="mobileOverlay"></div>
 
-       <!-- Mobile Navigation -->
-        <nav class="nav-mobile" id="navMobile">
-            <!-- ========================= -->
-            <!-- TOP BAR MOBILE -->
-            <!-- ========================= -->
-            <div class="mobile-top-bar">
+            <nav class="nav-mobile" id="navMobile">
 
-                <div class="mobile-company">
-                    <img src="{% static 'media/logo1.png' %}" alt="TECH CONCEPT">
-                    <div>
-                        <h3>TECH CONCEPT SARL</h3>
-                        <p>Votre partenaire en solutions technologiques</p>
+                <!-- TOP BAR MOBILE -->
+                <div class="mobile-top-bar">
+
+                    <div class="mobile-company">
+                        <img src="{% static 'media/logo1.png' %}" alt="TECH CONCEPT">
+                        <div>
+                            <h3>TECH CONCEPT SARL</h3>
+                            <p>Solutions Technologiques & Sécurité</p>
+                        </div>
                     </div>
+
+                    <div class="mobile-contact-card">
+                        <i>📍</i>
+                        <div>
+                            <strong>Adresse</strong>
+                            <span>Riviera Palmeraie, Abidjan</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-contact-card">
+                        <i>📞</i>
+                        <div>
+                            <strong>Téléphone</strong>
+                            <a href="tel:+2250503720303">
+                                +225 05 03 72 03 03
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-contact-card">
+                        <i>✉</i>
+                        <div>
+                            <strong>Email</strong>
+                            <a href="mailto:cotechsarl@gmail.com">
+                                cotechsarl@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mobile-contact-card">
+                        <i>🕒</i>
+                        <div>
+                            <strong>Horaires</strong>
+                            <span>Lun - Sam : 08h00 - 18h00</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-social-title">
+                        Suivez-nous
+                    </div>
+
+                    <div class="mobile-socials">
+                        <a href="#"><i>📘</i></a>
+                        <a href="#"><i>💼</i></a>
+                        <a href="https://wa.me/2250503720303"><i>🟢</i></a>
+                        <a href="mailto:cotechsarl@gmail.com"><i>✉</i></a>
+                    </div>
+
+                    <a href="{% url 'demande_devis' %}" class="mobile-devis-btn">
+                        📄 Demander un devis
+                    </a>
+
                 </div>
 
-                <div class="mobile-contact-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <strong>Adresse</strong>
-                        <span>Riviera Palmeraie, Abidjan</span>
-                    </div>
-                </div>
+                <div class="container">
 
-                <div class="mobile-contact-card">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <strong>Horaires</strong>
-                        <span>Lun - Sam : 08h00 - 18h00</span>
-                    </div>
-                </div>
+                    <!-- SERVICES -->
+                    <button class="nav-mobile-dropdown-toggle" data-target="mobileServices">
+                        Services
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
 
-                <div class="mobile-contact-card">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <strong>Téléphone</strong>
-                        <a href="tel:+2250503720303">
-                            +225 05 03 72 03 03
+                    <div class="nav-mobile-submenu" id="mobileServices">
+
+                        <a href="{% url 'service_solaire' %}" class="nav-link-mobile-sub">
+                            ⚡ Énergie Solaire
                         </a>
-                    </div>
-                </div>
 
-                <div class="mobile-contact-card">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>Email</strong>
-                        <a href="mailto:cotechsarl@gmail.com">
-                            cotechsarl@gmail.com
+                        <a href="{% url 'service_electricite' %}" class="nav-link-mobile-sub">
+                            🔌 Électricité Générale
                         </a>
+
+                        <a href="{% url 'service_reseau' %}" class="nav-link-mobile-sub">
+                            🌐 Réseau Informatique
+                        </a>
+
+                        <a href="{% url 'service_telephonie' %}" class="nav-link-mobile-sub">
+                            ☎ Téléphonie IP
+                        </a>
+
+                        <a href="{% url 'service_maintenance' %}" class="nav-link-mobile-sub">
+                            🔧 Maintenance
+                        </a>
+
                     </div>
-                </div>
 
-                <div class="mobile-social-title">
-                    Suivez-nous
-                </div>
+                    <!-- EXPERTISE -->
 
-                <div class="mobile-socials">
+                    <button class="nav-mobile-dropdown-toggle" data-target="mobileExpertise">
+                        Expertise
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
 
-                    <a href="#">
-                        <i class="fab fa-facebook-f"></i>
+                    <div class="nav-mobile-submenu" id="mobileExpertise">
+
+                        <a href="{% url 'service_videosurveillance' %}" class="nav-link-mobile-sub">
+                            📹 Vidéosurveillance
+                        </a>
+
+                        <a href="{% url 'service_controle_acces' %}" class="nav-link-mobile-sub">
+                            🔐 Contrôle d'accès
+                        </a>
+
+                        <a href="{% url 'service_incendie' %}" class="nav-link-mobile-sub">
+                            🔥 Sécurité Incendie
+                        </a>
+
+                        <a href="{% url 'service_cloture' %}" class="nav-link-mobile-sub">
+                            ⚡ Clôture Électrique
+                        </a>
+
+                    </div>
+
+                    <!-- MENUS -->
+
+                    <a href="{% url 'home' %}" class="nav-link-mobile">
+                        🏠 Accueil
                     </a>
 
-                    <a href="#">
-                        <i class="fab fa-linkedin-in"></i>
+                    <a href="{% url 'apropos' %}" class="nav-link-mobile">
+                        ℹ À propos
                     </a>
 
-                    <a href="https://wa.me/2250503720303">
-                        <i class="fab fa-whatsapp"></i>
+                    <a href="{% url 'home' %}#gallery" class="nav-link-mobile">
+                        🖼 Galerie
                     </a>
 
-                    <a href="mailto:cotechsarl@gmail.com">
-                        <i class="fas fa-envelope"></i>
+                    <a href="{% url 'home' %}#process" class="nav-link-mobile">
+                        ⚙ Processus
                     </a>
 
-                </div>
-
-                <a href="{% url 'demande_devis' %}" class="mobile-devis-btn">
-                    Demander un devis
-                </a>
-
-            </div>
-
-            <div class="container">
-
-                <!-- Accueil -->
-                <a href="{% url 'home' %}" class="nav-link-mobile">
-                    🏠 Accueil
-                </a>
-
-                <!-- Services -->
-                <button class="nav-mobile-dropdown-toggle" data-target="mobileServices">
-                    ⚙️ Nos Services
-                    <span class="dropdown-arrow">▼</span>
-                </button>
-
-                <div class="nav-mobile-submenu" id="mobileServices">
-
-                    <a href="{% url 'service_solaire' %}" class="nav-link-mobile-sub">
-                        ☀️ Énergie Solaire
+                    <a href="{% url 'contact' %}" class="nav-link-mobile">
+                        📩 Contact
                     </a>
 
-                    <a href="{% url 'service_electricite' %}" class="nav-link-mobile-sub">
-                        ⚡ Électricité Générale
+                    <a href="{% url 'connexion' %}" class="nav-link-mobile login-btn">
+                        🔐 Connexion
                     </a>
 
-                    <a href="{% url 'service_reseau' %}" class="nav-link-mobile-sub">
-                        🌐 Réseaux Informatiques
+                    <a href="{% url 'demande_devis' %}" class="nav-link-mobile cta-link">
+                        📄 Demande de devis
                     </a>
 
-                    <a href="{% url 'service_telephonie' %}" class="nav-link-mobile-sub">
-                        ☎️ Téléphonie IP
-                    </a>
-
-                    <a href="{% url 'service_maintenance' %}" class="nav-link-mobile-sub">
-                        🔧 Maintenance Technique
+                    <a href="https://wa.me/2250503720303" class="nav-link-mobile whatsapp-btn">
+                        💬 WhatsApp
                     </a>
 
                 </div>
-
-                <!-- Expertise -->
-
-                <button class="nav-mobile-dropdown-toggle" data-target="mobileExpertise">
-
-                    🛡️ Expertise
-
-                    <span class="dropdown-arrow">▼</span>
-
-                </button>
-
-                <div class="nav-mobile-submenu" id="mobileExpertise">
-
-                    <a href="{% url 'service_videosurveillance' %}" class="nav-link-mobile-sub">
-                        📹 Vidéosurveillance
-                    </a>
-
-                    <a href="{% url 'service_controle_acces' %}" class="nav-link-mobile-sub">
-                        🔐 Contrôle d'accès
-                    </a>
-
-                    <a href="{% url 'service_incendie' %}" class="nav-link-mobile-sub">
-                        🔥 Sécurité Incendie
-                    </a>
-
-                    <a href="{% url 'service_cloture' %}" class="nav-link-mobile-sub">
-                        ⚡ Clôture Électrique
-                    </a>
-
-                </div>
-
-                <!-- Galerie -->
-
-                <a href="{% url 'home' %}#gallery" class="nav-link-mobile">
-                    🖼 Galerie
-                </a>
-
-                <!-- Processus -->
-
-                <a href="{% url 'home' %}#process" class="nav-link-mobile">
-                    📋 Notre Processus
-                </a>
-
-                <!-- A propos -->
-
-                <a href="{% url 'apropos' %}" class="nav-link-mobile">
-                    🏢 À propos
-                </a>
-
-                <!-- Contact -->
-
-                <a href="{% url 'contact' %}" class="nav-link-mobile">
-                    📍 Contact
-                </a>
-
-                <!-- Demande devis -->
-
-                <a href="{% url 'demande_devis' %}" class="nav-link-mobile cta-link">
-                    📄 Demande de devis
-                </a>
-
-                <!-- Connexion -->
-
-                <a href="{% url 'connexion' %}" class="nav-link-mobile login-btn">
-                    👤 Connexion
-                </a>
-
-                <!-- Téléphone -->
-
-                <a href="tel:+2250503720303" class="nav-link-mobile">
-                    📞 +225 05 03 72 03 03
-                </a>
-
-                <!-- Email -->
-
-                <a href="mailto:cotechsarl@gmail.com" class="nav-link-mobile">
-                    ✉ cotechsarl@gmail.com
-                </a>
-
-                <!-- WhatsApp -->
-
-                <a href="https://wa.me/2250503720303"
-                target="_blank"
-                class="nav-link-mobile whatsapp-btn">
-                    💬 WhatsApp
-                </a>
-
-                <hr style="margin:25px 0;opacity:.15;">
-
-                <!-- Réseaux sociaux -->
-
-                <div class="mobile-social">
-
-                    <a href="#">
-                        📘 Facebook
-                    </a>
-
-                    <a href="#">
-                        💼 LinkedIn
-                    </a>
-
-                    <a href="#">
-                        📷 Instagram
-                    </a>
-
-                    <a href="#">
-                        ▶ YouTube
-                    </a>
-
-                </div>
-
-            </div>
 
         </nav>
     </header>
@@ -3291,6 +3263,25 @@
         });
 
         counters.forEach(counter=>observer.observe(counter));
+        const menu = document.getElementById("navMobile");
+        const toggle = document.getElementById("menuToggle");
+        const overlay = document.getElementById("mobileOverlay");
+
+        toggle.onclick = function(){
+
+            menu.classList.toggle("active");
+            overlay.classList.toggle("active");
+            toggle.classList.toggle("active");
+
+        }
+
+        overlay.onclick = function(){
+
+            menu.classList.remove("active");
+            overlay.classList.remove("active");
+            toggle.classList.remove("active");
+
+        }
     </script>
     {% block extra_js %}{% endblock %}
 </body>
