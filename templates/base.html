@@ -2673,6 +2673,422 @@
                     padding-top: 75px;
                 }
             }
+            /* ==========================================
+            FIX FINAL - MENU MOBILE PREMIUM
+            ========================================== */
+
+
+            /* Bouton hamburger */
+            .menu-toggle{
+                position:relative;
+                z-index:100000;
+                display:flex;
+            }
+
+
+            /* Overlay */
+            .mobile-overlay{
+                position:fixed;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                background:rgba(0,0,0,.55);
+                opacity:0;
+                visibility:hidden;
+                transition:.35s ease;
+                z-index:99990;
+            }
+
+
+            .mobile-overlay.active{
+                opacity:1;
+                visibility:visible;
+            }
+
+
+
+            /* MENU MOBILE PRINCIPAL */
+            .nav-mobile{
+
+                position:fixed;
+
+                top:0;
+                left:-380px;
+
+                width:360px;
+
+                max-width:90%;
+
+                height:100vh;
+
+                background:#ffffff;
+
+                z-index:99999;
+
+                overflow-y:auto;
+
+                padding:0;
+
+                box-shadow:20px 0 50px rgba(0,0,0,.18);
+
+                transition:left .4s cubic-bezier(.23,1,.32,1);
+
+            }
+
+
+            /* ouverture */
+            .nav-mobile.active{
+
+                left:0;
+
+            }
+
+
+
+            /* HEADER DU MENU MOBILE */
+
+            .mobile-menu-header{
+
+                background:#0D2B55;
+
+                color:white;
+
+                padding:25px 20px;
+
+                display:flex;
+
+                align-items:center;
+
+                gap:15px;
+
+            }
+
+
+
+            .mobile-menu-header img{
+
+                width:60px;
+
+                height:60px;
+
+                object-fit:contain;
+
+                background:white;
+
+                border-radius:12px;
+
+                padding:5px;
+
+            }
+
+
+
+            .mobile-menu-header h3{
+
+                margin:0;
+
+                font-size:20px;
+
+                color:white;
+
+            }
+
+
+            .mobile-menu-header p{
+
+                margin:3px 0 0;
+
+                font-size:13px;
+
+                opacity:.8;
+
+            }
+
+
+
+            /* LIENS MOBILE */
+
+            .nav-link-mobile,
+            .nav-mobile-dropdown-toggle{
+
+                width:calc(100% - 30px);
+
+                margin:8px 15px;
+
+                padding:15px 18px;
+
+                display:flex;
+
+                align-items:center;
+
+                justify-content:space-between;
+
+                border-radius:12px;
+
+                color:#1A1A1A;
+
+                font-size:16px;
+
+                font-weight:600;
+
+                background:white;
+
+                transition:.3s;
+
+            }
+
+
+
+            .nav-link-mobile:hover,
+            .nav-mobile-dropdown-toggle:hover{
+
+                background:#fff1f3;
+
+                color:#DC143C;
+
+            }
+
+
+
+            /* bouton devis / réserver */
+
+            .nav-link-mobile.cta-link{
+
+                background:#DC143C;
+
+                color:white;
+
+                justify-content:center;
+
+                margin-top:20px;
+
+            }
+
+
+
+            .nav-link-mobile.cta-link:hover{
+
+                background:#b01030;
+
+            }
+
+
+
+            /* SOUS MENU */
+
+            .nav-mobile-submenu{
+
+                max-height:0;
+
+                overflow:hidden;
+
+                transition:max-height .4s ease;
+
+                padding:0 15px;
+
+            }
+
+
+
+            .nav-mobile-submenu.active{
+
+                max-height:500px;
+
+            }
+
+
+
+            .nav-link-mobile-sub{
+
+
+                display:block;
+
+                padding:12px 20px;
+
+                margin:5px 0;
+
+                border-radius:10px;
+
+                background:#f8f8f8;
+
+                color:#555;
+
+                font-size:14px;
+
+            }
+
+
+
+            .nav-link-mobile-sub:hover{
+
+                background:#fff0f2;
+
+                color:#DC143C;
+
+            }
+
+
+
+            /* CONTACT DANS MENU */
+
+            .mobile-top-bar{
+
+                background:#0D2B55;
+
+                padding:20px;
+
+                color:white;
+
+            }
+
+
+
+            .mobile-contact-card{
+
+                background:rgba(255,255,255,.12);
+
+                padding:12px;
+
+                border-radius:12px;
+
+                display:flex;
+
+                gap:12px;
+
+                align-items:center;
+
+                margin-bottom:10px;
+
+            }
+
+
+
+            .mobile-contact-card i{
+
+                width:40px;
+
+                height:40px;
+
+                border-radius:50%;
+
+                background:#ff9800;
+
+                display:flex;
+
+                align-items:center;
+
+                justify-content:center;
+
+            }
+
+
+
+            /* réseaux sociaux */
+
+            .mobile-socials{
+
+                display:flex;
+
+                gap:12px;
+
+                margin-top:20px;
+
+            }
+
+
+
+            .mobile-socials a{
+
+                width:45px;
+
+                height:45px;
+
+                border-radius:50%;
+
+                display:flex;
+
+                align-items:center;
+
+                justify-content:center;
+
+                background:#ffffff22;
+
+                color:white;
+
+                font-size:18px;
+
+            }
+
+
+
+            .mobile-socials a:hover{
+
+                background:#ff9800;
+
+            }
+
+
+
+            /* Scrollbar */
+
+            .nav-mobile::-webkit-scrollbar{
+
+                width:5px;
+
+            }
+
+
+            .nav-mobile::-webkit-scrollbar-thumb{
+
+                background:#DC143C;
+
+                border-radius:20px;
+
+            }
+
+
+
+            /* MOBILE UNIQUEMENT */
+
+            @media(min-width:769px){
+
+                .nav-mobile,
+                .mobile-overlay{
+
+                    display:none!important;
+
+                }
+
+            }
+
+
+
+            @media(max-width:768px){
+
+                .header{
+
+                    background:white;
+
+                    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+                }
+
+
+                .logo-img{
+
+                    height:60px;
+
+                }
+
+
+                .nav-wrapper{
+
+                    height:75px;
+
+                }
+
+}
      </style>
     {% block extra_css %}{% endblock %}
 </head>
@@ -3108,183 +3524,396 @@
     </footer>
 
     <script>
+        
+
+
         // ============================================
-        // TECH CONCEPT SARL - JavaScript
+        // MOBILE MENU
         // ============================================
 
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navMobile = document.getElementById('navMobile');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navMobile.classList.toggle('active');
-        });
-
-        // Close mobile menu when a link is clicked
-        const navLinks = document.querySelectorAll('.nav-link-mobile, .nav-link-mobile-sub');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navMobile.classList.remove('active');
-            });
-        });
-
-        // Mobile dropdown toggles
-        document.querySelectorAll('.nav-mobile-dropdown-toggle').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const targetId = this.getAttribute('data-target');
-                const target = document.getElementById(targetId);
-                if (target) {
-                    this.classList.toggle('active');
-                    target.classList.toggle('active');
-                }
-            });
-        });
-
-        // Header Scroll Effect
-        const header = document.getElementById('header');
-        let lastScrollY = 0;
-
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            
-            if (scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            lastScrollY = scrollY;
-        });
-
-        // Smooth Scroll for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    const offsetTop = target.offsetTop - 110;
-                    
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Intersection Observer for Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all animated elements
-        document.querySelectorAll('.service-card, .expertise-card, .why-item, .section-header, .testimonial-card, .stat-card, .process-step, .gallery-item, .feature-card, .step-card, .brand-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
-            observer.observe(el);
-        });
-
-        // FAQ Toggle
-        document.querySelectorAll('.faq-question').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const item = this.parentElement;
-                const isActive = item.classList.contains('active');
-                
-                // Close all FAQ items
-                document.querySelectorAll('.faq-item').forEach(faq => {
-                    faq.classList.remove('active');
-                });
-                
-                // Toggle clicked item
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
-
-        // Console Message
-        console.log('%c🚀 TECH CONCEPT SARL', 'font-size: 20px; font-weight: bold; color: #DC143C;');
-        console.log('%cSolutions électroniques globales', 'font-size: 14px; color: #666;');
-        console.log('%cSécurisez votre présent, connectez votre avenir', 'font-size: 12px; color: #999; font-style: italic;');
-        const counters = document.querySelectorAll(".counter");
-
-        const observer = new IntersectionObserver((entries) => {
-
-        entries.forEach(entry => {
-
-        if(entry.isIntersecting){
-
-        const counter = entry.target;
-
-        const target = +counter.dataset.target;
-
-        let value = 0;
-
-        const speed = target / 80;
-
-        const update = () =>{
-
-        value += speed;
-
-        if(value < target){
-
-        counter.innerText = Math.ceil(value) + "+";
-
-        requestAnimationFrame(update);
-
-        }else{
-
-        counter.innerText = target + "+";
-
-        }
-
-        };
-
-        update();
-
-        observer.unobserve(counter);
-
-        }
-
-        });
-
-        });
-
-        counters.forEach(counter=>observer.observe(counter));
         const menu = document.getElementById("navMobile");
         const toggle = document.getElementById("menuToggle");
         const overlay = document.getElementById("mobileOverlay");
 
-        toggle.onclick = function(){
 
-            menu.classList.toggle("active");
-            overlay.classList.toggle("active");
-            toggle.classList.toggle("active");
+        if(toggle){
+
+            toggle.addEventListener("click", function(){
+
+                menu.classList.toggle("active");
+                overlay.classList.toggle("active");
+                toggle.classList.toggle("active");
+
+            });
+
+        }
+
+
+        if(overlay){
+
+            overlay.addEventListener("click", function(){
+
+                menu.classList.remove("active");
+                overlay.classList.remove("active");
+                toggle.classList.remove("active");
+
+            });
 
         }
 
-        overlay.onclick = function(){
 
-            menu.classList.remove("active");
-            overlay.classList.remove("active");
-            toggle.classList.remove("active");
+        // Fermer menu après clic sur un lien
 
-        }
-    </script>
+        const navLinks = document.querySelectorAll(
+            '.nav-link-mobile, .nav-link-mobile-sub'
+        );
+
+
+        navLinks.forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                menu.classList.remove("active");
+                overlay.classList.remove("active");
+                toggle.classList.remove("active");
+
+            });
+
+        });
+
+
+
+        // ============================================
+        // MOBILE DROPDOWN
+        // ============================================
+
+
+        document.querySelectorAll('.nav-mobile-dropdown-toggle')
+        .forEach(button => {
+
+
+            button.addEventListener('click', function(){
+
+
+                const targetId = this.dataset.target;
+
+                const target = document.getElementById(targetId);
+
+
+                if(target){
+
+                    this.classList.toggle("active");
+
+                    target.classList.toggle("active");
+
+                }
+
+
+            });
+
+
+        });
+
+
+
+        // ============================================
+        // HEADER SCROLL EFFECT
+        // ============================================
+
+
+        const header = document.getElementById("header");
+
+
+        window.addEventListener("scroll", ()=>{
+
+
+            if(window.scrollY > 50){
+
+                header.classList.add("scrolled");
+
+            }else{
+
+                header.classList.remove("scrolled");
+
+            }
+
+
+        });
+
+
+
+        // ============================================
+        // SMOOTH SCROLL
+        // ============================================
+
+
+        document.querySelectorAll('a[href^="#"]')
+        .forEach(anchor => {
+
+
+            anchor.addEventListener("click", function(e){
+
+
+                const href = this.getAttribute("href");
+
+
+                if(href !== "#" && document.querySelector(href)){
+
+
+                    e.preventDefault();
+
+
+                    const target = document.querySelector(href);
+
+
+                    const offset = target.offsetTop - 110;
+
+
+                    window.scrollTo({
+
+                        top: offset,
+
+                        behavior:"smooth"
+
+                    });
+
+
+                }
+
+
+            });
+
+
+        });
+
+
+
+        // ============================================
+        // SCROLL ANIMATION
+        // ============================================
+
+
+        const observerOptions = {
+
+            threshold:0.1,
+
+            rootMargin:"0px 0px -100px 0px"
+
+        };
+
+
+
+        const animationObserver = new IntersectionObserver(
+        (entries)=>{
+
+
+            entries.forEach(entry=>{
+
+
+                if(entry.isIntersecting){
+
+
+                    entry.target.style.opacity="1";
+
+                    entry.target.style.transform="translateY(0)";
+
+
+                }
+
+
+            });
+
+
+        },
+        observerOptions
+        );
+
+
+
+        document.querySelectorAll(
+        '.service-card, \
+        .expertise-card, \
+        .why-item, \
+        .section-header, \
+        .testimonial-card, \
+        .stat-card, \
+        .process-step, \
+        .gallery-item, \
+        .feature-card, \
+        .step-card, \
+        .brand-item'
+        )
+        .forEach(element=>{
+
+
+            element.style.opacity="0";
+
+            element.style.transform="translateY(20px)";
+
+            element.style.transition=
+            "opacity .6s ease, transform .6s ease";
+
+
+            animationObserver.observe(element);
+
+
+        });
+
+
+
+        // ============================================
+        // FAQ ACCORDION
+        // ============================================
+
+
+        document.querySelectorAll(".faq-question")
+        .forEach(button=>{
+
+
+            button.addEventListener("click",function(){
+
+
+                const item = this.parentElement;
+
+
+                const active = item.classList.contains("active");
+
+
+                document.querySelectorAll(".faq-item")
+                .forEach(faq=>{
+
+                    faq.classList.remove("active");
+
+                });
+
+
+
+                if(!active){
+
+                    item.classList.add("active");
+
+                }
+
+
+            });
+
+
+        });
+
+
+
+        // ============================================
+        // COUNTER ANIMATION
+        // ============================================
+
+
+        const counters = document.querySelectorAll(".counter");
+
+
+
+        const counterObserver = new IntersectionObserver(
+        (entries)=>{
+
+
+            entries.forEach(entry=>{
+
+
+                if(entry.isIntersecting){
+
+
+                    const counter = entry.target;
+
+
+                    const target = Number(counter.dataset.target);
+
+
+                    let value = 0;
+
+
+                    const speed = target / 80;
+
+
+
+                    const updateCounter = ()=>{
+
+
+                        value += speed;
+
+
+
+                        if(value < target){
+
+
+                            counter.innerText =
+                            Math.ceil(value) + "+";
+
+
+                            requestAnimationFrame(updateCounter);
+
+
+
+                        }else{
+
+
+                            counter.innerText =
+                            target + "+";
+
+
+                        }
+
+
+                    };
+
+
+                    updateCounter();
+
+
+
+                    counterObserver.unobserve(counter);
+
+
+                }
+
+
+            });
+
+
+        });
+
+
+
+        counters.forEach(counter=>{
+
+            counterObserver.observe(counter);
+
+        });
+
+
+
+        // ============================================
+        // CONSOLE MESSAGE
+        // ============================================
+
+
+        console.log(
+        "%c🚀 TECH CONCEPT SARL",
+        "font-size:20px;font-weight:bold;color:#DC143C;"
+        );
+
+
+        console.log(
+        "%cSolutions électroniques globales",
+        "font-size:14px;color:#666;"
+        );
+
+
+        console.log(
+        "%cSécurisez votre présent, connectez votre avenir",
+        "font-size:12px;color:#999;font-style:italic;"
+        );
+
+
+ </script>
     {% block extra_js %}{% endblock %}
 </body>
 </html>
